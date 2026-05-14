@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+<title>Gestión de Incidentes y Cacería de Amenazas - ASHA Solution</title>
+<meta name="description" content="Detectamos lo invisible con la Cacería de Amenazas Acelerada. Protección integral con telemetría avanzada y modelado dark/deep web." />
+<link rel="icon" href="assets/images/favicon.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="page-loader" id="pageLoader" aria-hidden="true"></div>
+
+<div id="liquid-consent-container">
+  <div class="liquid-content">
+    <h3 class="liquid-title">Consentimiento para el Uso de sus Datos</h3>
+    <p class="liquid-text">Necesitamos su consentimiento para recolectar sus datos de uso. Esta información es anónima y se utiliza únicamente para mejorar la experiencia en nuestro sitio web. Consulta <a href="aviso-de-privacidad.html" target="_blank">nuestro aviso de privacidad</a></p>
+  </div>
+  <div class="liquid-actions">
+    <button id="btn-consent-decline" class="liquid-btn btn-decline">En este momento no</button>
+    <button id="btn-consent-accept" class="liquid-btn btn-accept">¡De acuerdo!</button>
+  </div>
+</div>
+
+<div class="page-wrapper">
+
+<header class="header" id="header">
+  <div class="header-inner container">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" aria-label="Mobile Menu" id="mobileMenuToggle"><i class="fa-solid fa-bars"></i></button>
+      <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="ASHA Solution" class="logo" width="160" height="56" /></a>
+    </div>
+    <nav class="main-menu" id="mainMenu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="metodologia.html">Metodología</a></li>
+        <li class="has-children active">
+          <a href="index.html#practicas">Prácticas <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+            <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+            <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+            <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+            <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+          </ul>
+        </li>
+        <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <a href="contacto.html" class="btn btn-primary btn-rounded btn-csirt"><i class="fa-brands fa-wpforms"></i><span>ASHA CSIRT</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="page-banner">
+  <div class="banner-bg" style="background-image:url('assets/images/hero-bg-original.jpg')"></div>
+  <div class="banner-overlay"></div>
+  <div class="container banner-content">
+    <h1 class="banner-title">3. Gestión de Incidentes<br/>y Cacería de Amenazas</h1>
+    <h2 class="banner-subtitle" style="font-size:18px;font-weight:300;margin-top:18px;max-width:680px;line-height:1.7;">Nuestro enfoque integral de Cacería de Amenazas detecta ataques ocultos y/o sin archivos utilizando telemetría avanzada de múltiples fuentes, modelada con elementos de la dark y deep web.</h2>
+  </div>
+</section>
+
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li class="delimiter"><i class="fa-solid fa-angle-right"></i></li>
+      <li>Gestión de Incidentes y Cacería de Amenazas</li>
+    </ul>
+  </div>
+</div>
+
+<main id="main" class="main">
+
+  <section class="intro-section">
+    <div class="container" style="max-width:980px;">
+      <h2 style="text-align:center;">Detectamos lo invisible con la Cacería de Amenazas Acelerada</h2>
+      <p style="text-align:justify;"><strong>71% de los nuevos ataques son ocultos y/o sin archivos</strong>, lo que hace indispensable cazar amenazas modeladas desde red, correo electrónico, Active Directory, endpoints, cloud (XDR) y fuentes dark/deep web.</p>
+      <p style="text-align:justify;">El Threat Hunting es <em>"un enfoque proactivo en ciberseguridad que identifica y mitiga amenazas digitales antes de que causen daño."</em> Alineado a <strong>MITRE ATT&amp;CK</strong> y <strong>NIST</strong>, integramos técnicas avanzadas con MISP para optimizar la respuesta a incidentes.</p>
+    </div>
+  </section>
+
+  <section class="feat-list-band">
+    <div class="container">
+      <h2>Funciones de la práctica</h2>
+      <div class="feat-grid">
+        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-diagram-project"></i></div><h3>Desarrollo de proceso</h3><p>Conocimiento profundo de actores de amenaza para guiar la cacería.</p></article>
+        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-link"></i></div><h3>Integración</h3><p>Tecnología integrada en todos los vectores de ataque, con datos contextualizados y threat intel.</p></article>
+        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-bolt"></i></div><h3>Detección y registro en tiempo real</h3><p>Identificación impulsada por IA con validación MITRE; almacenamiento NG-SIEM con 80% menos costo.</p></article>
+        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-magnifying-glass"></i></div><h3>Investigación en tiempo real</h3><p>Correlación de datos, visualización de ataques, búsquedas rápidas y IA generativa para análisis.</p></article>
+        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-chart-network"></i></div><h3>Reporte gráfico</h3><p>Documentación de la investigación en formato grafo, fácil de auditar.</p></article>
+        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-robot"></i></div><h3>Mitigación con automatización</h3><p>Coordinación de respuesta automatizada para contención de endpoints y cloud.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="big-cta" style="background-image:url('assets/images/cta-banner-original.jpg')">
+    <div class="big-cta-overlay"></div>
+    <div class="container big-cta-content">
+      <h2 class="highlight-text white">Descubra cómo podemos blindar a su organización contra <span class="highlight">vulnerabilidades y amenazas</span> de todo tipo</h2>
+      <a href="contacto.html" class="btn btn-outline btn-outline-white btn-rounded"><span>Conversemos</span><i class="fa-solid fa-arrow-right-long"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" id="footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <a href="index.html"><img src="assets/images/logo.png" alt="ASHA Solution" class="footer-logo" /></a>
+      <p>Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Empresa</h3>
+      <ul class="footer-list">
+        <li><a href="nosotros.html">Nosotros</a></li><li><a href="metodologia.html">Metodología</a></li>
+        <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+        <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+        <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+        <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+        <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li><li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Países</h3>
+      <ul class="footer-list">
+        <li><a href="#">México</a></li><li><a href="#">Colombia</a></li><li><a href="#">Ecuador</a></li><li><a href="#">Chile</a></li><li><a href="#">Rep. Dominicana</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-map-col">
+      <div class="footer-title-underline"><h3>Cobertura en Latam</h3></div>
+      <div class="latam-map-wrapper">
+        <img src="assets/images/latam-map-real.png" alt="Mapa Latam ASHA" class="latam-map" />
+        <span class="hotspot" style="top:32%;left:24%;" data-label="CD de México"></span>
+        <span class="hotspot" style="top:48%;left:31%;" data-label="San José"></span>
+        <span class="hotspot" style="top:54%;left:42%;" data-label="Bogotá"></span>
+        <span class="hotspot" style="top:64%;left:40%;" data-label="Quito"></span>
+        <span class="hotspot" style="top:86%;left:42%;" data-label="Santiago"></span>
+        <span class="hotspot" style="top:26%;left:32%;" data-label="Monterrey"></span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container"><p class="copyright">ASHA Solution © 2026.</p></div></div>
+</footer>
+
+</div>
+
+<a id="scroll-top" class="scroll-top" href="#header" title="Top" role="button"><i class="fa-solid fa-arrow-up"></i></a>
+
+<div class="mobile-menu-wrapper" id="mobileMenuWrapper">
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu-container">
+    <a class="mobile-menu-close" href="#" id="mobileMenuClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+    <ul class="mobile-menu-list">
+      <li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="index.html#practicas">Prácticas</a></li><li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li><li><a href="contacto.html">ASHA CSIRT</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

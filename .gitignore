@@ -1,0 +1,41 @@
+# Source assets (GIFs/videos originales — pesados, no van al repo)
+new documents/
+
+# Internal comparison screenshots and design exploration
+.compare/
+design-system/
+
+# Temporary processing files
+tmp/
+
+# Tooling / local config
+.gstack/
+.claude/
+.vercel/
+.audit/
+ui-ux-pro-max-skill/
+
+# Editor & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Backups and archives
+*-old-backup.html
+*.zip
+*.bak
+*.log
+*.tar
+*.tar.gz
+
+# Local dev server logs
+server.log
+
+# Node (por si alguna vez se agrega build pipeline)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

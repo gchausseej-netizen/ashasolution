@@ -1,0 +1,33 @@
+# Dev artifacts — exclude from production upload (629MB → ~26MB)
+
+# Source assets (GIFs, source videos)
+new documents/
+
+# Internal comparison screenshots and design exploration
+.compare/
+design-system/
+
+# Temporary processing files
+tmp/
+
+# Tool / config dirs
+.gstack/
+.claude/
+.audit/
+ui-ux-pro-max-skill/
+.git/
+
+# Editor and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Backups and archives
+*-old-backup.html
+*.zip
+*.bak
+*.log
+
+# Server logs from local dev
+server.log

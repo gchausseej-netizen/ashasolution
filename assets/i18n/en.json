@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "methodology": "Methodology",
+    "practices": "Practices",
+    "careers": "Careers"
+  },
+  "cta": {
+    "csirt": "ASHA CSIRT",
+    "contact": "Contact us"
+  },
+  "hero": {
+    "eyebrow": "Since 2014 · ISO 9001:2015 + ISO/IEC 27001:2022 certified CSIRT · LATAM",
+    "title_pre": "We contain",
+    "title_accent": "sophisticated attacks",
+    "title_post": "that bypass conventional tooling. In-house CSIRT, applied AI, 24/7 in LATAM.",
+    "subtitle": "Since 2014 protecting Banking, Insurance, Retail and critical operations across Latin America. MSSP services validated by the vendors, aligned to NIST 2.0, MITRE ATT&CK and ISO 27001:2022.",
+    "chip_csirt": "Own CSIRT",
+    "chip_iso": "ISO 27001:2022",
+    "chip_years": "12+ years LATAM",
+    "chip_ai": "AI integrated",
+    "cta_primary": "Talk to an expert",
+    "cta_secondary": "View methodology",
+    "trust_label": "We operate under international standards",
+    "scroll": "Scroll to explore"
+  }
+}

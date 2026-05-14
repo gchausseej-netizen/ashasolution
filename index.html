@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inicio - ASHA Solution</title>
+<meta name="description" content="Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques complejos." />
+<meta name="theme-color" content="#0A0E27" />
+<link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/redesign.css">
+
+<!-- Preload globe assets so they're cached by the time user scrolls -->
+<link rel="preload" href="assets/js/globe.gl.min.js" as="script">
+<link rel="preload" href="assets/js/topojson-client.min.js" as="script">
+<link rel="preload" href="assets/js/countries-50m.json" as="fetch" crossorigin>
+</head>
+<body>
+
+<!-- Inline icon sprite (Heroicons outline 24/outline) ------------------- -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="13 6 19 12 13 18"></polyline>
+  </symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="4" y1="7"  x2="20" y2="7"></line>
+    <line x1="4" y1="12" x2="20" y2="12"></line>
+    <line x1="4" y1="17" x2="20" y2="17"></line>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"></path>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="5 12 10 17 19 8"></polyline>
+  </symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+    <polyline points="3 7 12 13 21 7"></polyline>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M3 12h18"></path>
+    <path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"></path>
+  </symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
+    <circle cx="12" cy="12" r="3"></circle>
+  </symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"></circle>
+    <circle cx="12" cy="12" r="5"></circle>
+    <circle cx="12" cy="12" r="1.4" fill="currentColor"></circle>
+  </symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19.07 4.93A10 10 0 1 0 22 12"></path>
+    <path d="M16.24 7.76A6 6 0 1 0 18 12"></path>
+    <line x1="12" y1="12" x2="22" y2="2"></line>
+  </symbol>
+  <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="5" rx="8" ry="3"></ellipse>
+    <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path>
+    <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path>
+  </symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"></path>
+    <polyline points="9 12 11 14 15 10"></polyline>
+  </symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8" cy="14" r="4"></circle>
+    <line x1="11" y1="11" x2="21" y2="3"></line>
+    <line x1="18" y1="6" x2="20" y2="8"></line>
+    <line x1="15" y1="9" x2="17" y2="11"></line>
+  </symbol>
+  <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="7" rx="1.5"></rect>
+    <rect x="3" y="13" width="18" height="7" rx="1.5"></rect>
+    <line x1="7" y1="7.5" x2="7.01" y2="7.5"></line>
+    <line x1="7" y1="16.5" x2="7.01" y2="16.5"></line>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.5 19h-3V9h3v10zM6 7.7C5 7.7 4.3 7 4.3 6S5 4.3 6 4.3 7.7 5 7.7 6 7 7.7 6 7.7zm14 11.3h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19z"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"></path>
+  </symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+  </symbol>
+</svg>
+
+<!-- HEADER -------------------------------------------------------------- -->
+<header class="site-header" id="header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-header__brand" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+
+    <nav class="main-nav" aria-label="Principal">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link is-active" href="index.html" data-i18n="nav.home">Inicio</a></li>
+        <li><a class="main-nav__link" href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+        <li><a class="main-nav__link" href="metodologia.html" data-i18n="nav.methodology">Metodología</a></li>
+        <li class="main-nav__item--has-children">
+          <a class="main-nav__link" href="#practicas" data-i18n="nav.practices">
+            Prácticas
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </a>
+          <ul class="main-nav__submenu" role="menu">
+            <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+            <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+            <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+            <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+            <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+          </ul>
+        </li>
+        <li><a class="main-nav__link" href="bolsa-de-trabajo.html" data-i18n="nav.careers">Bolsa de Trabajo</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__cta">
+      <div class="lang-switch" role="group" aria-label="Cambiar idioma">
+        <button type="button" class="lang-switch__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-secondary" href="contacto.html" data-i18n="cta.csirt">ASHA CSIRT</a>
+      <a class="btn btn-primary" href="contacto.html">
+        <span data-i18n="cta.contact">Contáctenos</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO ------------------------------------------------------------- -->
+  <section class="hero" id="hero">
+    <img src="assets/images/bg/hero-bg-network.jpg" alt="" class="hero__bg-img" aria-hidden="true">
+    <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__scan" aria-hidden="true"></div>
+    <div class="hero__vignette" aria-hidden="true"></div>
+    <div class="hero__floating" aria-hidden="true" data-parallax="0.55">
+      <span class="hero__frag" style="--x:8%;  --y:18%;">PORT 22</span>
+      <span class="hero__frag" style="--x:88%; --y:14%;">AES-256</span>
+      <span class="hero__frag" style="--x:12%; --y:62%;">MITRE T1190</span>
+      <span class="hero__frag" style="--x:84%; --y:58%;">0xDEADBEEF</span>
+      <span class="hero__frag" style="--x:6%;  --y:38%;">200 OK</span>
+      <span class="hero__frag" style="--x:90%; --y:38%;">TLS 1.3</span>
+      <span class="hero__frag" style="--x:18%; --y:80%;">[FIRST]</span>
+      <span class="hero__frag" style="--x:78%; --y:82%;">/dev/urandom</span>
+      <span class="hero__frag" style="--x:50%; --y:8%;">{ STATUS: 'PROTECTED' }</span>
+      <span class="hero__frag" style="--x:52%; --y:92%;">> ./asha --watch 7x24</span>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__col-left">
+        <span class="hero__eyebrow">
+          <span class="pulse" aria-hidden="true"></span>
+          <span data-i18n="hero.eyebrow">Desde 2014 · CSIRT certificado ISO 9001:2015 + ISO/IEC 27001:2022 · LATAM</span>
+        </span>
+
+        <h1 class="hero__title">
+          <span data-i18n="hero.title_pre">Contenemos los</span>
+          <span class="hero__title-accent" data-i18n="hero.title_accent">ataques sofisticados</span>
+          <span data-i18n="hero.title_post">que rebasan las herramientas convencionales. CSIRT propio, IA aplicada, 7×24 en LATAM.</span>
+        </h1>
+
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
+          Desde 2014 protegiendo Banca, Seguros, Retail y operaciones críticas en Latinoamérica. Servicios MSSP validados por los fabricantes, alineados a NIST 2.0, MITRE ATT&amp;CK e ISO 27001:2022.
+        </p>
+
+        <ul class="hero__chips" role="list" aria-label="Capabilities">
+          <li class="hero__chip"><span class="hero__chip-dot"></span><span data-i18n="hero.chip_csirt">CSIRT propio</span></li>
+          <li class="hero__chip"><span class="hero__chip-dot"></span><span data-i18n="hero.chip_iso">ISO 27001:2022</span></li>
+          <li class="hero__chip"><span class="hero__chip-dot"></span><span data-i18n="hero.chip_years">12+ años LATAM</span></li>
+          <li class="hero__chip"><span class="hero__chip-dot"></span><span data-i18n="hero.chip_ai">AI integrated</span></li>
+        </ul>
+
+        <div class="hero__actions">
+          <a class="btn btn-primary btn-pill" href="contacto.html">
+            <span data-i18n="hero.cta_primary">Hablar con un experto</span>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <a class="btn btn-secondary btn-pill" href="metodologia.html" data-i18n="hero.cta_secondary">Ver metodología</a>
+        </div>
+
+        <div class="hero__trust" aria-label="Marcos de referencia y certificaciones">
+          <p class="hero__trust-label" data-i18n="hero.trust_label">Operamos bajo estándares internacionales</p>
+          <span class="hero__trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> NIST 2.0</span>
+          <span class="hero__trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> MITRE ATT&CK</span>
+          <span class="hero__trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> ISO 27001</span>
+          <span class="hero__trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> ISO 9001</span>
+          <span class="hero__trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> ITIL</span>
+          <span class="hero__trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> FIRST</span>
+          <span class="hero__trust-item"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> MISP</span>
+        </div>
+      </div>
+
+      <aside class="hero__panel" aria-hidden="true">
+        <div class="hero__panel-session">
+          <span class="hero__panel-user">csirt@asha-sentinel</span><span class="hero__panel-sep">:</span><span class="hero__panel-path">~</span><span class="hero__panel-dollar">$</span><span class="hero__panel-cmd">tail -f status.log</span>
+        </div>
+        <div class="hero__panel-head">
+          <span class="hero__panel-pulse"></span>
+          <span class="hero__panel-label">csirt_status.log</span>
+          <span class="hero__panel-clock" data-utc-clock>--:--:-- UTC</span>
+        </div>
+        <ul class="hero__panel-list">
+          <li style="--i:0"><span class="hero__panel-ln">01</span><span class="hero__panel-key">SYSTEM</span><span class="hero__panel-val hero__panel-val--ok">OPERATIONAL<svg class="hero__panel-check" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 6 5 9 10 3"/></svg></span></li>
+          <li style="--i:1"><span class="hero__panel-ln">02</span><span class="hero__panel-key">UPTIME</span><span class="hero__panel-val">99.97<small>%</small></span></li>
+          <li style="--i:2"><span class="hero__panel-ln">03</span><span class="hero__panel-key">CSIRT</span><span class="hero__panel-val hero__panel-val--ok">24×7 ACTIVE<svg class="hero__panel-check" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 6 5 9 10 3"/></svg></span></li>
+          <li style="--i:3"><span class="hero__panel-ln">04</span><span class="hero__panel-key">THREATS</span><span class="hero__panel-val hero__panel-val--ok">0 ACTIVE</span></li>
+          <li style="--i:4"><span class="hero__panel-ln">05</span><span class="hero__panel-key">COVERAGE</span><span class="hero__panel-val">5 PAÍSES · LATAM</span></li>
+          <li style="--i:5"><span class="hero__panel-ln">06</span><span class="hero__panel-key">COMPLIANCE</span><span class="hero__panel-val">ISO 27001 · 9001</span></li>
+        </ul>
+        <div class="hero__panel-foot">
+          <span class="hero__panel-dollar">$</span>
+          <span class="hero__panel-foot-text">monitoring — protected</span>
+          <span class="hero__panel-cursor" aria-hidden="true"></span>
+        </div>
+      </aside>
+    </div>
+
+    <a class="hero__scroll" href="#liga" aria-label="Scroll a la siguiente sección">
+      <span class="hero__scroll-text" data-i18n="hero.scroll">Scroll to explore</span>
+      <svg class="hero__scroll-arrow" aria-hidden="true" viewBox="0 0 12 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="2" x2="6" y2="14"/><polyline points="2,10 6,14 10,10"/></svg>
+    </a>
+  </section>
+
+  <!-- ¿CÓMO LO HACEMOS? + escena cyber (orden: ANTES de Diferenciador) -->
+  <section class="scene-hacked" id="scene-hacked" aria-labelledby="how-title">
+    <img src="assets/images/bg/scene-cyber-attack.jpg" alt="" class="scene-hacked__attack-img" aria-hidden="true">
+    <div class="scene-hacked__bg" aria-hidden="true">
+      <div class="scene-hacked__bg-red"></div>
+      <div class="scene-hacked__bg-blue"></div>
+      <div class="scene-hacked__noise"></div>
+      <div class="scene-hacked__sword"></div>
+    </div>
+
+    <div class="scene-hacked__code" aria-hidden="true">
+      <div class="scene-hacked__code-line">&gt; ALERT — Unauthorized access detected on port 22</div>
+      <div class="scene-hacked__code-line">&gt; ERROR 0xDEADBEEF — Memory corruption at 0x7FFE</div>
+      <div class="scene-hacked__code-line">&gt; BREACH DETECTED — IP 198.51.100.43 :: SSH brute force</div>
+      <div class="scene-hacked__code-line">&gt; CRITICAL — kernel panic: not syncing</div>
+      <div class="scene-hacked__code-line">&gt; PORT 443/tcp COMPROMISED — TLS handshake failed</div>
+      <div class="scene-hacked__code-line">&gt; WARNING — 2,847 failed authentication attempts in 60s</div>
+      <div class="scene-hacked__code-line">&gt; THREAT ACTOR — APT-NORTH-COBRA :: signature confirmed</div>
+      <div class="scene-hacked__code-line">&gt; FATAL — Root shell escalation in progress…</div>
+    </div>
+
+    <div class="scene-hacked__alert" aria-hidden="true">
+      <span class="scene-hacked__alert-dot"></span>
+      <span class="scene-hacked__alert-label">[ALERTA] BREACH DETECTED</span>
+    </div>
+
+    <div class="container scene-hacked__inner" id="como">
+      <div class="scene-hacked__hero-wrap">
+        <img
+          class="scene-hacked__hero"
+          src="assets/videos/personas/asha.webp"
+          alt="Capitana ASHA en intervención"
+          decoding="async">
+        <div class="scene-hacked__hero-aura" aria-hidden="true"></div>
+        <button type="button" class="scene-hacked__replay" aria-label="Reproducir demo de nuevo" title="Reproducir demo de nuevo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="scene-hacked__copy scene-hacked__copy--how">
+        <span class="eyebrow scene-hacked__eyebrow"><span class="pulse"></span>Integración 360°</span>
+
+        <h2 class="scene-hacked__title scene-hacked__title--how" id="how-title" data-split-reveal>¿Cómo lo hacemos?</h2>
+
+        <p class="scene-hacked__lede">
+          Integramos <strong>ciberinteligencia, ciberseguridad, seguridad de la información y detección de ciberfraude</strong> en una operación unificada — para detener ataques complejos antes de que escalen.
+        </p>
+        <p class="scene-hacked__lede">
+          <strong>IA aplicada</strong> al análisis de comportamiento, automatización de investigaciones forenses y aceleración de la respuesta a incidentes.
+        </p>
+
+        <ul class="promises promises--scene" role="list">
+          <li class="promise"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg>Reducción de tiempos de detección y contención</li>
+          <li class="promise"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>Visibilidad de TI, OT y shadow IT en una sola vista</li>
+          <li class="promise"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg>Alineación a ISO 27001, PCI DSS y normativas locales</li>
+          <li class="promise"><svg class="icon" aria-hidden="true"><use href="#i-radar"/></svg>Cacería continua de amenazas con MITRE ATT&amp;CK</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTRO DIFERENCIADOR — 3 pilares + Liga ASHA + marcos ----------- -->
+  <section class="diferenciador section" id="liga" aria-labelledby="dif-title">
+    <div class="container">
+      <header class="diferenciador__head">
+        <span class="eyebrow">Nuestro diferenciador</span>
+        <h2 class="section-title diferenciador__title" id="dif-title">
+          Lo que nos hace <span class="accent">únicos</span>
+        </h2>
+        <p class="diferenciador__lede">
+          Tres pilares definen nuestra propuesta — y seis frentes de defensa los hacen realidad cada día.
+        </p>
+      </header>
+
+      <div class="pillars" role="list">
+        <article class="pillar" role="listitem">
+          <span class="pillar__num">01</span>
+          <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
+          <h3 class="pillar__title">Metodologías propias certificadas</h3>
+          <p class="pillar__stat"><strong><span data-count="12">12</span>+ años</strong> · ISO 9001 + 27001</p>
+          <p class="pillar__copy">Desde 2014 implementamos las prácticas ASHA — metodologías propias alineadas a marcos internacionales (NIST 2.0, MITRE ATT&CK, ITIL), integradas con soluciones de marcas líderes del mercado.</p>
+        </article>
+
+        <article class="pillar" role="listitem">
+          <span class="pillar__num">02</span>
+          <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-radar"/></svg></span>
+          <h3 class="pillar__title">CSIRT propio operando 7×24</h3>
+          <p class="pillar__stat"><strong><span data-count="5">5</span> países</strong> · LATAM</p>
+          <p class="pillar__copy">Centro de monitoreo regional entre CDMX y Tenerife, validado por los fabricantes bajo contratos MSSP. Cobertura horaria global y respuesta coordinada con IA.</p>
+        </article>
+
+        <article class="pillar" role="listitem">
+          <span class="pillar__num">03</span>
+          <span class="pillar__icon"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></span>
+          <h3 class="pillar__title">Filosofía del <em>"deber ser"</em></h3>
+          <p class="pillar__stat"><strong>Infraestructura crítica</strong> · Seguridad Nacional</p>
+          <p class="pillar__copy">Nuestra experiencia comenzó protegiendo Seguridad Nacional. Ese nivel de exigencia define hoy nuestras capacidades en NGSOC, CTEM, Zero Trust, CSIRT y GRC.</p>
+        </article>
+      </div>
+
+      <p class="liga-tag" aria-hidden="true">Personificados en <strong>seis frentes de defensa</strong> — La Liga ASHA</p>
+
+      <div class="liga__grid liga__grid--row6">
+        <a class="persona" data-persona="zerotrust" href="metodologia.html#zerotrust" aria-label="ZEROTRUST — Identidad y control de accesos">
+          <img class="persona__img" src="assets/images/heroes/zerotrust.jpg" alt="ZEROTRUST" width="600" height="800" loading="lazy" decoding="async">
+          <span class="persona__scanline" aria-hidden="true"></span>
+          <div class="persona__body">
+            <h3 class="persona__name">ZeroTrust</h3>
+            <p class="persona__role">Protección de datos, vectores críticos, identidad y aplicaciones.</p>
+          </div>
+        </a>
+
+        <a class="persona" data-persona="ngsoc" href="metodologia.html#ngsoc" aria-label="NGSOC — Operaciones de seguridad de nueva generación">
+          <img class="persona__img" src="assets/images/heroes/ngsoc.jpg" alt="NGSOC" width="600" height="800" loading="lazy" decoding="async">
+          <span class="persona__scanline" aria-hidden="true"></span>
+          <div class="persona__body">
+            <h3 class="persona__name">NGSOC</h3>
+            <p class="persona__role">Cacería continua en vectores críticos, IA, automatización y respuesta.</p>
+          </div>
+        </a>
+
+        <a class="persona" data-persona="asha" href="metodologia.html#asha" aria-label="ASHA — La capitana, orquestación 360°">
+          <img class="persona__img" src="assets/images/heroes/asha.jpg" alt="ASHA" width="600" height="800" loading="lazy" decoding="async">
+          <span class="persona__scanline" aria-hidden="true"></span>
+          <div class="persona__body">
+            <h3 class="persona__name">ASHA</h3>
+            <p class="persona__role"><em>La capitana</em> — orquesta los seis frentes bajo metodologías propias.</p>
+          </div>
+        </a>
+
+        <a class="persona" data-persona="csirt" href="metodologia.html#csirt" aria-label="CSIRT — Respuesta a incidentes">
+          <img class="persona__img" src="assets/images/heroes/csirt.jpg" alt="CSIRT" width="600" height="800" loading="lazy" decoding="async">
+          <span class="persona__scanline" aria-hidden="true"></span>
+          <div class="persona__body">
+            <h3 class="persona__name">CSIRT</h3>
+            <p class="persona__role">Inteligencia de amenazas accionable, investigaciones, protección de marca.</p>
+          </div>
+        </a>
+
+        <a class="persona" data-persona="ctem" href="metodologia.html#ctem" aria-label="CTEM — Continuous Threat Exposure Management">
+          <img class="persona__img" src="assets/images/heroes/ctem.jpg" alt="CTEM" width="600" height="800" loading="lazy" decoding="async">
+          <span class="persona__scanline" aria-hidden="true"></span>
+          <div class="persona__body">
+            <h3 class="persona__name">CTEM</h3>
+            <p class="persona__role">Gestión de activos tecnológicos, superficie de ataque y riesgos.</p>
+          </div>
+        </a>
+
+        <a class="persona" data-persona="grc" href="metodologia.html#grc" aria-label="GRC — Gobierno, riesgo y cumplimiento">
+          <img class="persona__img" src="assets/images/heroes/grc.jpg" alt="GRC" width="600" height="800" loading="lazy" decoding="async">
+          <span class="persona__scanline" aria-hidden="true"></span>
+          <div class="persona__body">
+            <h3 class="persona__name">GRC</h3>
+            <p class="persona__role">Gobierno, riesgo y cumplimiento normativo.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="diferenciador__proof" id="metodologia">
+        <p class="frameworks__label">Marcos de referencia y estándares</p>
+        <div class="frameworks__grid">
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>NIST 2.0</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>MITRE ATT&CK</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>ITIL</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>ISO/IEC 27001:2022</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>ISO 9001:2015</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>ISO/IEC 27005</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>PCI DSS</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>GDPR</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>MISP</span>
+          <span class="framework"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>FIRST</span>
+        </div>
+        <a class="diferenciador__cta" href="metodologia.html">
+          Conozca nuestra metodología
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIAS CLAVE ------------------------------------------------ -->
+  <section class="industries section section--light" id="industrias" aria-labelledby="ind-title">
+    <div class="container">
+      <header class="industries__head">
+        <div>
+          <span class="eyebrow">Foco en industrias claves</span>
+          <h2 class="section-title section-head--left" id="ind-title" data-split-reveal>
+            Vasta experiencia en<br>Banca, Seguros y Retail
+          </h2>
+        </div>
+        <ul class="industries__sectors" role="list">
+          <li class="industries__sector"><span class="dot" aria-hidden="true"></span>Banca</li>
+          <li class="industries__sector"><span class="dot" aria-hidden="true"></span>Seguros</li>
+          <li class="industries__sector"><span class="dot" aria-hidden="true"></span>Retail</li>
+          <li class="industries__sector industries__sector--secondary"><span class="dot" aria-hidden="true"></span>Telecomunicaciones</li>
+          <li class="industries__sector industries__sector--secondary"><span class="dot" aria-hidden="true"></span>Industria</li>
+          <li class="industries__sector industries__sector--secondary"><span class="dot" aria-hidden="true"></span>Construcción</li>
+        </ul>
+      </header>
+
+      <div class="industries__grid">
+        <article class="industry-card">
+          <img class="industry-card__img" src="assets/images/nfc.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <div class="industry-card__body">
+            <p>12+ años protegiendo <strong>Banca, Seguros y Retail</strong>. Operaciones alineadas con ISO 27001, PCI DSS y normativas locales — auditadas y replicables por país.</p>
+          </div>
+        </article>
+        <article class="industry-card">
+          <img class="industry-card__img" src="assets/images/nybuildings.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <div class="industry-card__body">
+            <p>También operamos en <strong>Telecomunicaciones, Industria y Construcción</strong> — sectores con superficies de ataque heterogéneas (TI + OT + cloud) y exposición regulatoria distinta.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENCIA INTERNACIONAL ----------------------------------------- -->
+  <section class="presence section section--dark" id="presencia" aria-labelledby="presence-title">
+    <div class="container">
+      <header class="presence__head">
+        <span class="eyebrow">Presencia internacional</span>
+        <h2 class="section-title" id="presence-title" data-split-reveal>
+          Operamos en LATAM y expandimos a más mercados
+        </h2>
+        <p class="section-lede">
+          Filiales locales en cada país. Centro de monitoreo regional entre CDMX y Tenerife operando 7&times;24, con cobertura horaria global.
+        </p>
+      </header>
+
+      <div class="presence__grid">
+        <div class="presence__globe-wrap">
+          <div id="presence-globe" class="presence__globe" aria-label="Globo terráqueo interactivo con la presencia internacional de ASHA Solution"></div>
+          <div class="presence__legend">
+            <span class="presence__legend-item"><span class="presence__legend-dot presence__legend-dot--active"></span>Operación activa</span>
+            <span class="presence__legend-item"><span class="presence__legend-dot presence__legend-dot--expanding"></span>En desarrollo</span>
+            <span class="presence__legend-item"><span class="presence__legend-dot presence__legend-dot--hub"></span>Centro de monitoreo</span>
+          </div>
+        </div>
+
+        <div class="presence__panel">
+          <div class="presence__group">
+            <span class="presence__sub-label"><span class="presence__sub-prompt">&gt;</span> Operación activa<span class="presence__sub-count">[ 5 ]</span></span>
+            <ul class="country-list" role="list">
+              <li class="country"><span class="country__flag" aria-hidden="true"></span><span class="country__name">México</span><span class="country__since">2014</span></li>
+              <li class="country"><span class="country__flag" aria-hidden="true"></span><span class="country__name">Chile</span><span class="country__since">2020</span></li>
+              <li class="country"><span class="country__flag" aria-hidden="true"></span><span class="country__name">Ecuador</span><span class="country__since">2022</span></li>
+              <li class="country"><span class="country__flag" aria-hidden="true"></span><span class="country__name">Rep. Dominicana</span><span class="country__since">2022</span></li>
+              <li class="country"><span class="country__flag" aria-hidden="true"></span><span class="country__name">Colombia</span><span class="country__since">2024</span></li>
+            </ul>
+          </div>
+
+          <div class="presence__group">
+            <span class="presence__sub-label"><span class="presence__sub-prompt">&gt;</span> En desarrollo<span class="presence__sub-count">[ 3 ]</span></span>
+            <ul class="country-list" role="list">
+              <li class="country country--expanding"><span class="country__flag" aria-hidden="true"></span><span class="country__name">Estados Unidos</span><span class="country__since">soon</span></li>
+              <li class="country country--expanding"><span class="country__flag" aria-hidden="true"></span><span class="country__name">Perú</span><span class="country__since">soon</span></li>
+              <li class="country country--expanding"><span class="country__flag" aria-hidden="true"></span><span class="country__name">España</span><span class="country__since">soon</span></li>
+            </ul>
+          </div>
+
+          <div class="presence__highlights">
+            <article class="highlight">
+              <p class="highlight__label"><span class="highlight__label-marker"></span>Centro de monitoreo</p>
+              <h3 class="highlight__title">7×24 entre CDMX y Tenerife</h3>
+              <p class="highlight__text">Servicios administrados validados por los fabricantes bajo contratos MSSP, con cobertura horaria global.</p>
+            </article>
+            <article class="highlight highlight--csirt">
+              <p class="highlight__label"><span class="highlight__label-marker"></span>CSIRT Sectorial</p>
+              <h3 class="highlight__title">Asegurador y Financiero — México</h3>
+              <p class="highlight__text">Construido y operado por ASHA. Listo para replicarse en nuevos mercados.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 PRÁCTICAS ------------------------------------------------------ -->
+  <section class="practices section section--light" id="practicas" aria-labelledby="practices-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">5 prácticas · 16 servicios</span>
+        <h2 class="section-title" id="practices-title" data-split-reveal>Conozca nuestras prácticas</h2>
+        <p class="section-lede">
+          Cinco prácticas. Dieciséis servicios. Metodologías ASHA integradas con soluciones de marcas líderes del cuadrante Gartner.
+        </p>
+      </header>
+
+      <div class="practices__grid">
+        <a class="practice" href="inteligencia-de-amenazas-y-proteccion-de-marca.html">
+          <span class="practice__num">01</span>
+          <span class="practice__icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></span>
+          <h3 class="practice__title">Inteligencia de Amenazas y Protección de Marca</h3>
+          <p class="practice__desc">Detectamos amenazas antes de que impacten su negocio mediante inteligencia y monitoreo continuo de su huella digital.</p>
+          <div class="practice__chips">
+            <span class="practice__chip">Sharing TI</span>
+            <span class="practice__chip">Unified TI+</span>
+            <span class="practice__chip">SOCMINT</span>
+          </div>
+          <span class="practice__more">
+            Ver más
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </span>
+        </a>
+
+        <a class="practice" href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">
+          <span class="practice__num">02</span>
+          <span class="practice__icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></span>
+          <h3 class="practice__title">Gestión de Vulnerabilidades y Emulación de Ataques</h3>
+          <p class="practice__desc">Identificamos brechas y emulamos adversarios reales para validar la resiliencia efectiva de su entorno.</p>
+          <div class="practice__chips">
+            <span class="practice__chip">TraceWatch</span>
+            <span class="practice__chip">RedTeaming</span>
+            <span class="practice__chip">MITRE ATT&CK</span>
+          </div>
+          <span class="practice__more">
+            Ver más
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </span>
+        </a>
+
+        <a class="practice" href="gestion-de-incidentes-y-caceria-de-amenazas.html">
+          <span class="practice__num">03</span>
+          <span class="practice__icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-radar"/></svg></span>
+          <h3 class="practice__title">Gestión de Incidentes y Cacería de Amenazas</h3>
+          <p class="practice__desc">Detección y respuesta 24×7 con cacería proactiva e Inteligencia Artificial aplicada al análisis de comportamientos.</p>
+          <div class="practice__chips">
+            <span class="practice__chip">NGSIEM</span>
+            <span class="practice__chip">Threat Hunting</span>
+            <span class="practice__chip">DataManager</span>
+          </div>
+          <span class="practice__more">
+            Ver más
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </span>
+        </a>
+
+        <a class="practice" href="estrategia-integral-de-proteccion-de-datos.html">
+          <span class="practice__num">04</span>
+          <span class="practice__icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3 class="practice__title">Estrategia Integral de Protección de Datos</h3>
+          <p class="practice__desc">Arquitectura Zero Trust para identidad, accesos, aplicaciones, redes y datos sensibles bajo cumplimiento normativo.</p>
+          <div class="practice__chips">
+            <span class="practice__chip">Identidad</span>
+            <span class="practice__chip">ZTNA</span>
+            <span class="practice__chip">DLP</span>
+          </div>
+          <span class="practice__more">
+            Ver más
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </span>
+        </a>
+
+        <a class="practice" href="cyber-fraud-fusion.html">
+          <span class="practice__num">05</span>
+          <span class="practice__icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
+          <h3 class="practice__title">Prevención de Ciberfraude y Lavado de Dinero</h3>
+          <p class="practice__desc">Combinamos inteligencia, monitoreo y modelos de IA para detectar fraude transaccional y operaciones sospechosas en tiempo real.</p>
+          <div class="practice__chips">
+            <span class="practice__chip">Fraud Fusion</span>
+            <span class="practice__chip">AML</span>
+            <span class="practice__chip">IA aplicada</span>
+          </div>
+          <span class="practice__more">
+            Ver más
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALIANZAS ESTRATÉGICAS ------------------------------------------- -->
+  <section class="alliances section section--dark" id="alianzas" aria-labelledby="alliances-title">
+    <div class="container">
+      <header class="alliances__head">
+        <span class="eyebrow">Alianzas estratégicas</span>
+        <h2 class="section-title" id="alliances-title">Trabajamos con los líderes del cuadrante Gartner</h2>
+        <p class="section-lede">
+          Las más altas certificaciones y laboratorios de pruebas para integrar arquitecturas y automatizar la respuesta a incidentes.
+        </p>
+      </header>
+
+      <div class="alliances__tier">
+        <p class="alliances__tier-label">Cuadrante Gartner — líderes</p>
+        <div class="marquee marquee--right" aria-label="Logos partners líderes">
+          <div class="marquee__track">
+            <!-- Set 1 -->
+            <div class="alliance-card" data-brand="crowdstrike"><img src="assets/images/alliances/crowdstrike.png" alt="CrowdStrike" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">CrowdStrike</span></div>
+            <div class="alliance-card" data-brand="netskope"><img src="assets/images/alliances/netskope.png" alt="Netskope" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Netskope</span></div>
+            <div class="alliance-card" data-brand="proofpoint"><img src="assets/images/alliances/proofpoint.png" alt="Proofpoint" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Proofpoint</span></div>
+            <div class="alliance-card" data-brand="okta"><img src="assets/images/alliances/okta.png" alt="OKTA" class="alliance-card__logo"><span class="alliance-card__name visually-hidden">OKTA</span></div>
+            <div class="alliance-card" data-brand="fortinet"><img src="assets/images/alliances/fortinet.png" alt="Fortinet" class="alliance-card__logo"><span class="alliance-card__name visually-hidden">Fortinet</span></div>
+            <div class="alliance-card" data-brand="imperva"><img src="assets/images/alliances/imperva.png" alt="Imperva" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Imperva</span></div>
+            <div class="alliance-card" data-brand="forescout"><img src="assets/images/alliances/forescout.png" alt="Forescout" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Forescout</span></div>
+            <!-- Set 2 (duplicate for seamless loop) -->
+            <div class="alliance-card" data-brand="crowdstrike" aria-hidden="true"><img src="assets/images/alliances/crowdstrike.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="netskope" aria-hidden="true"><img src="assets/images/alliances/netskope.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="proofpoint" aria-hidden="true"><img src="assets/images/alliances/proofpoint.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="okta" aria-hidden="true"><img src="assets/images/alliances/okta.png" alt="" class="alliance-card__logo"></div>
+            <div class="alliance-card" data-brand="fortinet" aria-hidden="true"><img src="assets/images/alliances/fortinet.png" alt="" class="alliance-card__logo"></div>
+            <div class="alliance-card" data-brand="imperva" aria-hidden="true"><img src="assets/images/alliances/imperva.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="forescout" aria-hidden="true"><img src="assets/images/alliances/forescout.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alliances__tier">
+        <p class="alliances__tier-label">Soluciones de nicho</p>
+        <div class="marquee marquee--left" aria-label="Logos soluciones de nicho">
+          <div class="marquee__track">
+            <!-- Set 1 -->
+            <div class="alliance-card" data-brand="cribl"><img src="assets/images/alliances/cribl.png" alt="Cribl" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Cribl</span></div>
+            <div class="alliance-card" data-brand="kriptos"><img src="assets/images/alliances/kriptos.png" alt="Kriptos" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Kriptos</span></div>            <div class="alliance-card" data-brand="group-ib"><img src="assets/images/alliances/group-ib.png" alt="Group-IB" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Group-IB</span></div>
+            <div class="alliance-card" data-brand="strangebee"><img src="assets/images/alliances/strangebee.png" alt="StrangeBee" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">StrangeBee</span></div>
+            <div class="alliance-card" data-brand="reveald"><img src="assets/images/alliances/reveald.png" alt="Reveald" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Reveald</span></div>
+            <div class="alliance-card" data-brand="automox"><img src="assets/images/alliances/automox.png" alt="Automox" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Automox</span></div>
+            <div class="alliance-card" data-brand="tenable"><img src="assets/images/alliances/tenable.png" alt="Tenable" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Tenable</span></div>
+            <div class="alliance-card" data-brand="thales"><img src="assets/images/alliances/thales.png" alt="Thales" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Thales</span></div>
+            <div class="alliance-card" data-brand="broadcom"><img src="assets/images/alliances/broadcom.png" alt="Broadcom" class="alliance-card__logo"><span class="alliance-card__name visually-hidden">Broadcom</span></div>
+            <div class="alliance-card" data-brand="darkvore"><img src="assets/images/alliances/darkvore.png" alt="Darkvore" class="alliance-card__logo" loading="lazy"><span class="alliance-card__name visually-hidden">Darkvore</span></div>
+            <!-- Set 2 -->
+            <div class="alliance-card" data-brand="cribl" aria-hidden="true"><img src="assets/images/alliances/cribl.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="kriptos" aria-hidden="true"><img src="assets/images/alliances/kriptos.png" alt="" class="alliance-card__logo" loading="lazy"></div>            <div class="alliance-card" data-brand="group-ib" aria-hidden="true"><img src="assets/images/alliances/group-ib.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="strangebee" aria-hidden="true"><img src="assets/images/alliances/strangebee.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="reveald" aria-hidden="true"><img src="assets/images/alliances/reveald.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="automox" aria-hidden="true"><img src="assets/images/alliances/automox.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="tenable" aria-hidden="true"><img src="assets/images/alliances/tenable.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="thales" aria-hidden="true"><img src="assets/images/alliances/thales.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+            <div class="alliance-card" data-brand="broadcom" aria-hidden="true"><img src="assets/images/alliances/broadcom.png" alt="" class="alliance-card__logo"></div>
+            <div class="alliance-card" data-brand="darkvore" aria-hidden="true"><img src="assets/images/alliances/darkvore.png" alt="" class="alliance-card__logo" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alliances__levels">
+        <p class="alliances__tier-label">Nivel más alto de Partner en cada país de presencia consolidada</p>
+        <ul class="partner-levels" role="list">
+          <li class="partner-level partner-level--elite">
+            <span class="partner-level__tag">Elite</span>
+            <span class="partner-level__brand">CrowdStrike</span>
+            <span class="partner-level__note">El más certificado de las Américas</span>
+          </li>
+          <li class="partner-level partner-level--elite">
+            <span class="partner-level__tag">Elite +</span>
+            <span class="partner-level__brand">Proofpoint</span>
+          </li>
+          <li class="partner-level partner-level--platinum">
+            <span class="partner-level__tag">Platinum</span>
+            <span class="partner-level__brand">Kriptos</span>
+          </li>
+          <li class="partner-level partner-level--gold">
+            <span class="partner-level__tag">Gold</span>
+            <span class="partner-level__brand">Netskope</span>
+            <span class="partner-level__note">Service Delivery Partner</span>
+          </li>
+          <li class="partner-level partner-level--platinum">
+            <span class="partner-level__tag">Platinum</span>
+            <span class="partner-level__brand">Group-IB</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HAN CONFIADO EN NOSOTROS ---------------------------------------- -->
+  <section class="clients section section--light" id="clientes" aria-labelledby="clients-title">
+    <div class="container">
+      <header class="clients__head">
+        <span class="eyebrow">Confianza</span>
+        <h2 class="clients__title" id="clients-title">Han confiado en nosotros</h2>
+        <p class="clients__sub">Importantes empresas en México y Latinoamérica</p>
+      </header>
+
+      <!-- Marquee fila 1 — derecha -->
+      <div class="marquee marquee--right marquee--clients" aria-label="Logos de clientes — fila 1">
+        <div class="marquee__track">
+          <div class="client-logo"><img src="assets/images/clients/seguros-banorte.png" alt="Banorte / Seguros Banorte" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/banco-de-mexico.png" alt="Banco de México" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/banbajio.png" alt="BanBajío" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/banco-azteca.png" alt="Banco Azteca" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/banjercito.png" alt="Banjercito" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/banco-bhd.png" alt="Banco BHD" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/banco-del-austro.png" alt="Banco del Austro" loading="lazy"></div>
+          <!-- duplicate for seamless loop -->
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/seguros-banorte.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/banco-de-mexico.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/banbajio.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/banco-azteca.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/banjercito.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/banco-bhd.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/banco-del-austro.png" alt=""></div>
+        </div>
+      </div>
+
+      <!-- Marquee fila 2 — izquierda (sentido opuesto) -->
+      <div class="marquee marquee--left marquee--clients" aria-label="Logos de clientes — fila 2">
+        <div class="marquee__track">
+          <div class="client-logo"><img src="assets/images/clients/itau.png" alt="Itaú" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/ach-colombia.png" alt="ACH Colombia" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/profuturo.png" alt="ProFuturo" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/amis.png" alt="AMIS" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/kavak.png" alt="KAVAK" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/entel.png" alt="Entel" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/images/clients/vinte.png" alt="Vinte" loading="lazy"></div>
+          <!-- duplicate for seamless loop -->
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/itau.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/ach-colombia.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/profuturo.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/amis.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/kavak.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/entel.png" alt=""></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/images/clients/vinte.png" alt=""></div>
+        </div>
+      </div>
+
+      <div class="clients__more">
+        <p class="clients__more-label">+ otras organizaciones líderes en LATAM</p>
+        <ul class="client-names" role="list">
+          <li>BanCoppel</li>
+          <li>Coppel</li>
+          <li>AFIRME</li>
+          <li>Banco del Pacífico</li>
+          <li>Sigma</li>
+          <li>Grupo Energía Bogotá</li>
+          <li>HDI Seguros</li>
+          <li>IGAC</li>
+          <li>Colmédica</li>
+          <li>Sura</li>
+          <li>C5 CDMX</li>
+          <li>PSA Seguros</li>
+          <li>Cueros Vélez</li>
+          <li>Seguros Bolívar</li>
+          <li>Grupo Aval</li>
+          <li>Copa Airlines</li>
+          <li>Compensar</li>
+          <li>Grupo Axa</li>
+          <li>GMX Seguros</li>
+          <li>La Comer</li>
+          <li>INE</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA — Poster Manifesto (DNA-8) --------------------------- -->
+  <section class="final-cta final-cta--poster" id="contacto" aria-labelledby="cta-title">
+    <img src="assets/images/metodologia-hero-league.jpg" alt="" class="final-cta__bg-img" aria-hidden="true" loading="lazy">
+    <div class="final-cta__bg-grad" aria-hidden="true"></div>
+    <div class="final-cta__bg-grid" aria-hidden="true"></div>
+
+    <span class="final-cta__corner final-cta__corner--tl" aria-hidden="true"></span>
+    <span class="final-cta__corner final-cta__corner--tr" aria-hidden="true"></span>
+    <span class="final-cta__corner final-cta__corner--bl" aria-hidden="true"></span>
+    <span class="final-cta__corner final-cta__corner--br" aria-hidden="true"></span>
+
+    <div class="container final-cta__inner">
+      <span class="final-cta__eyebrow"><span class="pulse"></span><span class="final-cta__eyebrow-prefix">&gt; connect</span> · ASHA CSIRT 7×24</span>
+
+      <h2 class="final-cta__title" id="cta-title">
+        Su próximo ataque <span class="final-cta__accent">ya está en curso.</span><br>
+        El nuestro <span class="final-cta__accent">también.</span>
+      </h2>
+
+      <p class="final-cta__lede">
+        Una sesión de 30 minutos con nuestro equipo CSIRT — assessment inicial sin costo, sin compromiso. Le mostramos exactamente dónde está expuesto y qué priorizar.
+      </p>
+
+      <div class="final-cta__actions">
+        <a class="btn btn-primary btn-pill final-cta__btn-primary" href="contacto.html">
+          <span>Hablar con un experto</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+        <a class="final-cta__link" href="metodologia.html">
+          <span>Ver metodología</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </div>
+
+      <div class="final-cta__meta" aria-hidden="true">
+        <span class="final-cta__meta-item"><span class="final-cta__meta-dot"></span>CSIRT operacional</span>
+        <span class="final-cta__meta-sep">·</span>
+        <span class="final-cta__meta-item">ISO 27001:2022</span>
+        <span class="final-cta__meta-sep">·</span>
+        <span class="final-cta__meta-item">12+ años LATAM</span>
+        <span class="final-cta__meta-sep">·</span>
+        <span class="final-cta__meta-item">Respuesta &lt; 15 min</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER ------------------------------------------------------------ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+
+      <div class="site-footer__col">
+        <a href="index.html" aria-label="ASHA Solution">
+          <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-footer__logo" width="190" height="44" />
+        </a>
+        <p class="site-footer__brand-text">
+          Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Empresa</h3>
+        <ul class="site-footer__list">
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="metodologia.html">Metodología</a></li>
+          <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="aviso-de-privacidad.html">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Prácticas</h3>
+        <ul class="site-footer__list">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Vulnerabilidades</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Incidentes y Cacería</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Ciberfraude</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Cobertura LATAM</h3>
+        <ul class="site-footer__list">
+          <li>México</li>
+          <li>Colombia</li>
+          <li>Ecuador</li>
+          <li>Chile</li>
+          <li>República Dominicana</li>
+        </ul>
+        <div class="footer-map" style="margin-top: var(--space-4);">
+          <img src="assets/images/latam-map-real.png" alt="Cobertura ASHA en Latinoamérica" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bootlog" aria-hidden="true">
+      <div class="site-footer__bootlog-head">
+        <span class="site-footer__bootlog-prompt">asha@sentinel</span><span class="site-footer__bootlog-sep">:</span><span class="site-footer__bootlog-path">~</span><span class="site-footer__bootlog-dollar">$</span><span class="site-footer__bootlog-cmd">systemctl status --all</span>
+      </div>
+      <ul class="site-footer__bootlog-list" role="list">
+        <li><span class="site-footer__bootlog-time">[ 00:00:01 ]</span><span class="site-footer__bootlog-dot"></span><span class="site-footer__bootlog-name">CSIRT.service</span><span class="site-footer__bootlog-desc">operational</span><span class="site-footer__bootlog-ok">[ OK ]</span></li>
+        <li><span class="site-footer__bootlog-time">[ 00:00:02 ]</span><span class="site-footer__bootlog-dot"></span><span class="site-footer__bootlog-name">iso27001.cert</span><span class="site-footer__bootlog-desc">verified (2022)</span><span class="site-footer__bootlog-ok">[ OK ]</span></li>
+        <li><span class="site-footer__bootlog-time">[ 00:00:03 ]</span><span class="site-footer__bootlog-dot"></span><span class="site-footer__bootlog-name">monitoring.7x24</span><span class="site-footer__bootlog-desc">active — CDMX/Tenerife</span><span class="site-footer__bootlog-ok">[ OK ]</span></li>
+        <li><span class="site-footer__bootlog-time">[ 00:00:04 ]</span><span class="site-footer__bootlog-dot"></span><span class="site-footer__bootlog-name">ai.threat-hunting</span><span class="site-footer__bootlog-desc">loaded</span><span class="site-footer__bootlog-ok">[ OK ]</span></li>
+        <li><span class="site-footer__bootlog-time">[ 00:00:05 ]</span><span class="site-footer__bootlog-dot"></span><span class="site-footer__bootlog-name">latam.coverage</span><span class="site-footer__bootlog-desc">5 países sincronizados</span><span class="site-footer__bootlog-ok">[ OK ]</span></li>
+      </ul>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>ASHA Solution &copy; 2026. Todos los derechos reservados.</p>
+      <a href="aviso-de-privacidad.html">Aviso de privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile menu -------------------------------------------------------- -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú principal" hidden>
+  <div class="mobile-menu__header">
+    <a href="index.html" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <button type="button" class="mobile-menu__close" aria-label="Cerrar menú" data-mobile-close>
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu__inner" aria-label="Principal móvil">
+    <ul class="mobile-menu__list">
+      <li><a class="mobile-menu__link is-active" href="index.html">Inicio</a></li>
+      <li><a class="mobile-menu__link" href="nosotros.html">Nosotros</a></li>
+      <li><a class="mobile-menu__link" href="metodologia.html">Metodología</a></li>
+      <li>
+        <a class="mobile-menu__link" href="#practicas">
+          Prácticas
+          <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </a>
+        <ul class="mobile-submenu">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+        </ul>
+      </li>
+      <li><a class="mobile-menu__link" href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__cta">
+    <a class="btn btn-secondary" href="contacto.html">ASHA CSIRT</a>
+    <a class="btn btn-primary" href="contacto.html">
+      Contáctenos
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </a>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Mobile menu ────────────────────────────────────────────────
+  const menu  = document.getElementById('mobile-menu');
+  const open  = document.querySelector('.mobile-menu-toggle');
+  const close = document.querySelector('[data-mobile-close]');
+  if (menu && open && close) {
+    menu.removeAttribute('hidden');
+    const setOpen = (state) => {
+      menu.classList.toggle('is-open', state);
+      document.body.classList.toggle('menu-open', state);
+      open.setAttribute('aria-expanded', state ? 'true' : 'false');
+      if (state) close.focus(); else open.focus();
+    };
+    open.addEventListener('click', () => setOpen(true));
+    close.addEventListener('click', () => setOpen(false));
+    // Close on link click
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) setOpen(false);
+    });
+  }
+
+  // ── Count-up on scroll into view ──────────────────────────────
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window && !reduce) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        const duration = 1100;
+        const start = performance.now();
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+        const step = (now) => {
+          const t = Math.min(1, (now - start) / duration);
+          el.textContent = Math.round(target * easeOutCubic(t));
+          if (t < 1) requestAnimationFrame(step);
+        };
+        el.textContent = '0';
+        requestAnimationFrame(step);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(el => observer.observe(el));
+  }
+})();
+</script>
+
+<!-- Globo terráqueo de Presencia Internacional ----------------------- -->
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/scroll-fx.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/scene-hacked.js" defer></script>
+<script src="assets/js/hero-network.js" defer></script>
+<script src="assets/js/hero-parallax.js" defer></script>
+<script src="assets/js/hero-reveal.js" defer></script>
+<script src="assets/js/liga-diff.js" defer></script>
+<script src="assets/js/site-reveal.js" defer></script>
+<script src="assets/js/site-enhance.js" defer></script>
+<script src="assets/js/topojson-client.min.js" defer></script>
+<script src="assets/js/globe.gl.min.js" defer></script>
+<script defer>
+(function () {
+  'use strict';
+
+  const ASHA_RED       = '#DC2626';
+  const ASHA_CYAN      = '#06B6D4';
+  const ASHA_PURPLE    = '#A855F7';
+  const ASHA_BG        = '#0A0E27';
+  const HEX_LAND       = 'rgba(248, 250, 252, 0.45)';
+
+  // Country presence data — lat/lng coords + metadata
+  const HQ = { name: 'México (HQ)', lat: 19.4326, lng: -99.1332, status: 'active', since: '2014', label: 'Sede principal — CDMX' };
+  const ACTIVE = [
+    { name: 'Chile',           lat: -33.4489, lng: -70.6693, status: 'active', since: '2020', label: 'Filial local · Santiago' },
+    { name: 'Ecuador',         lat:  -0.1807, lng: -78.4678, status: 'active', since: '2022', label: 'Filial local · Quito' },
+    { name: 'Rep. Dominicana', lat:  18.4861, lng: -69.9312, status: 'active', since: '2022', label: 'Operación local' },
+    { name: 'Colombia',        lat:   4.7110, lng: -74.0721, status: 'active', since: '2024', label: 'Filial local · Bogotá' }
+  ];
+  const EXPANDING = [
+    { name: 'Estados Unidos', lat: 38.8951, lng:  -77.0364, status: 'expanding', label: 'En desarrollo' },
+    { name: 'Perú',           lat: -12.0464, lng:  -77.0428, status: 'expanding', label: 'En desarrollo' },
+    { name: 'España',         lat: 40.4168, lng:   -3.7038, status: 'expanding', label: 'En desarrollo' }
+  ];
+  const HUB = { name: 'Tenerife', lat: 28.2916, lng: -16.6291, status: 'hub', label: 'Centro de monitoreo 7×24' };
+
+  const ALL_POINTS = [HQ, ...ACTIVE, ...EXPANDING, HUB];
+
+  // Arcs from CDMX HQ to each presence point — animated dashes
+  const ARCS = [...ACTIVE, ...EXPANDING, HUB].map(p => ({
+    startLat: HQ.lat, startLng: HQ.lng,
+    endLat:   p.lat,  endLng:   p.lng,
+    color: p.status === 'expanding' ? ASHA_CYAN : (p.status === 'hub' ? ASHA_PURPLE : ASHA_RED)
+  }));
+
+  let globe = null;
+  let started = false;
+
+  function initGlobe() {
+    if (started || typeof Globe === 'undefined') return;
+    started = true;
+    const el = document.getElementById('presence-globe');
+    if (!el) return;
+
+    fetch('assets/js/countries-50m.json')
+      .then(r => r.json())
+      .then(worldData => {
+        if (typeof topojson === 'undefined') {
+          console.warn('topojson-client not loaded');
+          return;
+        }
+        const features = topojson.feature(worldData, worldData.objects.countries).features;
+
+        const size = Math.min(el.clientWidth, 560);
+        globe = Globe()(el)
+          .width(size)
+          .height(size)
+          .backgroundColor('rgba(0,0,0,0)')
+          .showAtmosphere(true)
+          .atmosphereColor(ASHA_RED)
+          .atmosphereAltitude(0.18)
+          .showGlobe(false)
+
+          // Hex polygons = the dot/futuristic look
+          .hexPolygonsData(features)
+          .hexPolygonResolution(4)
+          .hexPolygonMargin(0.35)
+          .hexPolygonUseDots(true)
+          .hexPolygonColor(() => HEX_LAND)
+
+          // Presence markers
+          .pointsData(ALL_POINTS)
+          .pointLat('lat').pointLng('lng')
+          .pointAltitude(0.012)
+          .pointRadius(0.55)
+          .pointColor(d =>
+            d.status === 'expanding' ? ASHA_CYAN :
+            d.status === 'hub'       ? ASHA_PURPLE :
+                                       ASHA_RED)
+          .pointLabel(d => `
+            <div class="globe-tooltip">
+              <span class="globe-tooltip__country">${d.name}</span>
+              <span class="globe-tooltip__meta">${d.label}${d.since ? ' · desde ' + d.since : ''}</span>
+            </div>`)
+
+          // Animated rings around each presence point — pulse effect
+          .ringsData(ALL_POINTS)
+          .ringLat('lat').ringLng('lng')
+          .ringMaxRadius(d => d.status === 'expanding' ? 3 : 4)
+          .ringPropagationSpeed(2)
+          .ringRepeatPeriod(d => d.status === 'expanding' ? 1600 : 1200)
+          .ringColor(d => () => d.status === 'expanding' ? ASHA_CYAN : (d.status === 'hub' ? ASHA_PURPLE : ASHA_RED))
+          .ringAltitude(0.003)
+
+          // Arcs from CDMX to each
+          .arcsData(ARCS)
+          .arcColor('color')
+          .arcStroke(0.4)
+          .arcDashLength(0.5)
+          .arcDashGap(0.3)
+          .arcDashAnimateTime(2200)
+          .arcAltitudeAutoScale(0.4);
+
+        // Auto-rotate — slower, kicks in after a brief pause so the user
+        // sees the Americas centered before the globe starts spinning.
+        const ctrl = globe.controls();
+        ctrl.autoRotate = false;
+        ctrl.autoRotateSpeed = -0.4;
+        ctrl.enableZoom = false;
+        ctrl.enablePan  = false;
+
+        // Initial point of view: Americas centered (between North & South,
+        // ~Mexico/Caribbean longitude so both continents are visible).
+        globe.pointOfView({ lat: 15, lng: -90, altitude: 2.2 }, 0);
+
+        // Resume auto-rotation after the user has had a moment to register
+        // the Americas focus.
+        setTimeout(() => { ctrl.autoRotate = true; }, 2400);
+
+        // Resize handler
+        const resize = () => {
+          const s = Math.min(el.clientWidth, 560);
+          globe.width(s).height(s);
+        };
+        window.addEventListener('resize', resize);
+        resize();
+      })
+      .catch(err => {
+        console.warn('Globe init failed', err);
+        // Graceful degradation: country list panel still works
+      });
+  }
+
+  // Lazy init: only when section enters viewport — saves ~1.8MB JS parse on initial load
+  const target = document.getElementById('presence-globe');
+  if (target && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { initGlobe(); io.disconnect(); } });
+    }, { rootMargin: '1500px' });
+    io.observe(target);
+  } else {
+    initGlobe();
+  }
+})();
+</script>
+
+</body>
+</html>

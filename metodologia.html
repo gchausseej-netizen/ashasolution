@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Metodología - ASHA Solution</title>
+<meta name="description" content="Metodologías CSIRT y CSOC ASHA alineadas a MITRE ATT&CK, NIST 2.0 e ISO 27001:2022. Validadas por los fabricantes bajo contratos MSSP." />
+<meta name="theme-color" content="#0A0E27" />
+<link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/redesign.css">
+</head>
+<body>
+
+<!-- Inline icon sprite (Heroicons outline 24/outline) ------------------- -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"></path></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"></path><polyline points="9 12 11 14 15 10"></polyline></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 8"></polyline></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4" fill="currentColor"></circle></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.07 4.93A10 10 0 1 0 22 12"></path><path d="M16.24 7.76A6 6 0 1 0 18 12"></path><line x1="12" y1="12" x2="22" y2="2"></line></symbol>
+  <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.5"></rect><rect x="3" y="13" width="18" height="7" rx="1.5"></rect><line x1="7" y1="7.5" x2="7.01" y2="7.5"></line><line x1="7" y1="16.5" x2="7.01" y2="16.5"></line></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="14" r="4"></circle><line x1="11" y1="11" x2="21" y2="3"></line><line x1="18" y1="6" x2="20" y2="8"></line><line x1="15" y1="9" x2="17" y2="11"></line></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"></path></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.5 19h-3V9h3v10zM6 7.7C5 7.7 4.3 7 4.3 6S5 4.3 6 4.3 7.7 5 7.7 6 7 7.7 6 7.7zm14 11.3h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19z"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7V3"></path><path d="M15 7V3"></path><path d="M5 11h14"></path><path d="M19 11v3a7 7 0 0 1-14 0v-3"></path><path d="M12 18v3"></path></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 4 14 12 14 11 22 20 10 12 10 13 2"></polyline></symbol>
+  <symbol id="i-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.7 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.7a2 2 0 0 0-3.4 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></symbol>
+  <symbol id="i-magnify" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16" y2="16"></line><polyline points="8 11 10 13 14 9"></polyline></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5.5v13a1 1 0 0 0 1.5.87l11-6.5a1 1 0 0 0 0-1.74l-11-6.5A1 1 0 0 0 7 5.5z"/></symbol>
+</svg>
+
+<!-- HEADER -------------------------------------------------------------- -->
+<header class="site-header" id="header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-header__brand" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <nav class="main-nav" aria-label="Principal">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" href="index.html" data-i18n="nav.home">Inicio</a></li>
+        <li><a class="main-nav__link" href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+        <li><a class="main-nav__link is-active" href="metodologia.html" data-i18n="nav.methodology">Metodología</a></li>
+        <li class="main-nav__item--has-children">
+          <a class="main-nav__link" href="index.html#practicas" data-i18n="nav.practices">
+            Prácticas
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </a>
+          <ul class="main-nav__submenu" role="menu">
+            <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+            <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+            <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+            <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+            <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+          </ul>
+        </li>
+        <li><a class="main-nav__link" href="bolsa-de-trabajo.html" data-i18n="nav.careers">Bolsa de Trabajo</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__cta">
+      <div class="lang-switch" role="group" aria-label="Cambiar idioma">
+        <button type="button" class="lang-switch__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-secondary" href="contacto.html" data-i18n="cta.csirt">ASHA CSIRT</a>
+      <a class="btn btn-primary" href="contacto.html">
+        <span data-i18n="cta.contact">Contáctenos</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO ---------------------------------------------------------- -->
+<section class="page-hero page-hero--league">
+  <div class="page-hero__bg" aria-hidden="true">
+    <div class="page-hero__bg-grad"></div>
+    <div class="page-hero__bg-grid"></div>
+    <div class="page-hero__bg-drift"></div>
+  </div>
+
+  <!-- Decorative SOC-style data tickers at the corners -->
+  <div class="page-hero__ticker page-hero__ticker--tl" aria-hidden="true">
+    <span class="page-hero__ticker-dot"></span>
+    <span class="page-hero__ticker-text">LIGA · 6 FRENTES · 7×24 LATAM</span>
+  </div>
+  <div class="page-hero__ticker page-hero__ticker--br" aria-hidden="true">
+    <span class="page-hero__ticker-text">CDMX ⇄ TENERIFE</span>
+    <span class="page-hero__ticker-dot page-hero__ticker-dot--cyan"></span>
+  </div>
+
+  <div class="container page-hero__inner">
+    <span class="page-hero__eyebrow"><span class="page-hero__eyebrow-dot"></span>La Liga ASHA · 6 frentes de defensa</span>
+    <h1 class="page-hero__title">
+      Metodologías ASHA — <span class="accent">seis frentes operativos</span> alineados a MITRE ATT&amp;CK, NIST 2.0 e ISO 27001:2022.
+    </h1>
+
+    <!-- Persona constellation: 6 nodes wired together with a staggered draw -->
+    <div class="liga-constellation" role="list" aria-label="Las seis metodologías">
+      <svg class="liga-constellation__wire" viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 50 20 L 160 20 L 270 20 L 380 20 L 490 20 L 550 20" />
+      </svg>
+      <a class="liga-constellation__node" data-persona="ngsoc" href="#ngsoc" role="listitem">
+        <span class="liga-constellation__dot"></span>
+        <span class="liga-constellation__label">NGSOC</span>
+      </a>
+      <a class="liga-constellation__node" data-persona="csirt" href="#csirt" role="listitem">
+        <span class="liga-constellation__dot"></span>
+        <span class="liga-constellation__label">CSIRT</span>
+      </a>
+      <a class="liga-constellation__node" data-persona="ctem" href="#ctem" role="listitem">
+        <span class="liga-constellation__dot"></span>
+        <span class="liga-constellation__label">CTEM</span>
+      </a>
+      <a class="liga-constellation__node" data-persona="zerotrust" href="#zerotrust" role="listitem">
+        <span class="liga-constellation__dot"></span>
+        <span class="liga-constellation__label">ZeroTrust</span>
+      </a>
+      <a class="liga-constellation__node" data-persona="grc" href="#grc" role="listitem">
+        <span class="liga-constellation__dot"></span>
+        <span class="liga-constellation__label">GRC</span>
+      </a>
+      <a class="liga-constellation__node" data-persona="asha" href="#asha" role="listitem">
+        <span class="liga-constellation__dot"></span>
+        <span class="liga-constellation__label">ASHA</span>
+      </a>
+    </div>
+
+    <p class="page-hero__lede">
+      NGSOC, CSIRT, CTEM, ZeroTrust, GRC y la capitana ASHA — cada uno con mandato, marcos de referencia y servicios catalogados. Validados por los fabricantes bajo contratos MSSP.
+    </p>
+    <div class="page-hero__actions">
+      <a class="btn btn-primary btn-pill" href="#liga-deep-title">
+        Conocer las metodologías
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <a class="btn btn-secondary btn-pill" href="contacto.html">Hablar con un experto</a>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB --------------------------------------------------------- -->
+<nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="index.html">Inicio</a></li>
+      <li>Metodología</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- LA LIGA ASHA — DEEP DIVE ---------------------------------------- -->
+  <section class="section section--dark" aria-labelledby="liga-deep-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">La Liga ASHA</span>
+        <h2 class="section-title" id="liga-deep-title">Metodologías personificadas en superhéroes</h2>
+        <p class="section-lede">
+          Ante la evolución constante de las amenazas, hemos transformado nuestras metodologías en superhéroes — seis frentes de defensa, cada uno con su mandato, sus marcos de referencia y sus servicios.
+        </p>
+      </header>
+
+      <!-- ZEROTRUST -->
+      <article class="persona-deep" data-persona="zerotrust" id="zerotrust">
+        <div class="persona-deep__grid">
+          <div class="persona-deep__media">
+            <img src="assets/images/heroes/zerotrust.jpg" alt="ZeroTrust — Identidad y control de accesos" loading="lazy">
+          </div>
+          <div>
+            <p class="persona-deep__role">Identidad · Accesos · Zero Trust</p>
+            <h3 class="persona-deep__name">ZeroTrust</h3>
+            <p class="persona-deep__desc">Modelo de seguridad sin perímetro. Verifica explícitamente cada acceso, asume brecha y aplica privilegio mínimo en identidad, dispositivo, red, aplicación y datos.</p>
+            <ul class="persona-deep__bullets">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Verifica explícitamente cada acceso · asume brecha · privilegio mínimo</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Cinco dominios: identidad, accesos, aplicaciones, redes y datos</li>
+            </ul>
+
+            <details class="persona-deep__services">
+              <summary class="persona-deep__services-toggle">
+                <span class="persona-deep__services-label">Servicios técnicos</span>
+                <span class="persona-deep__services-count">5</span>
+                <svg class="persona-deep__services-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+              </summary>
+              <div class="persona-deep__services-panel">
+                <dl class="persona-deep__services-list">
+                <div class="persona-deep__service">
+                  <dt>Identidad</dt>
+                  <dd>Sanidad de identidades · gestión de identidades y accesos (IAM) · autenticación multifactor (MFA)</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Control de Accesos</dt>
+                  <dd>Microsegmentación · ZTNA · acceso basado en atributos · SD-WAN · Digital Experience</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Aplicaciones</dt>
+                  <dd>CASB · Control Web · WAF · DB Firewall · seguridad de IA y APIs</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Redes y nube</dt>
+                  <dd>NGFW · NTA · SSE · Cloud Security · postura de seguridad</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Seguridad de datos</dt>
+                  <dd>DLP · clasificación e inventario · gobierno de datos</dd>
+                </div>
+              </dl>
+              </div>
+            </details>
+
+            <div class="persona-deep__chips">
+              <span class="persona-deep__chip">NIST 2.0</span>
+              <span class="persona-deep__chip">ISO 27001</span>
+              <span class="persona-deep__chip">OKTA</span>
+              <span class="persona-deep__chip">Netskope</span>
+              <span class="persona-deep__chip">Fortinet</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- NGSOC -->
+      <article class="persona-deep persona-deep--reverse" data-persona="ngsoc" id="ngsoc">
+        <div class="persona-deep__grid">
+          <div class="persona-deep__media persona-deep__media--video">
+            <img class="persona-deep__media__anim"
+                 src="assets/videos/personas/ngsoc.webp"
+                 alt="NGSOC en movimiento — Operaciones de seguridad de nueva generación"
+                 loading="lazy" decoding="async">
+            <button class="persona-deep__media__play"
+                    type="button"
+                    data-video-open
+                    data-video-src="assets/videos/personas/ngsoc.webm"
+                    data-video-eyebrow="Operaciones de seguridad"
+                    data-video-title="NGSOC — Visión completa"
+                    aria-label="Ver el video completo de NGSOC con sonido">
+              <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
+              Ver el caso
+            </button>
+          </div>
+          <div>
+            <p class="persona-deep__role">Operaciones de seguridad</p>
+            <h3 class="persona-deep__name">NGSOC</h3>
+            <p class="persona-deep__desc">Centro de operaciones de seguridad de nueva generación. Ingestión, parseo y enriquecimiento de datos en tiempo real, casos de uso basados en MITRE ATT&amp;CK y respuesta automatizada.</p>
+            <ul class="persona-deep__bullets">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Casos de uso basados en MITRE ATT&amp;CK y NIST 2.0</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Monitoreo 24×7×365 con analistas + automatización de respuesta</li>
+            </ul>
+
+            <details class="persona-deep__services">
+              <summary class="persona-deep__services-toggle">
+                <span class="persona-deep__services-label">Servicios técnicos</span>
+                <span class="persona-deep__services-count">4</span>
+                <svg class="persona-deep__services-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+              </summary>
+              <div class="persona-deep__services-panel">
+                <dl class="persona-deep__services-list">
+                <div class="persona-deep__service">
+                  <dt>NGSIEM</dt>
+                  <dd>Integraciones nativas y personalizadas · ingesta, parseo y enriquecimiento en tiempo real · correlación avanzada y respuesta automática · dashboards e inteligencia accionable</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Architecture &amp; Engineering</dt>
+                  <dd>Arquitectura del SOC · prácticas de ingeniería · estándares de control e inventario</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Log Management</dt>
+                  <dd>Recolección, procesamiento y almacenamiento desde múltiples fuentes</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Incident Monitoring</dt>
+                  <dd>Identificación, clasificación, priorización, análisis y notificación de incidentes</dd>
+                </div>
+              </dl>
+              </div>
+            </details>
+
+            <div class="persona-deep__chips">
+              <span class="persona-deep__chip">MITRE ATT&amp;CK</span>
+              <span class="persona-deep__chip">NIST 2.0</span>
+              <span class="persona-deep__chip">CrowdStrike</span>
+              <span class="persona-deep__chip">Cribl</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ASHA -->
+      <article class="persona-deep" data-persona="asha" id="asha">
+        <div class="persona-deep__grid">
+          <div class="persona-deep__media persona-deep__media--video">
+            <img class="persona-deep__media__anim"
+                 src="assets/videos/personas/asha-deep.webp"
+                 alt="ASHA en movimiento — Liderazgo y protección integral"
+                 loading="lazy" decoding="async">
+            <button class="persona-deep__media__play"
+                    type="button"
+                    data-video-open
+                    data-video-src="assets/videos/personas/asha-deep.webm"
+                    data-video-eyebrow="Liderazgo · Protección integral"
+                    data-video-title="ASHA — Visión completa"
+                    aria-label="Ver el video completo de ASHA con sonido">
+              <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
+              Ver el caso
+            </button>
+          </div>
+          <div>
+            <p class="persona-deep__role">Liderazgo · Protección integral</p>
+            <h3 class="persona-deep__name">ASHA</h3>
+            <p class="persona-deep__desc">El principio organizador del universo. ASHA representa nuestra convicción de hacer las cosas bien — desde el diseño hasta la ejecución — orquestando los seis frentes bajo metodologías propias.</p>
+            <ul class="persona-deep__bullets">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Filosofía del «deber ser» aplicada al diseño de la operación</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Modelos operativos que protegen el negocio y generan confianza</li>
+            </ul>
+
+            <details class="persona-deep__services">
+              <summary class="persona-deep__services-toggle">
+                <span class="persona-deep__services-label">Servicios técnicos</span>
+                <span class="persona-deep__services-count">3</span>
+                <svg class="persona-deep__services-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+              </summary>
+              <div class="persona-deep__services-panel">
+                <dl class="persona-deep__services-list">
+                <div class="persona-deep__service">
+                  <dt>SOC Management</dt>
+                  <dd>Define misión, visión y estructura organizacional del CSIRT / SOC. Orquesta los seis frentes bajo metodologías propias ASHA</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Project Leadership</dt>
+                  <dd>Líderes de proyecto certificados Scrum, PMP® e ITIL · marcos de trabajo híbridos alineados a buenas prácticas ITIL</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Quality Assurance</dt>
+                  <dd>Operación bajo ISO 9001:2015 e ISO 27001:2022 · auditorías anuales · ciclos completos de servicio</dd>
+                </div>
+              </dl>
+              </div>
+            </details>
+
+            <div class="persona-deep__chips">
+              <span class="persona-deep__chip">ISO 9001</span>
+              <span class="persona-deep__chip">ISO 27001</span>
+              <span class="persona-deep__chip">ITIL</span>
+              <span class="persona-deep__chip">Scrum</span>
+              <span class="persona-deep__chip">PMP&reg;</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CSIRT -->
+      <article class="persona-deep persona-deep--reverse" data-persona="csirt" id="csirt">
+        <div class="persona-deep__grid">
+          <div class="persona-deep__media persona-deep__media--video">
+            <img class="persona-deep__media__anim"
+                 src="assets/videos/personas/csirt.webp"
+                 alt="CSIRT en movimiento — Respuesta a incidentes"
+                 loading="lazy" decoding="async">
+            <button class="persona-deep__media__play"
+                    type="button"
+                    data-video-open
+                    data-video-src="assets/videos/personas/csirt.webm"
+                    data-video-eyebrow="Inteligencia · Respuesta a incidentes"
+                    data-video-title="CSIRT — Visión completa"
+                    aria-label="Ver el video completo de CSIRT con sonido">
+              <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
+              Ver el caso
+            </button>
+          </div>
+          <div>
+            <p class="persona-deep__role">Inteligencia · Respuesta a incidentes</p>
+            <h3 class="persona-deep__name">CSIRT</h3>
+            <p class="persona-deep__desc">Computer Security Incident Response Team con plataforma colaborativa propia. Inteligencia de amenazas verificada, intercambio MISP y escalamiento a las principales agencias de seguridad globales.</p>
+            <ul class="persona-deep__bullets">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Servicios gestionados y semi-gestionados validados como MSSP</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Equipos locales especializados alineados a FIRST · escalamiento a agencias globales</li>
+            </ul>
+
+            <details class="persona-deep__services">
+              <summary class="persona-deep__services-toggle">
+                <span class="persona-deep__services-label">Servicios técnicos</span>
+                <span class="persona-deep__services-count">4</span>
+                <svg class="persona-deep__services-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+              </summary>
+              <div class="persona-deep__services-panel">
+                <dl class="persona-deep__services-list">
+                <div class="persona-deep__service">
+                  <dt>Continuous Threat Hunting</dt>
+                  <dd>Cacería continua y proactiva · respuesta gestionada · IA aplicada al análisis de comportamientos anómalos · correlación de TI · análisis avanzado con Tableau, Python y Grafana · retroalimentación al NGSOC</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Incident Response</dt>
+                  <dd>Gestión post-detección · contención, erradicación y recuperación · alineado a NIST SP 800-61</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Threat Intelligence</dt>
+                  <dd>Planeación, recolección, procesamiento, análisis y diseminación de inteligencia accionable</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Digital Forensics</dt>
+                  <dd>Identificación, adquisición, procesamiento y análisis de evidencia digital de incidentes y ataques</dd>
+                </div>
+              </dl>
+              </div>
+            </details>
+
+            <div class="persona-deep__chips">
+              <span class="persona-deep__chip">MISP</span>
+              <span class="persona-deep__chip">FIRST</span>
+              <span class="persona-deep__chip">NIST 800-61</span>
+              <span class="persona-deep__chip">Group-IB</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CTEM -->
+      <article class="persona-deep" data-persona="ctem" id="ctem">
+        <div class="persona-deep__grid">
+          <div class="persona-deep__media">
+            <img src="assets/images/heroes/ctem.jpg" alt="CTEM — Continuous Threat Exposure Management" loading="lazy">
+          </div>
+          <div>
+            <p class="persona-deep__role">Exposición continua a amenazas</p>
+            <h3 class="persona-deep__name">CTEM</h3>
+            <p class="persona-deep__desc">Continuous Threat Exposure Management. Identifica brechas, prioriza con inteligencia de amenazas y emula adversarios reales para validar la resiliencia efectiva del entorno IT y OT.</p>
+            <ul class="persona-deep__bullets">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Priorización de vulnerabilidades con Inteligencia de Amenazas</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Cobertura completa MITRE ATT&amp;CK · Cyber-Kill Chain</li>
+            </ul>
+
+            <details class="persona-deep__services">
+              <summary class="persona-deep__services-toggle">
+                <span class="persona-deep__services-label">Servicios técnicos</span>
+                <span class="persona-deep__services-count">7</span>
+                <svg class="persona-deep__services-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+              </summary>
+              <div class="persona-deep__services-panel">
+                <dl class="persona-deep__services-list">
+                <div class="persona-deep__service">
+                  <dt>Sharing TI</dt>
+                  <dd>Intercambio de inteligencia con plataforma MISP · investigaciones · boletines informativos · alineados a FIRST</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Unified TI+</dt>
+                  <dd>Data Breach Protection · Tactical Threat Intelligence · Digital Footprint Protection · Impersonation &amp; SOCMINT</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>TraceWatch</dt>
+                  <dd>Gestión de activos IT y OT · descubrimiento de activos no gestionados · shadow IT · priorización con TI</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>RedTeaming</dt>
+                  <dd>Creación de paths de ataque · simulaciones adversariales · emulaciones MITRE ATT&amp;CK</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>DataManager</dt>
+                  <dd>Arquitectura, orquestación y eficiencia en el manejo de datos · almacenamiento masivo escalable · gobernanza multi-fuente · pipelines híbridos (on-prem + cloud)</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Vulnerability Management</dt>
+                  <dd>Identificación de vulnerabilidades, riesgos e impacto en activos e infraestructura</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Self-assessment</dt>
+                  <dd>Penetration testing · compromise assessment · auditorías de control · security awareness</dd>
+                </div>
+              </dl>
+              </div>
+            </details>
+
+            <div class="persona-deep__chips">
+              <span class="persona-deep__chip">MITRE ATT&amp;CK</span>
+              <span class="persona-deep__chip">Cyber-Kill Chain</span>
+              <span class="persona-deep__chip">Reveald</span>
+              <span class="persona-deep__chip">Automox</span>
+              <span class="persona-deep__chip">Tenable</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- GRC -->
+      <article class="persona-deep persona-deep--reverse" data-persona="grc" id="grc">
+        <div class="persona-deep__grid">
+          <div class="persona-deep__media persona-deep__media--video">
+            <img src="assets/images/heroes/grc.jpg" alt="GRC — Gobierno, Riesgo y Cumplimiento" loading="lazy">
+            <video
+              muted autoplay loop playsinline preload="metadata"
+              aria-label="GRC en movimiento">
+              <source src="assets/videos/personas/grc.webm" type="video/webm">
+              <source src="assets/videos/personas/grc.mp4" type="video/mp4">
+            </video>
+            <button class="persona-deep__media__play"
+                    type="button"
+                    data-video-open
+                    data-video-src="assets/videos/personas/grc.webm"
+                    data-video-eyebrow="Gobierno · Riesgo · Cumplimiento"
+                    data-video-title="GRC — Visión completa"
+                    aria-label="Ver el video completo de GRC con sonido">
+              <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
+              Ver el caso
+            </button>
+          </div>
+          <div>
+            <p class="persona-deep__role">Gobierno · Riesgo · Cumplimiento</p>
+            <h3 class="persona-deep__name">GRC</h3>
+            <p class="persona-deep__desc">Eleva la madurez de ciberseguridad y asegura el cumplimiento normativo. Programas continuos, métricas para juntas directivas y CISO as a Service para acompañar la decisión ejecutiva.</p>
+            <ul class="persona-deep__bullets">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Eleva madurez de ciberseguridad y asegura cumplimiento normativo</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>KPIs, KRIs y métricas de riesgo accionables para juntas directivas</li>
+            </ul>
+
+            <details class="persona-deep__services">
+              <summary class="persona-deep__services-toggle">
+                <span class="persona-deep__services-label">Servicios técnicos</span>
+                <span class="persona-deep__services-count">3</span>
+                <svg class="persona-deep__services-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+              </summary>
+              <div class="persona-deep__services-panel">
+                <dl class="persona-deep__services-list">
+                <div class="persona-deep__service">
+                  <dt>Insight</dt>
+                  <dd>Assessment de madurez para estrategias de Ciberseguridad · mapa de riesgo sobre vectores de ataque · estrategia de crecimiento · análisis GAP normativo (ISO 27001, PCI DSS, NIST 2.0, GDPR) · ciclos de vida para datos e identidad</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>Enforce</dt>
+                  <dd>Desarrollo e implementación de políticas, procedimientos y controles · auditorías externas (ISO 27001, ISO 9001) · planes de remediación a riesgos · capacitación y concientización a usuarios</dd>
+                </div>
+                <div class="persona-deep__service">
+                  <dt>CISO as a Service</dt>
+                  <dd>Elevación de madurez y cumplimiento normativo · programas GRC continuos · reportes y monitoreo de cumplimiento · KPIs / KRIs para juntas directivas</dd>
+                </div>
+              </dl>
+              </div>
+            </details>
+
+            <div class="persona-deep__chips">
+              <span class="persona-deep__chip">ISO 27001</span>
+              <span class="persona-deep__chip">PCI DSS</span>
+              <span class="persona-deep__chip">NIST 2.0</span>
+              <span class="persona-deep__chip">GDPR</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CSIRT — intro + 6 funciones (fusionados) ------------------------ -->
+  <section class="section section--dark theme-deep-slate" id="csirt">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">CSIRT ASHA</span>
+        <h2 class="section-title">Inteligencia verificada · compartida · operacional</h2>
+        <p class="section-lede">
+          Metodología CSIRT colaborativa con un <strong>nodo de threat intelligence sharing</strong> — contextualiza riesgos antes de que escalen. Servicios gestionados y semi-gestionados bajo contratos MSSP, con equipos locales que escalan a las principales agencias de seguridad globales.
+        </p>
+        <p class="section-lede section-lede--secondary">
+          Centro de monitoreo <strong>7×24 operando entre CDMX y Tenerife</strong>. Líderes y consultores con posiciones destacadas en <strong>Hispanoamérica y las Américas</strong>, certificados por las marcas tecnológicas líderes.
+        </p>
+      </header>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></span>
+          <h3>Monitoreo</h3>
+          <p>Observación continua de amenazas globales, análisis de datos y detección de patrones inusuales que permite contextualizar el riesgo tecnológico.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg></span>
+          <h3>Integración</h3>
+          <p>Plataformas complementarias de Threat Intelligence integradas vía API desde fuentes verificadas y de confianza para detección, análisis e investigación correlacionada.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-magnify"/></svg></span>
+          <h3>Análisis de Inteligencia</h3>
+          <p>Recolección de datos de fuentes públicas y privadas, incluyendo threat feeds, incidentes de seguridad, reportes de vulnerabilidades y análisis de malware.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+          <h3>Inteligencia Accionable</h3>
+          <p>Ciberinteligencia de alta calidad que entrega recomendaciones accionables para mejorar controles de seguridad, parches de vulnerabilidades y ajuste de políticas.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-warning"/></svg></span>
+          <h3>Gestión de Incidentes</h3>
+          <p>Proceso bien definido de gestión de incidentes incluyendo reporte, investigación y respuesta alineados con los requerimientos del cliente.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span>
+          <h3>Alcance global</h3>
+          <p>Posicionados como respondedor especializado a amenazas globales en sectores críticos de Hispanoamérica.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- (CSOC section removed — 10 funciones redistribuidas en personas correspondientes:
+       SOC Management → ASHA · Architecture/Log/Monitoring → NGSOC ·
+       Incident Response/Threat Intel/Forensics → CSIRT ·
+       Vulnerability Mgmt/Self-assessment → CTEM · Threat Hunting → NGSOC+CSIRT) -->
+
+  <!-- MARCOS + CERTIFICACIONES + PARTNER LEVELS (3 secciones fusionadas) -->
+  <section class="section section--dark theme-steel" id="acreditaciones" aria-labelledby="acred-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">Marcos · Certificaciones · Partner levels</span>
+        <h2 class="section-title" id="acred-title">Mapeados, certificados, validados</h2>
+        <p class="section-lede">
+          Cada control tiene trazabilidad al marco que lo respalda. Operaciones bajo ISO 27001:2022 auditadas anualmente. Nivel más alto de Partner en cada país de presencia consolidada.
+        </p>
+      </header>
+
+      <!-- 3 marcos expandidos: definición + aplicación + claves -->
+      <div class="feature-grid feature-grid--marcos">
+        <article class="feature-card feature-card--framework">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></span>
+          <h3>MITRE ATT&amp;CK</h3>
+          <p class="feature-card__quote">«Describe tácticas y técnicas adversariales basado en observaciones reales de incidentes.»</p>
+          <p>Mapeamos técnica a técnica contra la Cyber-Kill Chain. Reglas de detección, ejercicios de red team y assessments de postura defensiva — todo trazable al ID ATT&amp;CK.</p>
+          <ul class="feature-card__bullets">
+            <li>Matrices Windows, Linux, macOS, cloud y mobile</li>
+            <li>Reglas de detección por técnica</li>
+            <li>Simulación adversarial validada</li>
+          </ul>
+        </article>
+
+        <article class="feature-card feature-card--framework">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>NIST 2.0</h3>
+          <p class="feature-card__quote">«Estándares del Instituto Nacional de Estándares y Tecnología de EE. UU. para gestión de riesgo en ciberseguridad.»</p>
+          <p>Operación estructurada en las 5 funciones del Cybersecurity Framework — Identificar, Proteger, Detectar, Responder, Recuperar. Controles trazables al SOA del cliente.</p>
+          <ul class="feature-card__bullets">
+            <li><strong>NIST CSF 2.0</strong> — gestión de riesgo 5 funciones</li>
+            <li><strong>SP 800-53</strong> — controles y directivas</li>
+            <li><strong>SP 800-61</strong> — gestión de incidentes</li>
+            <li><strong>SP 800-37</strong> — ciclo de vida de riesgo</li>
+          </ul>
+        </article>
+
+        <article class="feature-card feature-card--framework">
+          <span class="feature-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
+          <h3>ISO/IEC 27001:2022</h3>
+          <p class="feature-card__quote">«Estándar internacional para el sistema de gestión de la seguridad de la información (SGSI).»</p>
+          <p>Confidencialidad, integridad y disponibilidad bajo evaluación continua de riesgo. Controles auditables y trazables al Statement of Applicability del cliente.</p>
+          <ul class="feature-card__bullets">
+            <li>Enfoque basado en riesgo</li>
+            <li>SGSI con mejora continua</li>
+            <li>Anexo A — 93 controles</li>
+            <li>Auditoría externa anual</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Partner levels strip -->
+      <div class="acreditaciones__partners">
+        <p class="acreditaciones__partners-label">Partner level más alto por país de presencia consolidada</p>
+        <ul class="partner-levels" role="list">
+          <li class="partner-level partner-level--elite">
+            <span class="partner-level__tag">Elite</span>
+            <span class="partner-level__brand">CrowdStrike</span>
+            <span class="partner-level__note">El más certificado de las Américas</span>
+          </li>
+          <li class="partner-level partner-level--elite">
+            <span class="partner-level__tag">Elite +</span>
+            <span class="partner-level__brand">Proofpoint</span>
+          </li>
+          <li class="partner-level partner-level--platinum">
+            <span class="partner-level__tag">Platinum</span>
+            <span class="partner-level__brand">Kriptos</span>
+          </li>
+          <li class="partner-level partner-level--gold">
+            <span class="partner-level__tag">Gold</span>
+            <span class="partner-level__brand">Netskope</span>
+          </li>
+          <li class="partner-level partner-level--platinum">
+            <span class="partner-level__tag">SDP Platinum</span>
+            <span class="partner-level__brand">Group-IB</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Team certs strip -->
+      <div class="acreditaciones__team">
+        <p class="acreditaciones__team-label">Equipo certificado</p>
+        <p class="acreditaciones__team-text">
+          Administradores, implementadores y auditores certificados en <strong>ISO 9001 e ISO 27001</strong>. Capacitación continua con las marcas tecnológicas líderes. Procesos automatizados y ciclos completos de servicio bajo contratos MSSP.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS DETALLADOS (accordion) — antes del CTA final ---------- -->
+  <section class="services section section--dark theme-deep-slate" id="servicios" aria-labelledby="services-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">Detalle por dominio</span>
+        <h2 class="section-title" id="services-title">Servicios entregados por el CSIRT ASHA</h2>
+        <p class="section-lede">
+          Acompañamiento de Líderes de Proyecto certificados en Scrum, PMP&reg; e ITIL. Marcos de trabajo híbridos alineados a buenas prácticas ITIL.
+        </p>
+      </header>
+
+      <div class="services__list">
+
+        <details class="service-group" open>
+          <summary>
+            <span class="service-group__icon"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></span>
+            <h3 class="service-group__title">Inteligencia y monitoreo</h3>
+            <svg class="service-group__chev"><use href="#i-chevron-down"/></svg>
+          </summary>
+          <div class="service-group__body">
+            <div class="service-item">
+              <h4>Sharing TI</h4>
+              <ul>
+                <li>Intercambio de inteligencia de amenazas con la plataforma MISP</li>
+                <li>Investigaciones de inteligencia y boletines informativos</li>
+                <li>Alineados a FIRST</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>Unified TI+</h4>
+              <ul>
+                <li>Data Breach Protection</li>
+                <li>Tactical Threat Intelligence</li>
+                <li>Digital Footprint Protection</li>
+                <li>Impersonation &amp; SOCMINT</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>NGSIEM</h4>
+              <ul>
+                <li>Integraciones nativas y personalizadas</li>
+                <li>Ingesta, parseo y enriquecimiento en tiempo real</li>
+                <li>Casos de uso basados en MITRE ATT&amp;CK y NIST</li>
+                <li>Monitoreo 24×7×365 con analistas y automatización</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>Continuous Threat Hunting</h4>
+              <ul>
+                <li>Cacería continua y proactiva de amenazas</li>
+                <li>Respuesta a incidentes gestionada</li>
+                <li>IA aplicada a detección de comportamientos anómalos</li>
+                <li>Análisis avanzado con Tableau, Python y Grafana</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="service-group">
+          <summary>
+            <span class="service-group__icon"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></span>
+            <h3 class="service-group__title">Detección y respuesta</h3>
+            <svg class="service-group__chev"><use href="#i-chevron-down"/></svg>
+          </summary>
+          <div class="service-group__body">
+            <div class="service-item">
+              <h4>TraceWatch</h4>
+              <ul>
+                <li>Gestión de activos IT como OT</li>
+                <li>Descubrimiento de activos no gestionados y de vulnerabilidades</li>
+                <li>Shadow IT, software y aplicaciones no autorizadas</li>
+                <li>Priorización con Inteligencia de Amenazas</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>RedTeaming</h4>
+              <ul>
+                <li>Creación de paths de ataque</li>
+                <li>Simulaciones de adversarios</li>
+                <li>Emulaciones con MITRE ATT&amp;CK</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>DataManager</h4>
+              <ul>
+                <li>Arquitectura, orquestación y eficiencia en el manejo de datos</li>
+                <li>Almacenamiento masivo, escalable y optimizado</li>
+                <li>Gobernanza y normalización multi-fuente</li>
+                <li>Implementación distribuida en entornos híbridos (on-prem y cloud)</li>
+                <li>Pipelines inteligentes para optimización de costos y desempeño</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="service-group">
+          <summary>
+            <span class="service-group__icon"><svg class="icon" aria-hidden="true"><use href="#i-key"/></svg></span>
+            <h3 class="service-group__title">Acceso y aplicaciones</h3>
+            <svg class="service-group__chev"><use href="#i-chevron-down"/></svg>
+          </summary>
+          <div class="service-group__body">
+            <div class="service-item">
+              <h4>Identidad</h4>
+              <ul>
+                <li>Sanidad de identidades</li>
+                <li>Gestión de identidades y accesos (IAM)</li>
+                <li>Autenticación multifactor (MFA)</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>Control de Accesos</h4>
+              <ul>
+                <li>Microsegmentación, ZTNA</li>
+                <li>Acceso basado en atributos</li>
+                <li>SD-WAN, Digital Experience</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>Aplicaciones</h4>
+              <ul>
+                <li>CASB, Web Control</li>
+                <li>WAF, DB Firewall</li>
+                <li>Seguridad de IA y APIs</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>Redes y nube</h4>
+              <ul>
+                <li>NGFW, NTA</li>
+                <li>SSE / Cloud Security</li>
+                <li>Postura de seguridad</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details class="service-group">
+          <summary>
+            <span class="service-group__icon"><svg class="icon" aria-hidden="true"><use href="#i-database"/></svg></span>
+            <h3 class="service-group__title">Datos y gobierno</h3>
+            <svg class="service-group__chev"><use href="#i-chevron-down"/></svg>
+          </summary>
+          <div class="service-group__body">
+            <div class="service-item">
+              <h4>Seguridad de datos</h4>
+              <ul>
+                <li>DLP, clasificación e inventario</li>
+                <li>Gobierno de datos</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>Insight</h4>
+              <ul>
+                <li>Assessment de madurez de ciberseguridad</li>
+                <li>Mapa de riesgos y vectores de ataque</li>
+                <li>GAP normativo (ISO 27001, PCI DSS, NIST 2.0, GDPR)</li>
+                <li>Ciclos de vida para datos e identidad</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>Enforce</h4>
+              <ul>
+                <li>Desarrollo e implementación de políticas, procedimientos y controles</li>
+                <li>Auditorías externas (ISO 27001, ISO 9001)</li>
+                <li>Planes de remediación a riesgos</li>
+                <li>Capacitación y concientización a usuarios</li>
+              </ul>
+            </div>
+            <div class="service-item">
+              <h4>CISO as a Service</h4>
+              <ul>
+                <li>Elevación de madurez y cumplimiento normativo</li>
+                <li>Programas GRC continuos</li>
+                <li>Reportes y monitoreo de cumplimiento</li>
+                <li>KPIs / KRIs para juntas directivas</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA — Poster Manifesto (style heredado del home) ----------- -->
+  <section class="final-cta final-cta--poster" id="contacto" aria-labelledby="cta-title">
+    <img src="assets/images/metodologia-hero-league.jpg" alt="" class="final-cta__bg-img" aria-hidden="true" loading="lazy">
+    <div class="final-cta__bg-grad" aria-hidden="true"></div>
+    <div class="final-cta__bg-grid" aria-hidden="true"></div>
+
+    <span class="final-cta__corner final-cta__corner--tl" aria-hidden="true"></span>
+    <span class="final-cta__corner final-cta__corner--tr" aria-hidden="true"></span>
+    <span class="final-cta__corner final-cta__corner--bl" aria-hidden="true"></span>
+    <span class="final-cta__corner final-cta__corner--br" aria-hidden="true"></span>
+
+    <div class="container final-cta__inner">
+      <span class="final-cta__eyebrow"><span class="pulse"></span><span class="final-cta__eyebrow-prefix">&gt; deploy</span> · ASHA Methodology Suite</span>
+
+      <h2 class="final-cta__title" id="cta-title">
+        Seis frentes operativos <span class="final-cta__accent">listos para integrar</span><br>
+        a su operación.
+      </h2>
+
+      <p class="final-cta__lede">
+        Sesión técnica de 45 minutos con nuestro CSIRT — assessment de madurez sobre los seis frentes, mapeo a MITRE ATT&amp;CK y plan de adopción priorizado. Sin costo, sin compromiso.
+      </p>
+
+      <div class="final-cta__actions">
+        <a class="btn btn-primary btn-pill final-cta__btn-primary" href="contacto.html">
+          <span>Agendar sesión técnica</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+        <a class="final-cta__link" href="index.html">
+          <span>Volver al inicio</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </div>
+
+      <div class="final-cta__meta" aria-hidden="true">
+        <span class="final-cta__meta-item"><span class="final-cta__meta-dot"></span>CSIRT 7×24</span>
+        <span class="final-cta__meta-sep">·</span>
+        <span class="final-cta__meta-item">MITRE ATT&amp;CK mapeado</span>
+        <span class="final-cta__meta-sep">·</span>
+        <span class="final-cta__meta-item">ISO 27001:2022</span>
+        <span class="final-cta__meta-sep">·</span>
+        <span class="final-cta__meta-item">MSSP validado</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER ------------------------------------------------------------ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__col">
+        <a href="index.html" aria-label="ASHA Solution">
+          <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-footer__logo" width="190" height="44" />
+        </a>
+        <p class="site-footer__brand-text">
+          Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="site-footer__col">
+        <h3>Empresa</h3>
+        <ul class="site-footer__list">
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="metodologia.html">Metodología</a></li>
+          <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="aviso-de-privacidad.html">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Prácticas</h3>
+        <ul class="site-footer__list">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Vulnerabilidades</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Incidentes y Cacería</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Ciberfraude</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Cobertura LATAM</h3>
+        <ul class="site-footer__list">
+          <li>México</li>
+          <li>Colombia</li>
+          <li>Ecuador</li>
+          <li>Chile</li>
+          <li>República Dominicana</li>
+        </ul>
+        <div class="footer-map" style="margin-top: var(--space-4);">
+          <img src="assets/images/latam-map-real.png" alt="Cobertura ASHA en Latinoamérica" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>ASHA Solution &copy; 2026. Todos los derechos reservados.</p>
+      <a href="aviso-de-privacidad.html">Aviso de privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile menu -------------------------------------------------------- -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú principal" hidden>
+  <div class="mobile-menu__header">
+    <a href="index.html" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <button type="button" class="mobile-menu__close" aria-label="Cerrar menú" data-mobile-close>
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu__inner" aria-label="Principal móvil">
+    <ul class="mobile-menu__list">
+      <li><a class="mobile-menu__link" href="index.html">Inicio</a></li>
+      <li><a class="mobile-menu__link" href="nosotros.html">Nosotros</a></li>
+      <li><a class="mobile-menu__link is-active" href="metodologia.html">Metodología</a></li>
+      <li>
+        <a class="mobile-menu__link" href="index.html#practicas">
+          Prácticas
+          <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </a>
+        <ul class="mobile-submenu">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+        </ul>
+      </li>
+      <li><a class="mobile-menu__link" href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__cta">
+    <a class="btn btn-secondary" href="contacto.html">ASHA CSIRT</a>
+    <a class="btn btn-primary" href="contacto.html">
+      Contáctenos
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- VIDEO LIGHTBOX ------------------------------------------------------- -->
+<div class="video-lightbox" id="video-lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="video-lightbox-title">
+  <div class="video-lightbox__frame">
+    <video class="video-lightbox__video" controls playsinline preload="metadata"></video>
+    <div class="video-lightbox__caption">
+      <span data-video-eyebrow></span>
+      <strong id="video-lightbox-title" data-video-title></strong>
+    </div>
+    <button class="video-lightbox__close" type="button" data-video-close aria-label="Cerrar video">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+</div>
+
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/scroll-fx.js" defer></script>
+<script src="assets/js/site-enhance.js" defer></script>
+<script src="assets/js/page-hero-reveal.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Mobile menu (unchanged) ───────────────────────────────────── */
+  const menu  = document.getElementById('mobile-menu');
+  const openBtn  = document.querySelector('.mobile-menu-toggle');
+  const closeBtn = document.querySelector('[data-mobile-close]');
+  if (menu && openBtn && closeBtn) {
+    menu.removeAttribute('hidden');
+    const setOpen = (state) => {
+      menu.classList.toggle('is-open', state);
+      document.body.classList.toggle('menu-open', state);
+      openBtn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      if (state) closeBtn.focus(); else openBtn.focus();
+    };
+    openBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) setOpen(false);
+    });
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Scroll-triggered reveal of every persona-deep ────────────── */
+  const personas = document.querySelectorAll('.persona-deep');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    personas.forEach(p => p.classList.add('is-visible'));
+  } else {
+    const revealIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    personas.forEach(p => revealIO.observe(p));
+  }
+
+  /* ── Pause atmospheric loops when offscreen, resume in viewport ── */
+  const inlineVideos = document.querySelectorAll('.persona-deep__media--video video');
+  if ('IntersectionObserver' in window) {
+    const playIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          v.play().catch(() => { /* autoplay blocked — poster still shows */ });
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.15 });
+    inlineVideos.forEach(v => {
+      playIO.observe(v);
+      // hide poster image once first frame is decoded
+      v.addEventListener('loadeddata', () => {
+        const poster = v.parentElement.querySelector('img');
+        if (poster) poster.style.opacity = '0';
+      }, { once: true });
+      v.addEventListener('error', () => {
+        // graceful fallback: keep static poster, drop the video element
+        v.remove();
+        const poster = v.parentElement && v.parentElement.querySelector('img');
+        if (poster) poster.style.opacity = '1';
+      });
+    });
+  }
+
+  /* ── Lightbox: click "Ver el caso" → fullscreen with sound ────── */
+  const lb = document.getElementById('video-lightbox');
+  if (lb) {
+    const lbVideo   = lb.querySelector('.video-lightbox__video');
+    const lbEyebrow = lb.querySelector('[data-video-eyebrow]');
+    const lbTitle   = lb.querySelector('[data-video-title]');
+    const lbClose   = lb.querySelector('[data-video-close]');
+    let lastTrigger = null;
+
+    const openLightbox = (trigger) => {
+      lastTrigger = trigger;
+      lbVideo.src = trigger.dataset.videoSrc;
+      lbEyebrow.textContent = trigger.dataset.videoEyebrow || '';
+      lbTitle.textContent = trigger.dataset.videoTitle || '';
+      lb.hidden = false;
+      // pause inline atmospheric loops while lightbox is open
+      inlineVideos.forEach(v => v.pause());
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        lb.classList.add('is-open');
+        lbVideo.play().catch(() => {});
+        lbClose.focus();
+      });
+    };
+
+    const closeLightbox = () => {
+      lb.classList.remove('is-open');
+      lbVideo.pause();
+      const finish = () => {
+        lb.hidden = true;
+        lbVideo.removeAttribute('src');
+        lbVideo.load();
+        document.body.style.overflow = '';
+        // restore inline loops
+        inlineVideos.forEach(v => {
+          const rect = v.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            v.play().catch(() => {});
+          }
+        });
+        if (lastTrigger) lastTrigger.focus();
+      };
+      if (reduceMotion) finish();
+      else setTimeout(finish, 250);
+    };
+
+    document.querySelectorAll('[data-video-open]').forEach(btn => {
+      btn.addEventListener('click', () => openLightbox(btn));
+    });
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lb.hidden) closeLightbox();
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
