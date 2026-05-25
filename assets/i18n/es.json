@@ -24,5 +24,68 @@
     "cta_secondary": "Ver metodología",
     "trust_label": "Operamos bajo estándares internacionales",
     "scroll": "Scroll to explore"
+  },
+  "about": {
+    "ticker_tl": "DESDE 2014 · CSIRT CERTIFICADO · 7×24 LATAM",
+    "ticker_br": "ISO 9001:2015 · ISO/IEC 27001:2022",
+    "eyebrow": "Sobre ASHA Solution",
+    "title_pre": "Las cosas",
+    "title_accent": "como deben ser.",
+    "title_post": "Doce años haciendo que la protección sea operativa, medible y humana.",
+    "lede": "ASHA Solution integra Ciberinteligencia, Ciberseguridad, Seguridad de la Información y prevención de Ciberfraude para detener ataques de alta complejidad que rebasan las herramientas convencionales — con equipo propio, marcos validados y operación 7×24 entre Ciudad de México y Tenerife.",
+    "cta_primary": "Hablar con un experto",
+    "cta_secondary": "Ver metodología",
+
+    "who_eyebrow": "01 · Quiénes somos",
+    "who_title": "No somos un proveedor más de ciberseguridad.",
+    "who_p1": "En ASHA Solution no somos un proveedor más de productos o servicios estándares. Nuestro enfoque se centra en integrar soluciones de marcas líderes adaptándolas al contexto específico de cada cliente — banca, seguros, retail, telco y operaciones críticas en LATAM.",
+    "who_p2": "Nuestro compromiso es ofrecer prácticas en Seguridad de la Información innovadoras y de mejora continua que superen las expectativas de nuestros clientes, garantizando resultados de alto impacto y una experiencia excepcional en cada interacción.",
+    "chip_csirt": "CSIRT propio",
+    "chip_iso": "ISO 27001:2022",
+    "chip_first": "FIRST member",
+    "chip_misp": "MISP threat sharing",
+
+    "essence_eyebrow": "02 · Nuestra esencia",
+    "essence_title": "Aša — el principio organizador del universo.",
+    "essence_p1": "ASHA viene del antiguo persa “aša” y del persa medio “ard”. Puede traducirse como “el principio organizador del universo”, que para nosotros se transformó en el lema:",
+    "essence_pull": "“Las cosas como deben ser.”",
+    "essence_p2": "Esta ideología es la que nos define como empresa. Aseguramos que nuestros servicios se basen en las mejores prácticas, estándares y normas con metodologías ágiles — y entregamos modelos de servicio simples e innovadores con profesionales altamente capacitados, con conocimiento agnóstico que no solo entiende las tecnologías usadas, sino también el entorno.",
+
+    "track_eyebrow": "03 · Nuestra trayectoria",
+    "track_title": "Confíe en nuestro equipo.",
+    "track_lede": "Una década protegiendo organizaciones críticas de LATAM, validados por los fabricantes bajo contratos MSSP.",
+    "metric_years": "Años de experiencia",
+    "metric_years_caption": "Sin dejar de prepararnos ni un día — especialización continua para entregar un servicio de excelencia.",
+    "metric_clients": "Clientes satisfechos",
+    "metric_clients_caption": "Confían en nosotros empresas líderes en Banca, Seguros, Retail, Telco e Inmobiliario.",
+    "metric_projects": "Proyectos realizados",
+    "metric_projects_caption": "Vasta experiencia en cacería de amenazas, detección de fraude y protección de la información.",
+
+    "why_eyebrow": "04 · Por qué preferirnos",
+    "why_title": "Seis razones para trabajar con ASHA.",
+    "why_1_t": "Customización",
+    "why_1_d": "Soluciones altamente customizadas a las necesidades y contextos de cada cliente — no productos enlatados.",
+    "why_2_t": "Basados en estándares",
+    "why_2_d": "Alineados a NIST 2.0, MITRE ATT&CK, ISO 27001:2022 y los marcos de referencia que optimizan la operación.",
+    "why_3_t": "Amplia experiencia",
+    "why_3_d": "Foco en banca, finanzas, seguros y retail — sectores donde el costo de un incidente se mide en horas y dinero.",
+    "why_4_t": "Infraestructura adecuada",
+    "why_4_d": "Plataforma MISP propia para monitoreo de amenazas y respuesta a incidentes con telemetría dedicada por cliente.",
+    "why_5_t": "Ingenieros certificados",
+    "why_5_d": "Líderes y consultores con certificaciones técnicas de los fabricantes seleccionados como pilares de nuestras prácticas.",
+    "why_6_t": "CSOC operativo",
+    "why_6_d": "Centro de operación que aplica la metodología CSIRT integrando los servicios de los mejores fabricantes.",
+
+    "certs_eyebrow": "05 · Certificaciones",
+    "certs_title": "El más alto nivel de certificación en Hispanoamérica.",
+
+    "alli_eyebrow": "06 · Alianzas",
+    "alli_title": "Trabajamos con los líderes del cuadrante Gartner.",
+    "alli_lede": "Una red de fabricantes y partners tier-1 que respalda cada metodología ASHA bajo contratos MSSP.",
+
+    "final_cta_pre": "Descubra cómo podemos blindar a su organización contra",
+    "final_cta_accent": "vulnerabilidades y amenazas",
+    "final_cta_post": "de todo tipo.",
+    "final_cta_btn": "Conversemos"
   }
 }
