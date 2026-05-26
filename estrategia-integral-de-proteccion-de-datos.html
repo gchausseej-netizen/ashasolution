@@ -2,174 +2,374 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-<title>Estrategia Integral de Protección de Datos - ASHA Solution</title>
-<meta name="description" content="Asegure la confidencialidad, integridad y disponibilidad de sus datos con nuestros servicios avanzados de protección de datos." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estrategia Integral de Protección de Datos — ASHA Solution</title>
+<meta name="description" content="GRC · Governance, Risk, Compliance. Protección integral de datos con DLP agnóstico, clasificación con IA, cumplimiento ISO 27001 / NIST CSF / GDPR / LGPD." />
+<meta name="theme-color" content="#0A0E27" />
 <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/redesign.css">
 </head>
-<body>
+<body class="page-service page-service--grc">
 
-<div class="page-loader" id="pageLoader" aria-hidden="true"></div>
+<!-- Inline icon sprite (Heroicons outline 24/outline) ------------------- -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"></path><polyline points="9 12 11 14 15 10"></polyline></symbol>
+  <symbol id="i-gavel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="11" y="3" width="6" height="6" rx="1" transform="rotate(-45 14 6)"></rect><path d="M14 9l-9 9"></path><line x1="3" y1="21" x2="11" y2="21"></line><line x1="4" y1="20" x2="6" y2="22"></line></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></symbol>
+  <symbol id="i-trend-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 7 9 13 13 9 21 17"></polyline><polyline points="14 17 21 17 21 10"></polyline></symbol>
+  <symbol id="i-gears" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"></circle><path d="M9 3v2"></path><path d="M9 13v2"></path><path d="M3 9h2"></path><path d="M13 9h2"></path><circle cx="16" cy="16" r="2.5"></circle><path d="M16 12v1.5"></path><path d="M16 18.5v1.5"></path><path d="M12 16h1.5"></path><path d="M18.5 16h1.5"></path></symbol>
+  <symbol id="i-graduate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5L2 9z"></path><path d="M6 12v4c0 2.2 3.6 3 6 3s6-.8 6-3v-4"></path><line x1="22" y1="9" x2="22" y2="14"></line></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polygon points="15 9 12 12 9 15 12 12 15 9 12 12" stroke-linejoin="round"></polygon><polygon points="14.7 8.3 12.3 12 8.5 15.5 11.7 11.5"></polygon></symbol>
+  <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"></line><line x1="5" y1="6" x2="19" y2="6"></line><path d="M5 6l-3 7a3 3 0 0 0 6 0z"></path><path d="M19 6l-3 7a3 3 0 0 0 6 0z"></path></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.5 19h-3V9h3v10zM6 7.7C5 7.7 4.3 7 4.3 6S5 4.3 6 4.3 7.7 5 7.7 6 7 7.7 6 7.7zm14 11.3h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19z"/></symbol>
+</svg>
 
-<div id="liquid-consent-container">
-  <div class="liquid-content">
-    <h3 class="liquid-title">Consentimiento para el Uso de sus Datos</h3>
-    <p class="liquid-text">Necesitamos su consentimiento para recolectar sus datos de uso. Esta información es anónima y se utiliza únicamente para mejorar la experiencia en nuestro sitio web. Consulta <a href="aviso-de-privacidad.html" target="_blank">nuestro aviso de privacidad</a></p>
-  </div>
-  <div class="liquid-actions">
-    <button id="btn-consent-decline" class="liquid-btn btn-decline">En este momento no</button>
-    <button id="btn-consent-accept" class="liquid-btn btn-accept">¡De acuerdo!</button>
-  </div>
-</div>
-
-<div class="page-wrapper">
-
-<header class="header" id="header">
-  <div class="header-inner container">
-    <div class="header-left">
-      <button class="mobile-menu-toggle" aria-label="Mobile Menu" id="mobileMenuToggle"><i class="fa-solid fa-bars"></i></button>
-      <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="ASHA Solution" class="logo" width="160" height="56" /></a>
-    </div>
-    <nav class="main-menu" id="mainMenu">
-      <ul>
-        <li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="metodologia.html">Metodología</a></li>
-        <li class="has-children active">
-          <a href="index.html#practicas">Prácticas <i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="submenu">
+<!-- HEADER -------------------------------------------------------------- -->
+<header class="site-header" id="header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-header__brand" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <nav class="main-nav" aria-label="Principal">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" href="index.html" data-i18n="nav.home">Inicio</a></li>
+        <li><a class="main-nav__link" href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+        <li><a class="main-nav__link" href="metodologia.html" data-i18n="nav.methodology">Metodología</a></li>
+        <li class="main-nav__item--has-children">
+          <a class="main-nav__link is-active" href="index.html#practicas" data-i18n="nav.practices">
+            Prácticas
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </a>
+          <ul class="main-nav__submenu" role="menu">
             <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
             <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
             <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
-            <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+            <li><a class="is-active" href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
             <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
           </ul>
         </li>
-        <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+        <li><a class="main-nav__link" href="bolsa-de-trabajo.html" data-i18n="nav.careers">Bolsa de Trabajo</a></li>
       </ul>
     </nav>
-    <div class="header-right">
-      <a href="contacto.html" class="btn btn-primary btn-rounded btn-csirt"><i class="fa-brands fa-wpforms"></i><span>ASHA CSIRT</span></a>
+    <div class="site-header__cta">
+      <div class="lang-switch" role="group" aria-label="Cambiar idioma">
+        <button type="button" class="lang-switch__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-secondary" href="contacto.html" data-i18n="cta.csirt">ASHA CSIRT</a>
+      <a class="btn btn-primary" href="contacto.html">
+        <span data-i18n="cta.contact">Contáctenos</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<section class="page-banner">
-  <div class="banner-bg" style="background-image:url('assets/images/hero-bg-original.jpg')"></div>
-  <div class="banner-overlay"></div>
-  <div class="container banner-content">
-    <h1 class="banner-title">4. Estrategia Integral<br/>de Protección de Datos</h1>
-    <h2 class="banner-subtitle" style="font-size:18px;font-weight:300;margin-top:18px;max-width:680px;line-height:1.7;">Asegure la confidencialidad, integridad y disponibilidad de sus datos con nuestros servicios avanzados.</h2>
+<!-- PAGE HERO — Service (GRC green via body class) ---------------------- -->
+<section class="page-hero page-hero--league page-hero--service">
+  <div class="page-hero__bg" aria-hidden="true">
+    <div class="page-hero__bg-grad"></div>
+    <div class="page-hero__bg-grid"></div>
+    <div class="page-hero__bg-drift"></div>
+  </div>
+
+  <div class="page-hero__ticker page-hero__ticker--tl" aria-hidden="true">
+    <span class="page-hero__ticker-dot"></span>
+    <span class="page-hero__ticker-text" data-i18n="grc.ticker_tl">PERSONA · GRC · GOVERNANCE RISK COMPLIANCE</span>
+  </div>
+  <div class="page-hero__ticker page-hero__ticker--br" aria-hidden="true">
+    <span class="page-hero__ticker-text" data-i18n="grc.ticker_br">ISO 27001 · NIST CSF · GDPR · LGPD · COBIT</span>
+    <span class="page-hero__ticker-dot"></span>
+  </div>
+
+  <div class="container page-hero__inner">
+    <span class="page-hero__eyebrow">
+      <span class="page-hero__eyebrow-dot"></span>
+      <span data-i18n="grc.eyebrow">Práctica 04 · GRC</span>
+    </span>
+    <h1 class="page-hero__title">
+      <span data-i18n="grc.title_pre">Estrategia Integral de</span>
+      <span class="accent" data-i18n="grc.title_accent">Protección de Datos</span>
+      <span data-i18n="grc.title_post">— confidencialidad, integridad y disponibilidad en cada capa.</span>
+    </h1>
+    <p class="page-hero__lede" data-i18n="grc.lede">
+      Enfoque holístico que combina Shadow IT, IA para descubrimiento, clasificación con más del 60% de precisión desde día uno, encriptación, DLP agnóstico a la tecnología y gobierno alineado a ISO 27001, NIST CSF, GDPR y LGPD.
+    </p>
+    <div class="page-hero__actions">
+      <a class="btn btn-primary btn-pill" href="contacto.html">
+        <span data-i18n="grc.cta_primary">Solicitar diagnóstico GRC</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <a class="btn btn-secondary btn-pill" href="metodologia.html#grc" data-i18n="grc.cta_secondary">Ver metodología GRC</a>
+    </div>
   </div>
 </section>
 
-<div class="breadcrumb-wrap">
+<!-- BREADCRUMB --------------------------------------------------------- -->
+<nav class="breadcrumb-wrap" aria-label="Breadcrumb">
   <div class="container">
-    <ul class="breadcrumb">
-      <li><a href="index.html">Home</a></li>
-      <li class="delimiter"><i class="fa-solid fa-angle-right"></i></li>
-      <li>Estrategia Integral de Protección de Datos</li>
-    </ul>
+    <ol class="breadcrumb">
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="index.html#practicas" data-i18n="nav.practices">Prácticas</a></li>
+      <li data-i18n="grc.breadcrumb">Protección de Datos</li>
+    </ol>
   </div>
-</div>
+</nav>
 
-<main id="main" class="main">
+<main id="main">
 
-  <section class="intro-section">
-    <div class="container" style="max-width:980px;">
-      <h2 style="text-align:center;">Datos protegidos en cada capa</h2>
-      <p style="text-align:justify;">Empleamos un enfoque holístico que comienza con la implementación de Shadow IT para asegurar que los datos residan en aplicaciones aprobadas por la organización. Aprovechamos IA y machine learning para descubrir datos en toda la organización con visibilidad completa de inventario.</p>
-      <p style="text-align:justify;">Nuestras estrategias clave incluyen: identificación de información duplicada con eliminación segura, encriptación de datos sensibles, protección de bases de datos y gobierno de datos con evaluaciones de riesgo para clasificación precisa.</p>
-      <p style="text-align:justify;">La plataforma ofrece <strong>Data Loss Protection</strong> agnóstica a la tecnología, alineada con los principales marcos regulatorios. Capacidades avanzadas de clasificación procesan millones de documentos en menos de 30 días, logrando más del 60% de precisión desde el descubrimiento inicial.</p>
+  <!-- 01 · BRIEF — Holistic framing + 60% classification stat --------- -->
+  <section class="section section--dark" aria-labelledby="grc-brief-title">
+    <div class="container service-brief">
+      <div class="service-brief__copy">
+        <span class="eyebrow" data-i18n="grc.brief_eyebrow">01 · El problema</span>
+        <h2 class="section-title" id="grc-brief-title" data-i18n="grc.brief_title">Datos protegidos en cada capa — desde el descubrimiento hasta el cumplimiento.</h2>
+        <p data-i18n="grc.brief_p1">Empleamos un enfoque holístico que comienza con la implementación de <strong>Shadow IT</strong> para asegurar que los datos residan en aplicaciones aprobadas por la organización. Aprovechamos <strong>IA y machine learning</strong> para descubrir datos en toda la organización con visibilidad completa de inventario.</p>
+        <p data-i18n="grc.brief_p2">Nuestras estrategias clave incluyen: identificación de información duplicada con eliminación segura, encriptación de datos sensibles, protección de bases de datos y gobierno con evaluaciones de riesgo para clasificación precisa — alineada a los principales marcos regulatorios LATAM y globales.</p>
+      </div>
+      <aside class="service-brief__stat">
+        <div class="service-stat">
+          <span class="service-stat__num">60<span class="unit">%+</span></span>
+          <p class="service-stat__label" data-i18n="grc.stat_label">de precisión en clasificación de datos desde el descubrimiento inicial — millones de documentos procesados en menos de 30 días.</p>
+          <p class="service-stat__source" data-i18n="grc.stat_source">Fuente: deployments ASHA · DLP agnóstico</p>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="feat-list-band">
+  <!-- 02 · COMPONENTES DEL SERVICIO — 6 service cards (GRC green) ---- -->
+  <section class="section section--dark" aria-labelledby="grc-comp-title">
     <div class="container">
-      <h2>Componentes del servicio</h2>
-      <div class="feat-grid">
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-gavel"></i></div><h3>Cumplimiento Normativo</h3><p>Alineación con los marcos regulatorios y normativos.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-lock"></i></div><h3>Mejora de la Seguridad</h3><p>Fortalecimiento de la postura de seguridad de la información.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-arrow-trend-down"></i></div><h3>Reducción de Riesgos</h3><p>Mitigación de riesgos a través de controles efectivos.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-gears"></i></div><h3>Optimización de Procesos</h3><p>Eficiencia operativa basada en datos clasificados.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-handshake-angle"></i></div><h3>Confianza del Cliente</h3><p>Fortalecimiento de la confianza mediante prácticas robustas.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-graduation-cap"></i></div><h3>Capacitación y Concientización</h3><p>Programas de formación para los colaboradores.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-shield-virus"></i></div><h3>Preparación para Incidentes</h3><p>Planes y simulacros listos para activarse.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-compass"></i></div><h3>Asesoramiento Estratégico</h3><p>Roadmap y consultoría adaptada al contexto del cliente.</p></article>
+      <header class="section-head">
+        <span class="eyebrow" data-i18n="grc.comp_eyebrow">02 · Componentes del servicio</span>
+        <h2 class="section-title" id="grc-comp-title" data-i18n="grc.comp_title">El ciclo completo de governance, risk y compliance.</h2>
+      </header>
+
+      <div class="service-cards">
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-gavel"/></svg></div>
+          <h3 class="service-card__title" data-i18n="grc.fn_1_t">Cumplimiento Normativo</h3>
+          <p class="service-card__desc" data-i18n="grc.fn_1_d">Alineación con marcos regulatorios LATAM y globales — ISO 27001, NIST CSF 2.0, GDPR, LGPD, leyes locales por país.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-lock"/></svg></div>
+          <h3 class="service-card__title" data-i18n="grc.fn_2_t">Mejora de la Seguridad</h3>
+          <p class="service-card__desc" data-i18n="grc.fn_2_d">Fortalecimiento de la postura de seguridad con DLP agnóstico, encriptación y controles de acceso continuos.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-trend-down"/></svg></div>
+          <h3 class="service-card__title" data-i18n="grc.fn_3_t">Reducción de Riesgos</h3>
+          <p class="service-card__desc" data-i18n="grc.fn_3_d">Mitigación de riesgos vía controles efectivos validados — del análisis estratégico a la operación medible.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-gears"/></svg></div>
+          <h3 class="service-card__title" data-i18n="grc.fn_4_t">Optimización de Procesos</h3>
+          <p class="service-card__desc" data-i18n="grc.fn_4_d">Eficiencia operativa basada en datos clasificados — menos ruido, decisiones más rápidas, costos predecibles.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-graduate"/></svg></div>
+          <h3 class="service-card__title" data-i18n="grc.fn_5_t">Capacitación y Concientización</h3>
+          <p class="service-card__desc" data-i18n="grc.fn_5_d">Programas de formación para colaboradores + simulacros listos para activarse cuando llegue el incidente real.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-compass"/></svg></div>
+          <h3 class="service-card__title" data-i18n="grc.fn_6_t">Asesoramiento Estratégico</h3>
+          <p class="service-card__desc" data-i18n="grc.fn_6_d">Roadmap y consultoría adaptada al contexto del cliente — board-level reporting y plan de inversión multianual.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="big-cta" style="background-image:url('assets/images/cta-banner-original.jpg')">
-    <div class="big-cta-overlay"></div>
-    <div class="container big-cta-content">
-      <h2 class="highlight-text white">Descubra cómo podemos blindar a su organización contra <span class="highlight">vulnerabilidades y amenazas</span> de todo tipo</h2>
-      <a href="contacto.html" class="btn btn-outline btn-outline-white btn-rounded"><span>Conversemos</span><i class="fa-solid fa-arrow-right-long"></i></a>
+  <!-- 03 · MARCOS DE REFERENCIA ---------------------------------------- -->
+  <section class="section section--dark" aria-labelledby="grc-frw-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" data-i18n="grc.frw_eyebrow">03 · Marcos regulatorios</span>
+        <h2 class="section-title" id="grc-frw-title" data-i18n="grc.frw_title">Cumplimos los estándares que su industria exige.</h2>
+      </header>
+      <div class="frameworks-strip">
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-shield-check"/></svg>
+          <div><strong>ISO/IEC 27001</strong><span>InfoSec management</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-scale"/></svg>
+          <div><strong>NIST CSF 2.0</strong><span>Govern · Protect</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-database"/></svg>
+          <div><strong>GDPR · LGPD</strong><span>Data privacy LATAM/EU</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-gavel"/></svg>
+          <div><strong>COBIT 2019</strong><span>IT governance</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -------------------------------------------------------- -->
+  <section class="final-cta" aria-labelledby="grc-cta-title">
+    <div class="container final-cta__inner">
+      <h2 class="final-cta__title" id="grc-cta-title">
+        <span data-i18n="grc.final_cta_pre">¿Su organización está lista para una auditoría regulatoria mañana?</span>
+        <span class="accent" data-i18n="grc.final_cta_accent">Diagnóstico GRC sin compromiso</span>
+        <span data-i18n="grc.final_cta_post">— sabrás dónde estás y qué falta.</span>
+      </h2>
+      <div class="final-cta__actions">
+        <a class="btn btn-primary btn-pill" href="contacto.html">
+          <span data-i18n="grc.final_cta_btn">Solicitar diagnóstico GRC</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer" id="footer">
-  <div class="container footer-grid">
-    <div class="footer-col">
-      <a href="index.html"><img src="assets/images/logo.png" alt="ASHA Solution" class="footer-logo" /></a>
-      <p>Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+<!-- FOOTER ------------------------------------------------------------ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__col">
+        <a href="index.html" aria-label="ASHA Solution">
+          <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-footer__logo" width="190" height="44" />
+        </a>
+        <p class="site-footer__brand-text">
+          Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="site-footer__col">
+        <h3>Empresa</h3>
+        <ul class="site-footer__list">
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="metodologia.html">Metodología</a></li>
+          <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="aviso-de-privacidad.html">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Prácticas</h3>
+        <ul class="site-footer__list">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Vulnerabilidades</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Incidentes y Cacería</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Ciberfraude</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Cobertura LATAM</h3>
+        <ul class="site-footer__list">
+          <li>México</li>
+          <li>Colombia</li>
+          <li>Ecuador</li>
+          <li>Chile</li>
+          <li>República Dominicana</li>
+        </ul>
+        <div class="footer-map" style="margin-top: var(--space-4);">
+          <img src="assets/images/latam-map-real.png" alt="Cobertura ASHA en Latinoamérica" loading="lazy">
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h3>Empresa</h3>
-      <ul class="footer-list">
-        <li><a href="nosotros.html">Nosotros</a></li><li><a href="metodologia.html">Metodología</a></li>
-        <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
-        <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
-        <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
-        <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
-        <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li><li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h3>Países</h3>
-      <ul class="footer-list">
-        <li><a href="#">México</a></li><li><a href="#">Colombia</a></li><li><a href="#">Ecuador</a></li><li><a href="#">Chile</a></li><li><a href="#">Rep. Dominicana</a></li>
-      </ul>
-    </div>
-    <div class="footer-col footer-map-col">
-      <div class="footer-title-underline"><h3>Cobertura en Latam</h3></div>
-      <div class="latam-map-wrapper">
-        <img src="assets/images/latam-map-real.png" alt="Mapa Latam ASHA" class="latam-map" />
-        <span class="hotspot" style="top:32%;left:24%;" data-label="CD de México"></span>
-        <span class="hotspot" style="top:48%;left:31%;" data-label="San José"></span>
-        <span class="hotspot" style="top:54%;left:42%;" data-label="Bogotá"></span>
-        <span class="hotspot" style="top:64%;left:40%;" data-label="Quito"></span>
-        <span class="hotspot" style="top:86%;left:42%;" data-label="Santiago"></span>
-        <span class="hotspot" style="top:26%;left:32%;" data-label="Monterrey"></span>
-      </div>
+    <div class="site-footer__bottom">
+      <p>ASHA Solution &copy; 2026. Todos los derechos reservados.</p>
+      <a href="aviso-de-privacidad.html">Aviso de privacidad</a>
     </div>
   </div>
-  <div class="footer-bottom"><div class="container"><p class="copyright">ASHA Solution © 2026.</p></div></div>
 </footer>
 
-</div>
-
-<a id="scroll-top" class="scroll-top" href="#header" title="Top" role="button"><i class="fa-solid fa-arrow-up"></i></a>
-
-<div class="mobile-menu-wrapper" id="mobileMenuWrapper">
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu-container">
-    <a class="mobile-menu-close" href="#" id="mobileMenuClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
-    <ul class="mobile-menu-list">
-      <li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="index.html#practicas">Prácticas</a></li><li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li><li><a href="contacto.html">ASHA CSIRT</a></li>
+<!-- Mobile menu -------------------------------------------------------- -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú principal" hidden>
+  <div class="mobile-menu__header">
+    <a href="index.html" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <button type="button" class="mobile-menu__close" aria-label="Cerrar menú" data-mobile-close>
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu__inner" aria-label="Principal móvil">
+    <ul class="mobile-menu__list">
+      <li><a class="mobile-menu__link" href="index.html">Inicio</a></li>
+      <li><a class="mobile-menu__link" href="nosotros.html">Nosotros</a></li>
+      <li><a class="mobile-menu__link" href="metodologia.html">Metodología</a></li>
+      <li>
+        <a class="mobile-menu__link" href="index.html#practicas">
+          Prácticas
+          <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </a>
+        <ul class="mobile-submenu">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+          <li><a class="is-active" href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+        </ul>
+      </li>
+      <li><a class="mobile-menu__link" href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
     </ul>
+  </nav>
+  <div class="mobile-menu__cta">
+    <a class="btn btn-secondary" href="contacto.html">ASHA CSIRT</a>
+    <a class="btn btn-primary" href="contacto.html">
+      Contáctenos
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </a>
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/scroll-fx.js" defer></script>
+<script src="assets/js/site-enhance.js" defer></script>
+<script src="assets/js/page-hero-reveal.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+
+<script>
+(function () {
+  'use strict';
+  const menu  = document.getElementById('mobile-menu');
+  const openBtn  = document.querySelector('.mobile-menu-toggle');
+  const closeBtn = document.querySelector('[data-mobile-close]');
+  if (menu && openBtn && closeBtn) {
+    menu.removeAttribute('hidden');
+    const setOpen = (state) => {
+      menu.classList.toggle('is-open', state);
+      document.body.classList.toggle('menu-open', state);
+      openBtn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      if (state) closeBtn.focus(); else openBtn.focus();
+    };
+    openBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) setOpen(false);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

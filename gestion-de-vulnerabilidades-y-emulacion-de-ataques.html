@@ -2,174 +2,376 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-<title>Gestión de Vulnerabilidades y Emulación de Ataques - ASHA Solution</title>
-<meta name="description" content="Identificamos y mitigamos vulnerabilidades de forma proactiva, y simulamos ataques para fortalecer su seguridad." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gestión de Vulnerabilidades y Emulación de Ataques — ASHA Solution</title>
+<meta name="description" content="CTEM · Continuous Threat Exposure Management. Identificamos, priorizamos y mitigamos vulnerabilidades. Emulación de ataques tipo red team alineada a MITRE." />
+<meta name="theme-color" content="#0A0E27" />
 <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/redesign.css">
 </head>
-<body>
+<body class="page-service page-service--ctem">
 
-<div class="page-loader" id="pageLoader" aria-hidden="true"></div>
+<!-- Inline icon sprite (Heroicons outline 24/outline) ------------------- -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"></path><polyline points="9 12 11 14 15 10"></polyline></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4" fill="currentColor"></circle></symbol>
+  <symbol id="i-magnify" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16" y2="16"></line><polyline points="8 11 10 13 14 9"></polyline></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.5"></rect><rect x="3" y="13" width="18" height="7" rx="1.5"></rect><line x1="7" y1="7.5" x2="7.01" y2="7.5"></line><line x1="7" y1="16.5" x2="7.01" y2="16.5"></line></symbol>
+  <symbol id="i-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="8" width="10" height="11" rx="5"></rect><path d="M9 4l1.5 3"></path><path d="M15 4l-1.5 3"></path><line x1="3" y1="13" x2="6" y2="13"></line><line x1="18" y1="13" x2="21" y2="13"></line><line x1="4" y1="20" x2="7" y2="18"></line><line x1="20" y1="20" x2="17" y2="18"></line><line x1="4" y1="6" x2="7" y2="8"></line><line x1="20" y1="6" x2="17" y2="8"></line></symbol>
+  <symbol id="i-chart-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"></polyline><polyline points="14 7 21 7 21 14"></polyline></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.7 2.7-2-2 2.7-2.7z"></path></symbol>
+  <symbol id="i-ninja" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10c4-4 14-4 18 0"></path><path d="M3 14c4 4 14 4 18 0"></path><circle cx="9" cy="12" r="1.5" fill="currentColor"></circle><circle cx="15" cy="12" r="1.5" fill="currentColor"></circle></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="14 3 14 9 20 9"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="14" y2="17"></line></symbol>
+  <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 4 14 12 14 11 22 20 10 12 10 13 2"></polyline></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.5 19h-3V9h3v10zM6 7.7C5 7.7 4.3 7 4.3 6S5 4.3 6 4.3 7.7 5 7.7 6 7 7.7 6 7.7zm14 11.3h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19z"/></symbol>
+</svg>
 
-<div id="liquid-consent-container">
-  <div class="liquid-content">
-    <h3 class="liquid-title">Consentimiento para el Uso de sus Datos</h3>
-    <p class="liquid-text">Necesitamos su consentimiento para recolectar sus datos de uso. Esta información es anónima y se utiliza únicamente para mejorar la experiencia en nuestro sitio web. Consulta <a href="aviso-de-privacidad.html" target="_blank">nuestro aviso de privacidad</a></p>
-  </div>
-  <div class="liquid-actions">
-    <button id="btn-consent-decline" class="liquid-btn btn-decline">En este momento no</button>
-    <button id="btn-consent-accept" class="liquid-btn btn-accept">¡De acuerdo!</button>
-  </div>
-</div>
-
-<div class="page-wrapper">
-
-<header class="header" id="header">
-  <div class="header-inner container">
-    <div class="header-left">
-      <button class="mobile-menu-toggle" aria-label="Mobile Menu" id="mobileMenuToggle"><i class="fa-solid fa-bars"></i></button>
-      <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="ASHA Solution" class="logo" width="160" height="56" /></a>
-    </div>
-    <nav class="main-menu" id="mainMenu">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="metodologia.html">Metodología</a></li>
-        <li class="has-children active">
-          <a href="index.html#practicas">Prácticas <i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="submenu">
+<!-- HEADER -------------------------------------------------------------- -->
+<header class="site-header" id="header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-header__brand" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <nav class="main-nav" aria-label="Principal">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" href="index.html" data-i18n="nav.home">Inicio</a></li>
+        <li><a class="main-nav__link" href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+        <li><a class="main-nav__link" href="metodologia.html" data-i18n="nav.methodology">Metodología</a></li>
+        <li class="main-nav__item--has-children">
+          <a class="main-nav__link is-active" href="index.html#practicas" data-i18n="nav.practices">
+            Prácticas
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </a>
+          <ul class="main-nav__submenu" role="menu">
             <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
-            <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+            <li><a class="is-active" href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
             <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
             <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
             <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
           </ul>
         </li>
-        <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+        <li><a class="main-nav__link" href="bolsa-de-trabajo.html" data-i18n="nav.careers">Bolsa de Trabajo</a></li>
       </ul>
     </nav>
-    <div class="header-right">
-      <a href="contacto.html" class="btn btn-primary btn-rounded btn-csirt"><i class="fa-brands fa-wpforms"></i><span>ASHA CSIRT</span></a>
+    <div class="site-header__cta">
+      <div class="lang-switch" role="group" aria-label="Cambiar idioma">
+        <button type="button" class="lang-switch__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-secondary" href="contacto.html" data-i18n="cta.csirt">ASHA CSIRT</a>
+      <a class="btn btn-primary" href="contacto.html">
+        <span data-i18n="cta.contact">Contáctenos</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<section class="page-banner">
-  <div class="banner-bg" style="background-image:url('assets/images/hero-bg-original.jpg')"></div>
-  <div class="banner-overlay"></div>
-  <div class="container banner-content">
-    <h1 class="banner-title">2. Gestión de Vulnerabilidades<br/>y Emulación de Ataques</h1>
-    <h2 class="banner-subtitle" style="font-size:18px;font-weight:300;margin-top:18px;max-width:680px;line-height:1.7;">Identificamos y mitigamos vulnerabilidades de forma proactiva, y simulamos ataques para fortalecer su seguridad.</h2>
+<!-- PAGE HERO — Service (CTEM orange via body class) --------------------- -->
+<section class="page-hero page-hero--league page-hero--service">
+  <div class="page-hero__bg" aria-hidden="true">
+    <div class="page-hero__bg-grad"></div>
+    <div class="page-hero__bg-grid"></div>
+    <div class="page-hero__bg-drift"></div>
+  </div>
+
+  <div class="page-hero__ticker page-hero__ticker--tl" aria-hidden="true">
+    <span class="page-hero__ticker-dot"></span>
+    <span class="page-hero__ticker-text" data-i18n="ctem.ticker_tl">PERSONA · CTEM · EXPOSURE MANAGEMENT</span>
+  </div>
+  <div class="page-hero__ticker page-hero__ticker--br" aria-hidden="true">
+    <span class="page-hero__ticker-text" data-i18n="ctem.ticker_br">CVSS · NVD · CVE · MITRE D3FEND</span>
+    <span class="page-hero__ticker-dot"></span>
+  </div>
+
+  <div class="container page-hero__inner">
+    <span class="page-hero__eyebrow">
+      <span class="page-hero__eyebrow-dot"></span>
+      <span data-i18n="ctem.eyebrow">Práctica 02 · CTEM</span>
+    </span>
+    <h1 class="page-hero__title">
+      <span data-i18n="ctem.title_pre">Gestión de Vulnerabilidades y</span>
+      <span class="accent" data-i18n="ctem.title_accent">Emulación de Ataques</span>
+      <span data-i18n="ctem.title_post">— activos protegidos con precisión y rapidez.</span>
+    </h1>
+    <p class="page-hero__lede" data-i18n="ctem.lede">
+      CTEM — Continuous Threat Exposure Management. Identificamos y mitigamos vulnerabilidades de forma proactiva, y simulamos ataques tipo red team para fortalecer su superficie defensiva. Parchado automatizado, priorización por riesgo de negocio y reportes ejecutivos en una sola práctica.
+    </p>
+    <div class="page-hero__actions">
+      <a class="btn btn-primary btn-pill" href="contacto.html">
+        <span data-i18n="ctem.cta_primary">Solicitar evaluación CTEM</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <a class="btn btn-secondary btn-pill" href="metodologia.html#ctem" data-i18n="ctem.cta_secondary">Ver metodología CTEM</a>
+    </div>
   </div>
 </section>
 
-<div class="breadcrumb-wrap">
+<!-- BREADCRUMB --------------------------------------------------------- -->
+<nav class="breadcrumb-wrap" aria-label="Breadcrumb">
   <div class="container">
-    <ul class="breadcrumb">
-      <li><a href="index.html">Home</a></li>
-      <li class="delimiter"><i class="fa-solid fa-angle-right"></i></li>
-      <li>Gestión de Vulnerabilidades y Emulación de Ataques</li>
-    </ul>
+    <ol class="breadcrumb">
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="index.html#practicas" data-i18n="nav.practices">Prácticas</a></li>
+      <li data-i18n="ctem.breadcrumb">Vulnerabilidades y Emulación</li>
+    </ol>
   </div>
-</div>
+</nav>
 
-<main id="main" class="main">
+<main id="main">
 
-  <section class="intro-section">
-    <div class="container" style="max-width:980px;">
-      <h2 style="text-align:center;">Proteja sus activos con precisión y rapidez</h2>
-      <p style="text-align:justify;">La National Vulnerability Database detectó más de <strong>21,000 vulnerabilidades</strong> en 2022. ASHA aborda este desafío con un enfoque integral que combina servicios de mejora continua: gestión de exposición, evaluación de vulnerabilidades, validación y simulación de ataques. Nuestras soluciones de remediación automatizada reducen la carga operativa del equipo de TI en <strong>más del 80%</strong>.</p>
+  <!-- 01 · BRIEF — NVD scale framing + 80% load reduction stat -------- -->
+  <section class="section section--dark" aria-labelledby="ctem-brief-title">
+    <div class="container service-brief">
+      <div class="service-brief__copy">
+        <span class="eyebrow" data-i18n="ctem.brief_eyebrow">01 · El problema</span>
+        <h2 class="section-title" id="ctem-brief-title" data-i18n="ctem.brief_title">21,000+ CVE publicados al año. ¿Cuáles importan para tu negocio?</h2>
+        <p data-i18n="ctem.brief_p1">La <strong>National Vulnerability Database</strong> detectó más de 21,000 vulnerabilidades en 2022 — y la cifra crece todos los años. Sin una práctica continua de exposure management, los equipos de TI se ahogan en el ruido y los atacantes encuentran la grieta primero.</p>
+        <p data-i18n="ctem.brief_p2">ASHA aborda este desafío con un enfoque integral CTEM que combina <strong>gestión de exposición, evaluación, priorización, validación y simulación</strong>. Nuestras soluciones de <strong>remediación automatizada</strong> reducen la carga operativa del equipo de TI en más del 80%.</p>
+      </div>
+      <aside class="service-brief__stat">
+        <div class="service-stat">
+          <span class="service-stat__num">80<span class="unit">%</span></span>
+          <p class="service-stat__label" data-i18n="ctem.stat_label">menos carga operativa del equipo de TI con parchado automatizado a escala.</p>
+          <p class="service-stat__source" data-i18n="ctem.stat_source">Fuente: deployments ASHA · banca &amp; retail LATAM</p>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="feat-list-band">
+  <!-- 02 · OFERTAS CLAVE — 6 service cards (CTEM orange) -------------- -->
+  <section class="section section--dark" aria-labelledby="ctem-offer-title">
     <div class="container">
-      <h2>Seis ofertas clave</h2>
-      <div class="feat-grid">
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-list-ol"></i></div><h3>Gestión de Activos</h3><p>Identificación y clasificación de los componentes de la red.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-bug"></i></div><h3>Evaluación de Vulnerabilidades</h3><p>Detección de vulnerabilidades y configuraciones erróneas.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-arrow-up-right-dots"></i></div><h3>Priorización</h3><p>Clasificación por severidad, explotabilidad y riesgo de negocio.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3>Resolución con Parchado Automatizado</h3><p>Parches y mitigaciones automatizadas a escala.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-user-ninja"></i></div><h3>Emulación de Ataques</h3><p>Simulaciones tipo red team que identifican vectores de ataque.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-file-invoice"></i></div><h3>Entrega de Reportes</h3><p>Reportes ejecutivos y técnicos de vulnerabilidades.</p></article>
+      <header class="section-head">
+        <span class="eyebrow" data-i18n="ctem.offer_eyebrow">02 · Seis ofertas clave</span>
+        <h2 class="section-title" id="ctem-offer-title" data-i18n="ctem.offer_title">El ciclo completo de exposure management.</h2>
+      </header>
+
+      <div class="service-cards">
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-server"/></svg></div>
+          <h3 class="service-card__title" data-i18n="ctem.fn_1_t">Gestión de Activos</h3>
+          <p class="service-card__desc" data-i18n="ctem.fn_1_d">Identificación y clasificación continua de los componentes de la red — endpoints, workloads, cloud, identidades.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-bug"/></svg></div>
+          <h3 class="service-card__title" data-i18n="ctem.fn_2_t">Evaluación de Vulnerabilidades</h3>
+          <p class="service-card__desc" data-i18n="ctem.fn_2_d">Detección de CVEs y configuraciones erróneas con escaneo continuo + threat intel contextualizada.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-chart-up"/></svg></div>
+          <h3 class="service-card__title" data-i18n="ctem.fn_3_t">Priorización</h3>
+          <p class="service-card__desc" data-i18n="ctem.fn_3_d">Clasificación por CVSS, explotabilidad real y riesgo de negocio — no todos los CVE merecen tu atención hoy.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-wrench"/></svg></div>
+          <h3 class="service-card__title" data-i18n="ctem.fn_4_t">Parchado Automatizado</h3>
+          <p class="service-card__desc" data-i18n="ctem.fn_4_d">Parches y mitigaciones automatizadas a escala con guard-rails — humanos aprueban, máquinas despliegan.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-ninja"/></svg></div>
+          <h3 class="service-card__title" data-i18n="ctem.fn_5_t">Emulación de Ataques</h3>
+          <p class="service-card__desc" data-i18n="ctem.fn_5_d">Simulaciones tipo red team alineadas a MITRE ATT&amp;CK — identifican vectores reales antes que el adversario.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-doc"/></svg></div>
+          <h3 class="service-card__title" data-i18n="ctem.fn_6_t">Reportes ejecutivos</h3>
+          <p class="service-card__desc" data-i18n="ctem.fn_6_d">Reportes técnicos para el equipo de TI y dashboards de riesgo para el board — un solo dato, dos audiencias.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="big-cta" style="background-image:url('assets/images/cta-banner-original.jpg')">
-    <div class="big-cta-overlay"></div>
-    <div class="container big-cta-content">
-      <h2 class="highlight-text white">Descubra cómo podemos blindar a su organización contra <span class="highlight">vulnerabilidades y amenazas</span> de todo tipo</h2>
-      <a href="contacto.html" class="btn btn-outline btn-outline-white btn-rounded"><span>Conversemos</span><i class="fa-solid fa-arrow-right-long"></i></a>
+  <!-- 03 · MARCOS DE REFERENCIA ---------------------------------------- -->
+  <section class="section section--dark" aria-labelledby="ctem-frw-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" data-i18n="ctem.frw_eyebrow">03 · Marcos de referencia</span>
+        <h2 class="section-title" id="ctem-frw-title" data-i18n="ctem.frw_title">Alineados a los estándares de la industria.</h2>
+      </header>
+      <div class="frameworks-strip">
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-target"/></svg>
+          <div><strong>Gartner CTEM</strong><span>Continuous exposure</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-bolt"/></svg>
+          <div><strong>CVSS v4</strong><span>Vulnerability scoring</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-database"/></svg>
+          <div><strong>NVD / CVE</strong><span>Vulnerability catalog</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-shield-check"/></svg>
+          <div><strong>MITRE D3FEND</strong><span>Defensive mappings</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -------------------------------------------------------- -->
+  <section class="final-cta" aria-labelledby="ctem-cta-title">
+    <div class="container final-cta__inner">
+      <h2 class="final-cta__title" id="ctem-cta-title">
+        <span data-i18n="ctem.final_cta_pre">¿Cuántos CVE críticos tienes abiertos hoy?</span>
+        <span class="accent" data-i18n="ctem.final_cta_accent">Empecemos por medir tu exposición</span>
+        <span data-i18n="ctem.final_cta_post">— evaluación inicial sin compromiso.</span>
+      </h2>
+      <div class="final-cta__actions">
+        <a class="btn btn-primary btn-pill" href="contacto.html">
+          <span data-i18n="ctem.final_cta_btn">Solicitar evaluación CTEM</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer" id="footer">
-  <div class="container footer-grid">
-    <div class="footer-col">
-      <a href="index.html"><img src="assets/images/logo.png" alt="ASHA Solution" class="footer-logo" /></a>
-      <p>Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+<!-- FOOTER ------------------------------------------------------------ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__col">
+        <a href="index.html" aria-label="ASHA Solution">
+          <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-footer__logo" width="190" height="44" />
+        </a>
+        <p class="site-footer__brand-text">
+          Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="site-footer__col">
+        <h3>Empresa</h3>
+        <ul class="site-footer__list">
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="metodologia.html">Metodología</a></li>
+          <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="aviso-de-privacidad.html">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Prácticas</h3>
+        <ul class="site-footer__list">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Vulnerabilidades</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Incidentes y Cacería</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Ciberfraude</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Cobertura LATAM</h3>
+        <ul class="site-footer__list">
+          <li>México</li>
+          <li>Colombia</li>
+          <li>Ecuador</li>
+          <li>Chile</li>
+          <li>República Dominicana</li>
+        </ul>
+        <div class="footer-map" style="margin-top: var(--space-4);">
+          <img src="assets/images/latam-map-real.png" alt="Cobertura ASHA en Latinoamérica" loading="lazy">
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h3>Empresa</h3>
-      <ul class="footer-list">
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="metodologia.html">Metodología</a></li>
-        <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
-        <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
-        <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
-        <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
-        <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h3>Países</h3>
-      <ul class="footer-list">
-        <li><a href="#">México</a></li><li><a href="#">Colombia</a></li><li><a href="#">Ecuador</a></li><li><a href="#">Chile</a></li><li><a href="#">Rep. Dominicana</a></li>
-      </ul>
-    </div>
-    <div class="footer-col footer-map-col">
-      <div class="footer-title-underline"><h3>Cobertura en Latam</h3></div>
-      <div class="latam-map-wrapper">
-        <img src="assets/images/latam-map-real.png" alt="Mapa Latam ASHA" class="latam-map" />
-        <span class="hotspot" style="top:32%;left:24%;" data-label="CD de México"></span>
-        <span class="hotspot" style="top:48%;left:31%;" data-label="San José"></span>
-        <span class="hotspot" style="top:54%;left:42%;" data-label="Bogotá"></span>
-        <span class="hotspot" style="top:64%;left:40%;" data-label="Quito"></span>
-        <span class="hotspot" style="top:86%;left:42%;" data-label="Santiago"></span>
-        <span class="hotspot" style="top:26%;left:32%;" data-label="Monterrey"></span>
-      </div>
+    <div class="site-footer__bottom">
+      <p>ASHA Solution &copy; 2026. Todos los derechos reservados.</p>
+      <a href="aviso-de-privacidad.html">Aviso de privacidad</a>
     </div>
   </div>
-  <div class="footer-bottom"><div class="container"><p class="copyright">ASHA Solution © 2026.</p></div></div>
 </footer>
 
-</div>
-
-<a id="scroll-top" class="scroll-top" href="#header" title="Top" role="button"><i class="fa-solid fa-arrow-up"></i></a>
-
-<div class="mobile-menu-wrapper" id="mobileMenuWrapper">
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu-container">
-    <a class="mobile-menu-close" href="#" id="mobileMenuClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
-    <ul class="mobile-menu-list">
-      <li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="index.html#practicas">Prácticas</a></li><li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li><li><a href="contacto.html">ASHA CSIRT</a></li>
+<!-- Mobile menu -------------------------------------------------------- -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú principal" hidden>
+  <div class="mobile-menu__header">
+    <a href="index.html" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <button type="button" class="mobile-menu__close" aria-label="Cerrar menú" data-mobile-close>
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu__inner" aria-label="Principal móvil">
+    <ul class="mobile-menu__list">
+      <li><a class="mobile-menu__link" href="index.html">Inicio</a></li>
+      <li><a class="mobile-menu__link" href="nosotros.html">Nosotros</a></li>
+      <li><a class="mobile-menu__link" href="metodologia.html">Metodología</a></li>
+      <li>
+        <a class="mobile-menu__link" href="index.html#practicas">
+          Prácticas
+          <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </a>
+        <ul class="mobile-submenu">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+          <li><a class="is-active" href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+        </ul>
+      </li>
+      <li><a class="mobile-menu__link" href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
     </ul>
+  </nav>
+  <div class="mobile-menu__cta">
+    <a class="btn btn-secondary" href="contacto.html">ASHA CSIRT</a>
+    <a class="btn btn-primary" href="contacto.html">
+      Contáctenos
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </a>
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/scroll-fx.js" defer></script>
+<script src="assets/js/site-enhance.js" defer></script>
+<script src="assets/js/page-hero-reveal.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+
+<script>
+(function () {
+  'use strict';
+  const menu  = document.getElementById('mobile-menu');
+  const openBtn  = document.querySelector('.mobile-menu-toggle');
+  const closeBtn = document.querySelector('[data-mobile-close]');
+  if (menu && openBtn && closeBtn) {
+    menu.removeAttribute('hidden');
+    const setOpen = (state) => {
+      menu.classList.toggle('is-open', state);
+      document.body.classList.toggle('menu-open', state);
+      openBtn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      if (state) closeBtn.focus(); else openBtn.focus();
+    };
+    openBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) setOpen(false);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
