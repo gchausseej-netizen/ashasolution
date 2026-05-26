@@ -6537,3 +6537,301 @@ html.lenis, html.lenis body { height: auto; }
   padding-top: var(--space-5);
   border-top: 1px solid var(--color-border);
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SERVICE PAGES — persona-aware system
+   Each service page sets <body class="page-service page-service--XXX">
+   where XXX is the persona key. The --page-accent CSS var is then
+   consumed by .service-* components for accent tints, hovers, glows.
+   ═══════════════════════════════════════════════════════════════ */
+
+.page-service { /* base — no persona color yet */ }
+
+.page-service--csirt {
+  --page-accent:           #06B6D4;
+  --page-accent-tint-08:   rgba(6,182,212,0.08);
+  --page-accent-tint-18:   rgba(6,182,212,0.18);
+  --page-accent-tint-30:   rgba(6,182,212,0.30);
+  --page-accent-tint-45:   rgba(6,182,212,0.45);
+}
+.page-service--ctem {
+  --page-accent:           #F97316;
+  --page-accent-tint-08:   rgba(249,115,22,0.08);
+  --page-accent-tint-18:   rgba(249,115,22,0.18);
+  --page-accent-tint-30:   rgba(249,115,22,0.30);
+  --page-accent-tint-45:   rgba(249,115,22,0.45);
+}
+.page-service--grc {
+  --page-accent:           #22C55E;
+  --page-accent-tint-08:   rgba(34,197,94,0.08);
+  --page-accent-tint-18:   rgba(34,197,94,0.18);
+  --page-accent-tint-30:   rgba(34,197,94,0.30);
+  --page-accent-tint-45:   rgba(34,197,94,0.45);
+}
+.page-service--zerotrust {
+  --page-accent:           #A855F7;
+  --page-accent-tint-08:   rgba(168,85,247,0.08);
+  --page-accent-tint-18:   rgba(168,85,247,0.18);
+  --page-accent-tint-30:   rgba(168,85,247,0.30);
+  --page-accent-tint-45:   rgba(168,85,247,0.45);
+}
+.page-service--ngsoc {
+  --page-accent:           #E2E8F0;
+  --page-accent-tint-08:   rgba(226,232,240,0.08);
+  --page-accent-tint-18:   rgba(226,232,240,0.18);
+  --page-accent-tint-30:   rgba(226,232,240,0.30);
+  --page-accent-tint-45:   rgba(226,232,240,0.20);
+}
+.page-service--asha {
+  /* For pages that map to the captain — keeps primary red as accent */
+  --page-accent:           #DC2626;
+  --page-accent-tint-08:   rgba(220,38,38,0.08);
+  --page-accent-tint-18:   rgba(220,38,38,0.18);
+  --page-accent-tint-30:   rgba(220,38,38,0.30);
+  --page-accent-tint-45:   rgba(220,38,38,0.45);
+}
+
+/* Persona-aware hero: shift accent text, eyebrow dot, ticker dot, drift glow */
+.page-service .page-hero__title .accent {
+  color: var(--page-accent) !important;
+}
+.page-service .page-hero__eyebrow {
+  color: var(--page-accent) !important;
+}
+.page-service .page-hero__eyebrow-dot {
+  background: var(--page-accent) !important;
+  box-shadow: 0 0 12px var(--page-accent-tint-45);
+}
+.page-service .page-hero__ticker-dot {
+  background: var(--page-accent) !important;
+}
+.page-service .page-hero__ticker {
+  color: var(--page-accent) !important;
+}
+
+/* Persona-aware breadcrumb link */
+.page-service .breadcrumb a:hover {
+  color: var(--page-accent) !important;
+}
+
+/* Persona-aware eyebrow inside content sections */
+.page-service .eyebrow {
+  color: var(--page-accent) !important;
+}
+
+/* ─── Service Brief (Section 01: copy + stat card) ─────────────── */
+.service-brief {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+@media (min-width: 960px) {
+  .service-brief {
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-12);
+  }
+}
+.service-brief__copy .eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+.service-brief__copy .section-title {
+  margin-bottom: var(--space-5);
+}
+.service-brief__copy p {
+  color: var(--color-muted) !important;
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  margin: 0 0 var(--space-4);
+}
+.service-brief__copy p strong {
+  color: var(--color-fg) !important;
+  font-weight: 700;
+}
+
+/* Stat card (single highlighted number) */
+.service-stat {
+  position: relative;
+  padding: var(--space-7) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--page-accent);
+  border-radius: var(--radius-lg);
+  isolation: isolate;
+  overflow: hidden;
+}
+.service-stat::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 100% 0%, var(--page-accent-tint-08) 0%, transparent 60%);
+  z-index: -1;
+}
+.service-stat__num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(56px, 10vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--page-accent);
+  text-shadow: 0 0 24px var(--page-accent-tint-45);
+  display: block;
+}
+.service-stat__num .unit {
+  font-size: 0.55em;
+  font-weight: 700;
+  margin-left: 4px;
+}
+.service-stat__label {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-base);
+  color: var(--color-fg) !important;
+  line-height: 1.45;
+  font-weight: 600;
+}
+.service-stat__source {
+  margin: var(--space-3) 0 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-muted) !important;
+}
+
+/* ─── Service Cards (Section 02: 6-card grid, persona-tinted) ──── */
+.service-cards {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-8);
+}
+@media (min-width: 640px)  { .service-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .service-cards { grid-template-columns: repeat(3, 1fr); } }
+
+.service-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-fg) !important;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--page-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-normal) var(--ease-out);
+  z-index: 1;
+}
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--page-accent);
+  box-shadow:
+    0 12px 32px rgba(0,0,0,0.35),
+    0 0 24px var(--page-accent-tint-18);
+}
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+.service-card__icon-wrap {
+  display: inline-flex;
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  align-items: center;
+  justify-content: center;
+  background: var(--page-accent-tint-08);
+  border: 1px solid var(--page-accent-tint-18);
+  color: var(--page-accent);
+}
+.service-card__icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  color: var(--page-accent);
+  stroke: currentColor;
+  fill: none;
+}
+.service-card__title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-fg) !important;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.service-card__desc {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-muted) !important;
+  line-height: 1.6;
+}
+
+/* ─── Frameworks Strip (Section 03: chips for standards) ────────── */
+.frameworks-strip {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-7);
+}
+@media (min-width: 640px)  { .frameworks-strip { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .frameworks-strip { grid-template-columns: repeat(4, 1fr); } }
+
+.framework-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+.framework-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--page-accent);
+}
+.framework-chip svg {
+  color: var(--page-accent);
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+}
+.framework-chip strong {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-fg) !important;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.framework-chip span {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-muted) !important;
+  margin-top: 3px;
+}
+
+/* Service page final-cta — accent uses page persona color */
+.page-service .final-cta__title .accent {
+  color: var(--page-accent) !important;
+}
