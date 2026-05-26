@@ -2,209 +2,376 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-<title>Inteligencia de Amenazas y Protección de Marca - ASHA Solution</title>
-<meta name="description" content="Proteja su marca contra amenazas cibernéticas, abuso de marca y suplantación de identidad con soluciones avanzadas y efectivas." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inteligencia de Amenazas y Protección de Marca — ASHA Solution</title>
+<meta name="description" content="Threat Intelligence + Brand Protection. Monitoreo de phishing, dark web, marketplace surveillance y email spoofing — alimenta al NGSOC y CSIRT en tiempo real." />
+<meta name="theme-color" content="#0A0E27" />
 <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/redesign.css">
 </head>
-<body>
+<body class="page-service page-service--ngsoc">
 
-<div class="page-loader" id="pageLoader" aria-hidden="true"></div>
+<!-- Inline icon sprite (Heroicons outline 24/outline) ------------------- -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"></path></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.07 4.93A10 10 0 1 0 22 12"></path><path d="M16.24 7.76A6 6 0 1 0 18 12"></path><line x1="12" y1="12" x2="22" y2="2"></line></symbol>
+  <symbol id="i-satellite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 3a9 9 0 0 1 9 9"></path><path d="M12 7a5 5 0 0 1 5 5"></path><path d="M3 21l6-6"></path><path d="M3 16v5h5"></path></symbol>
+  <symbol id="i-mail-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9.5"></path><path d="M3 9.5 12 3l9 6.5"></path><polyline points="3 9.5 12 14.5 21 9.5"></polyline></symbol>
+  <symbol id="i-fish-hook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 4v8a5 5 0 0 1-10 0V8"></path><path d="M7 8h-2"></path><path d="M19 3a2 2 0 0 0-2 2"></path><circle cx="7" cy="20" r="2"></circle></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l2-5h14l2 5"></path><path d="M3 9v11h18V9"></path><path d="M3 9c0 1.7 1.3 3 3 3s3-1.3 3-3 1.3 3 3 3 3-1.3 3-3 1.3 3 3 3 3-1.3 3-3"></path><line x1="9" y1="20" x2="9" y2="13"></line><line x1="15" y1="20" x2="15" y2="13"></line></symbol>
+  <symbol id="i-spy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="14" r="3"></circle><circle cx="16" cy="14" r="3"></circle><line x1="11" y1="14" x2="13" y2="14"></line><path d="M3 9l2-3h14l2 3"></path></symbol>
+  <symbol id="i-virus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="5" y1="5" x2="7" y2="7"></line><line x1="17" y1="17" x2="19" y2="19"></line><line x1="5" y1="19" x2="7" y2="17"></line><line x1="17" y1="7" x2="19" y2="5"></line></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="6" r="3"></circle><circle cx="18" cy="18" r="3"></circle><line x1="8.6" y1="10.6" x2="15.4" y2="7.4"></line><line x1="8.6" y1="13.4" x2="15.4" y2="16.6"></line></symbol>
+  <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4" fill="currentColor"></circle></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.5 19h-3V9h3v10zM6 7.7C5 7.7 4.3 7 4.3 6S5 4.3 6 4.3 7.7 5 7.7 6 7 7.7 6 7.7zm14 11.3h-3v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19z"/></symbol>
+</svg>
 
-<div id="liquid-consent-container">
-  <div class="liquid-content">
-    <h3 class="liquid-title">Consentimiento para el Uso de sus Datos</h3>
-    <p class="liquid-text">Necesitamos su consentimiento para recolectar sus datos de uso. Esta información es anónima y se utiliza únicamente para mejorar la experiencia en nuestro sitio web. Consulta <a href="aviso-de-privacidad.html" target="_blank">nuestro aviso de privacidad</a></p>
-  </div>
-  <div class="liquid-actions">
-    <button id="btn-consent-decline" class="liquid-btn btn-decline">En este momento no</button>
-    <button id="btn-consent-accept" class="liquid-btn btn-accept">¡De acuerdo!</button>
-  </div>
-</div>
-
-<div class="page-wrapper">
-
-<header class="header" id="header">
-  <div class="header-inner container">
-    <div class="header-left">
-      <button class="mobile-menu-toggle" aria-label="Mobile Menu" id="mobileMenuToggle"><i class="fa-solid fa-bars"></i></button>
-      <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="ASHA Solution" class="logo" width="160" height="56" /></a>
-    </div>
-    <nav class="main-menu" id="mainMenu">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="metodologia.html">Metodología</a></li>
-        <li class="has-children active">
-          <a href="index.html#practicas">Prácticas <i class="fa-solid fa-chevron-down"></i></a>
-          <ul class="submenu">
-            <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+<!-- HEADER -------------------------------------------------------------- -->
+<header class="site-header" id="header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-header__brand" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <nav class="main-nav" aria-label="Principal">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" href="index.html" data-i18n="nav.home">Inicio</a></li>
+        <li><a class="main-nav__link" href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+        <li><a class="main-nav__link" href="metodologia.html" data-i18n="nav.methodology">Metodología</a></li>
+        <li class="main-nav__item--has-children">
+          <a class="main-nav__link is-active" href="index.html#practicas" data-i18n="nav.practices">
+            Prácticas
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </a>
+          <ul class="main-nav__submenu" role="menu">
+            <li><a class="is-active" href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
             <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
             <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
             <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
             <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
           </ul>
         </li>
-        <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+        <li><a class="main-nav__link" href="bolsa-de-trabajo.html" data-i18n="nav.careers">Bolsa de Trabajo</a></li>
       </ul>
     </nav>
-    <div class="header-right">
-      <a href="contacto.html" class="btn btn-primary btn-rounded btn-csirt"><i class="fa-brands fa-wpforms"></i><span>ASHA CSIRT</span></a>
+    <div class="site-header__cta">
+      <div class="lang-switch" role="group" aria-label="Cambiar idioma">
+        <button type="button" class="lang-switch__btn is-active" data-lang="es" aria-pressed="true">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-secondary" href="contacto.html" data-i18n="cta.csirt">ASHA CSIRT</a>
+      <a class="btn btn-primary" href="contacto.html">
+        <span data-i18n="cta.contact">Contáctenos</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<section class="page-banner">
-  <div class="banner-bg" style="background-image:url('assets/images/hero-bg-original.jpg')"></div>
-  <div class="banner-overlay"></div>
-  <div class="container banner-content">
-    <h1 class="banner-title">1. Inteligencia de Amenazas<br/>y Protección de Marca</h1>
-    <h2 class="banner-subtitle" style="font-size:18px;font-weight:300;margin-top:18px;max-width:680px;line-height:1.7;">Proteja su marca contra amenazas cibernéticas, abuso de marca y suplantación de identidad con soluciones avanzadas y efectivas.</h2>
+<!-- PAGE HERO — Service (NGSOC silver via body class) ------------------- -->
+<section class="page-hero page-hero--league page-hero--service">
+  <div class="page-hero__bg" aria-hidden="true">
+    <div class="page-hero__bg-grad"></div>
+    <div class="page-hero__bg-grid"></div>
+    <div class="page-hero__bg-drift"></div>
+  </div>
+
+  <div class="page-hero__ticker page-hero__ticker--tl" aria-hidden="true">
+    <span class="page-hero__ticker-dot"></span>
+    <span class="page-hero__ticker-text" data-i18n="intel.ticker_tl">PERSONA · NGSOC · THREAT INTEL &amp; BRAND</span>
+  </div>
+  <div class="page-hero__ticker page-hero__ticker--br" aria-hidden="true">
+    <span class="page-hero__ticker-text" data-i18n="intel.ticker_br">MISP · STIX/TAXII · OSINT · DKIM · DMARC</span>
+    <span class="page-hero__ticker-dot"></span>
+  </div>
+
+  <div class="container page-hero__inner">
+    <span class="page-hero__eyebrow">
+      <span class="page-hero__eyebrow-dot"></span>
+      <span data-i18n="intel.eyebrow">Práctica 01 · NGSOC · Threat Intelligence</span>
+    </span>
+    <h1 class="page-hero__title">
+      <span data-i18n="intel.title_pre">Inteligencia de Amenazas y</span>
+      <span class="accent" data-i18n="intel.title_accent">Protección de Marca</span>
+      <span data-i18n="intel.title_post">— anticipamos el ataque antes de que ocurra.</span>
+    </h1>
+    <p class="page-hero__lede" data-i18n="intel.lede">
+      Integra marcos de gestión de amenazas, OSINT y herramientas avanzadas para proteger dominios de correo, prevenir el mal uso de marca y aprovechar inteligencia impulsada por IA — alimentando al NGSOC y al CSIRT en tiempo real.
+    </p>
+    <div class="page-hero__actions">
+      <a class="btn btn-primary btn-pill" href="contacto.html">
+        <span data-i18n="intel.cta_primary">Solicitar análisis de exposición</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+      <a class="btn btn-secondary btn-pill" href="metodologia.html#ngsoc" data-i18n="intel.cta_secondary">Ver metodología NGSOC</a>
+    </div>
   </div>
 </section>
 
-<div class="breadcrumb-wrap">
+<!-- BREADCRUMB --------------------------------------------------------- -->
+<nav class="breadcrumb-wrap" aria-label="Breadcrumb">
   <div class="container">
-    <ul class="breadcrumb">
-      <li><a href="index.html">Home</a></li>
-      <li class="delimiter"><i class="fa-solid fa-angle-right"></i></li>
-      <li>Inteligencia de Amenazas y Protección de Marca</li>
-    </ul>
+    <ol class="breadcrumb">
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="index.html#practicas" data-i18n="nav.practices">Prácticas</a></li>
+      <li data-i18n="intel.breadcrumb">Inteligencia de Amenazas</li>
+    </ol>
   </div>
-</div>
+</nav>
 
-<main id="main" class="main">
+<main id="main">
 
-  <section class="intro-section">
-    <div class="container" style="max-width:980px;">
-      <p style="text-align:center;font-size:18px;color:var(--text-dark);">Nuestra práctica integra marcos de gestión de amenazas y herramientas avanzadas para proteger los dominios de correo electrónico, prevenir el mal uso de marca y aprovechar la inteligencia impulsada por IA para anticipar ataques.</p>
+  <!-- 01 · BRIEF — Three pillars + scale stat ------------------------ -->
+  <section class="section section--dark" aria-labelledby="intel-brief-title">
+    <div class="container service-brief">
+      <div class="service-brief__copy">
+        <span class="eyebrow" data-i18n="intel.brief_eyebrow">01 · Tres ejes de protección</span>
+        <h2 class="section-title" id="intel-brief-title" data-i18n="intel.brief_title">Threat Intelligence + Brand Protection + Email Spoofing — en una sola práctica.</h2>
+        <p data-i18n="intel.brief_p1">Nuestra práctica integra marcos de gestión de amenazas y herramientas avanzadas para <strong>proteger los dominios de correo electrónico</strong>, prevenir el mal uso de marca y aprovechar la <strong>inteligencia impulsada por IA</strong> para anticipar ataques.</p>
+        <p data-i18n="intel.brief_p2">La salida de esta práctica alimenta al <strong>NGSOC</strong> con telemetría externa contextualizada y al <strong>CSIRT</strong> con casos investigables — cierran el loop entre la amenaza emergente y la respuesta defensiva.</p>
+      </div>
+      <aside class="service-brief__stat">
+        <div class="service-stat">
+          <span class="service-stat__num">24<span class="unit">×7</span></span>
+          <p class="service-stat__label" data-i18n="intel.stat_label">monitoreo continuo de dark web, marketplaces y redes sociales — los actores no descansan, nosotros tampoco.</p>
+          <p class="service-stat__source" data-i18n="intel.stat_source">Operación 7×24 entre CDMX y Tenerife</p>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="why-choose-band">
+  <!-- 02 · LA PRÁCTICA HACE TODO ESTO — 6 service cards (NGSOC silver) -->
+  <section class="section section--dark" aria-labelledby="intel-fn-title">
     <div class="container">
-      <span class="eyebrow-grey">Pilares de la práctica</span>
-      <h2>Tres ejes de protección</h2>
-      <div class="why-grid">
-        <article class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-satellite-dish"></i></div>
-          <h3>Threat Intelligence</h3>
-          <p>Visibilidad actualizada sobre ciberamenazas para mejorar la preparación organizacional ante ataques.</p>
+      <header class="section-head">
+        <span class="eyebrow" data-i18n="intel.fn_eyebrow">02 · La práctica se encarga</span>
+        <h2 class="section-title" id="intel-fn-title" data-i18n="intel.fn_title">Seis vectores de amenaza vigilados 7×24.</h2>
+      </header>
+
+      <div class="service-cards">
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-fish-hook"/></svg></div>
+          <h3 class="service-card__title" data-i18n="intel.fn_1_t">Phishing &amp; abuso de marca</h3>
+          <p class="service-card__desc" data-i18n="intel.fn_1_d">Monitoreo de dominios suplantados, takedown de sitios fraudulentos y vigilancia de apps móviles no autorizadas.</p>
         </article>
-        <article class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-shield"></i></div>
-          <h3>Brand Protection</h3>
-          <p>Defensa contra el abuso y la suplantación, manteniendo íntegra la identidad digital de su marca.</p>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-store"/></svg></div>
+          <h3 class="service-card__title" data-i18n="intel.fn_2_t">Marketplace surveillance</h3>
+          <p class="service-card__desc" data-i18n="intel.fn_2_d">Detección de venta de cuentas comprometidas, credenciales y datos de cliente en mercados ilícitos.</p>
         </article>
-        <article class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-          <h3>Email Spoofing Protection</h3>
-          <p>Defensa a nivel de dominio contra el spoofing de correo usado en abuso de marca y compromisos.</p>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-spy"/></svg></div>
+          <h3 class="service-card__title" data-i18n="intel.fn_3_t">Dark web monitoring</h3>
+          <p class="service-card__desc" data-i18n="intel.fn_3_d">Vigilancia continua de foros, canales Telegram, leak sites y deep web para amenazas emergentes a la organización.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-virus"/></svg></div>
+          <h3 class="service-card__title" data-i18n="intel.fn_4_t">Malware monitoring</h3>
+          <p class="service-card__desc" data-i18n="intel.fn_4_d">Telemetría de malware activo, IoCs ingestados al SIEM y firmas distribuidas vía MISP a los controles del cliente.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-share"/></svg></div>
+          <h3 class="service-card__title" data-i18n="intel.fn_5_t">Social media monitoring</h3>
+          <p class="service-card__desc" data-i18n="intel.fn_5_d">Detección de cuentas falsas, campañas de desinformación y actividad fraudulenta en redes sociales con marca afectada.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-mail-open"/></svg></div>
+          <h3 class="service-card__title" data-i18n="intel.fn_6_t">Email spoofing protection</h3>
+          <p class="service-card__desc" data-i18n="intel.fn_6_d">Aseguramiento del vector crítico de comunicación corporativa — SPF, DKIM, DMARC enforcement y reporting.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="feat-list-band">
+  <!-- 03 · MARCOS DE REFERENCIA ---------------------------------------- -->
+  <section class="section section--dark" aria-labelledby="intel-frw-title">
     <div class="container">
-      <h2>Nuestra práctica se encarga de todo esto por usted</h2>
-      <div class="feat-grid">
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-fish"></i></div><h3>Phishing y abuso de marca</h3><p>Monitoreo y acciones de takedown contra sitios fraudulentos.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-store"></i></div><h3>Marketplace surveillance</h3><p>Detección de venta de cuentas comprometidas en mercados ilícitos.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>Mobile app monitoring</h3><p>Identificación de aplicaciones móviles fraudulentas y no autorizadas.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-user-secret"></i></div><h3>Dark web monitoring</h3><p>Monitoreo de la dark y deep web para amenazas emergentes.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-virus"></i></div><h3>Malware monitoring</h3><p>Vigilancia de malware activo para protección de los sistemas.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-clipboard-check"></i></div><h3>Investigaciones a la medida</h3><p>Investigaciones personalizadas y reportes de actores de amenaza vía CSIRT.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-share-nodes"></i></div><h3>Social media monitoring</h3><p>Detección de actividad fraudulenta en redes sociales.</p></article>
-        <article class="feat-card"><div class="feat-icon"><i class="fa-solid fa-envelope"></i></div><h3>Email spoofing protection</h3><p>Aseguramiento del vector crítico de comunicación corporativa.</p></article>
+      <header class="section-head">
+        <span class="eyebrow" data-i18n="intel.frw_eyebrow">03 · Marcos y protocolos</span>
+        <h2 class="section-title" id="intel-frw-title" data-i18n="intel.frw_title">Inteligencia compartible, accionable, estandarizada.</h2>
+      </header>
+      <div class="frameworks-strip">
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-database"/></svg>
+          <div><strong>MISP</strong><span>Threat intel sharing</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-share"/></svg>
+          <div><strong>STIX / TAXII</strong><span>Intel transport</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-radar"/></svg>
+          <div><strong>OSINT</strong><span>Open-source intel</span></div>
+        </div>
+        <div class="framework-chip">
+          <svg width="22" height="22" viewBox="0 0 24 24"><use href="#i-target"/></svg>
+          <div><strong>MITRE ATT&amp;CK</strong><span>TTPs catalog</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="big-cta" style="background-image:url('assets/images/cta-banner-original.jpg')">
-    <div class="big-cta-overlay"></div>
-    <div class="container big-cta-content">
-      <h2 class="highlight-text white">Descubra cómo podemos blindar a su organización contra <span class="highlight">vulnerabilidades y amenazas</span> de todo tipo</h2>
-      <a href="contacto.html" class="btn btn-outline btn-outline-white btn-rounded">
-        <span>Conversemos</span><i class="fa-solid fa-arrow-right-long"></i>
-      </a>
+  <!-- FINAL CTA -------------------------------------------------------- -->
+  <section class="final-cta" aria-labelledby="intel-cta-title">
+    <div class="container final-cta__inner">
+      <h2 class="final-cta__title" id="intel-cta-title">
+        <span data-i18n="intel.final_cta_pre">¿Sabes qué está pasando con tu marca en la deep web ahora mismo?</span>
+        <span class="accent" data-i18n="intel.final_cta_accent">Análisis de exposición sin compromiso</span>
+        <span data-i18n="intel.final_cta_post">— reporte ejecutivo + plan de remediación.</span>
+      </h2>
+      <div class="final-cta__actions">
+        <a class="btn btn-primary btn-pill" href="contacto.html">
+          <span data-i18n="intel.final_cta_btn">Solicitar análisis</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="footer" id="footer">
-  <div class="container footer-grid">
-    <div class="footer-col">
-      <a href="index.html"><img src="assets/images/logo.png" alt="ASHA Solution" class="footer-logo" /></a>
-      <p>Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+<!-- FOOTER ------------------------------------------------------------ -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__col">
+        <a href="index.html" aria-label="ASHA Solution">
+          <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-footer__logo" width="190" height="44" />
+        </a>
+        <p class="site-footer__brand-text">
+          Integramos la Ciberinteligencia, Ciberseguridad, Seguridad de la información y Ciberfraude para detener amenazas y ataques de alta complejidad.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/asha-solution" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="site-footer__col">
+        <h3>Empresa</h3>
+        <ul class="site-footer__list">
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="metodologia.html">Metodología</a></li>
+          <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="aviso-de-privacidad.html">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Prácticas</h3>
+        <ul class="site-footer__list">
+          <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Vulnerabilidades</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Incidentes y Cacería</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Ciberfraude</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h3>Cobertura LATAM</h3>
+        <ul class="site-footer__list">
+          <li>México</li>
+          <li>Colombia</li>
+          <li>Ecuador</li>
+          <li>Chile</li>
+          <li>República Dominicana</li>
+        </ul>
+        <div class="footer-map" style="margin-top: var(--space-4);">
+          <img src="assets/images/latam-map-real.png" alt="Cobertura ASHA en Latinoamérica" loading="lazy">
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h3>Empresa</h3>
-      <ul class="footer-list">
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="metodologia.html">Metodología</a></li>
-        <li><a href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
-        <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
-        <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
-        <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
-        <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h3>Países</h3>
-      <ul class="footer-list">
-        <li><a href="#">México</a></li>
-        <li><a href="#">Colombia</a></li>
-        <li><a href="#">Ecuador</a></li>
-        <li><a href="#">Chile</a></li>
-        <li><a href="#">Rep. Dominicana</a></li>
-      </ul>
-    </div>
-    <div class="footer-col footer-map-col">
-      <div class="footer-title-underline"><h3>Cobertura en Latam</h3></div>
-      <div class="latam-map-wrapper">
-        <img src="assets/images/latam-map-real.png" alt="Mapa Latam ASHA" class="latam-map" />
-        <span class="hotspot" style="top:32%;left:24%;" data-label="CD de México"></span>
-        <span class="hotspot" style="top:48%;left:31%;" data-label="San José"></span>
-        <span class="hotspot" style="top:54%;left:42%;" data-label="Bogotá"></span>
-        <span class="hotspot" style="top:64%;left:40%;" data-label="Quito"></span>
-        <span class="hotspot" style="top:86%;left:42%;" data-label="Santiago"></span>
-        <span class="hotspot" style="top:26%;left:32%;" data-label="Monterrey"></span>
-      </div>
+    <div class="site-footer__bottom">
+      <p>ASHA Solution &copy; 2026. Todos los derechos reservados.</p>
+      <a href="aviso-de-privacidad.html">Aviso de privacidad</a>
     </div>
   </div>
-  <div class="footer-bottom"><div class="container"><p class="copyright">ASHA Solution © 2026.</p></div></div>
 </footer>
 
-</div>
-
-<a id="scroll-top" class="scroll-top" href="#header" title="Top" role="button"><i class="fa-solid fa-arrow-up"></i></a>
-
-<div class="mobile-menu-wrapper" id="mobileMenuWrapper">
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu-container">
-    <a class="mobile-menu-close" href="#" id="mobileMenuClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
-    <ul class="mobile-menu-list">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="index.html#practicas">Prácticas</a></li>
-      <li><a href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
-      <li><a href="contacto.html">ASHA CSIRT</a></li>
+<!-- Mobile menu -------------------------------------------------------- -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú principal" hidden>
+  <div class="mobile-menu__header">
+    <a href="index.html" aria-label="ASHA Solution">
+      <img src="assets/images/logo-asha.png" alt="ASHA Solution" class="site-header__logo" width="170" height="40" />
+    </a>
+    <button type="button" class="mobile-menu__close" aria-label="Cerrar menú" data-mobile-close>
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu__inner" aria-label="Principal móvil">
+    <ul class="mobile-menu__list">
+      <li><a class="mobile-menu__link" href="index.html">Inicio</a></li>
+      <li><a class="mobile-menu__link" href="nosotros.html">Nosotros</a></li>
+      <li><a class="mobile-menu__link" href="metodologia.html">Metodología</a></li>
+      <li>
+        <a class="mobile-menu__link" href="index.html#practicas">
+          Prácticas
+          <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </a>
+        <ul class="mobile-submenu">
+          <li><a class="is-active" href="inteligencia-de-amenazas-y-proteccion-de-marca.html">Inteligencia de Amenazas y Protección de Marca</a></li>
+          <li><a href="gestion-de-vulnerabilidades-y-emulacion-de-ataques.html">Gestión de Vulnerabilidades y Emulación de Ataques</a></li>
+          <li><a href="gestion-de-incidentes-y-caceria-de-amenazas.html">Gestión de Incidentes y Cacería de Amenazas</a></li>
+          <li><a href="estrategia-integral-de-proteccion-de-datos.html">Estrategia Integral de Protección de Datos</a></li>
+          <li><a href="cyber-fraud-fusion.html">Prevención de Ciberfraude y Lavado de Dinero</a></li>
+        </ul>
+      </li>
+      <li><a class="mobile-menu__link" href="bolsa-de-trabajo.html">Bolsa de Trabajo</a></li>
     </ul>
+  </nav>
+  <div class="mobile-menu__cta">
+    <a class="btn btn-secondary" href="contacto.html">ASHA CSIRT</a>
+    <a class="btn btn-primary" href="contacto.html">
+      Contáctenos
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </a>
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/scroll-fx.js" defer></script>
+<script src="assets/js/site-enhance.js" defer></script>
+<script src="assets/js/page-hero-reveal.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+
+<script>
+(function () {
+  'use strict';
+  const menu  = document.getElementById('mobile-menu');
+  const openBtn  = document.querySelector('.mobile-menu-toggle');
+  const closeBtn = document.querySelector('[data-mobile-close]');
+  if (menu && openBtn && closeBtn) {
+    menu.removeAttribute('hidden');
+    const setOpen = (state) => {
+      menu.classList.toggle('is-open', state);
+      document.body.classList.toggle('menu-open', state);
+      openBtn.setAttribute('aria-expanded', state ? 'true' : 'false');
+      if (state) closeBtn.focus(); else openBtn.focus();
+    };
+    openBtn.addEventListener('click', () => setOpen(true));
+    closeBtn.addEventListener('click', () => setOpen(false));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) setOpen(false);
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
