@@ -6927,3 +6927,171 @@ html.lenis, html.lenis body { height: auto; }
   padding: clamp(96px, 11vw, 140px) 0 clamp(64px, 8vw, 96px);
   min-height: auto;
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   Process Flow — numbered vertical timeline (CSIRT lifecycle).
+   Replaces the 6-card grid on the CSIRT service page so each step
+   reads as part of a continuous process, not six interchangeable tiles.
+   ──────────────────────────────────────────────────────────────── */
+.process-flow {
+  list-style: none;
+  margin: var(--space-10) auto 0;
+  padding: 0;
+  max-width: 820px;
+  display: grid;
+  gap: var(--space-8);
+  position: relative;
+}
+.process-flow::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 40px;
+  bottom: 40px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--page-accent-tint-30) 6%,
+    var(--page-accent-tint-30) 94%,
+    transparent 100%
+  );
+  z-index: 0;
+}
+.process-step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.process-step__num {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--page-accent);
+  background: var(--color-surface);
+  border: 1.5px solid var(--page-accent);
+  border-radius: 50%;
+  /* The 6px ring of bg colour punches the connector line behind the
+     badge so the timeline reads as continuous segments, not crossed. */
+  box-shadow:
+    0 0 0 6px var(--color-bg),
+    0 0 24px var(--page-accent-tint-30);
+}
+.process-step__body {
+  padding-top: 12px;
+  min-width: 0;
+}
+.process-step__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-fg);
+  letter-spacing: -0.01em;
+}
+.process-step__desc {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+@media (max-width: 640px) {
+  .process-flow::before { left: 24px; top: 32px; bottom: 32px; }
+  .process-step { grid-template-columns: 48px 1fr; gap: var(--space-4); }
+  .process-step__num {
+    width: 48px; height: 48px; font-size: 15px;
+    box-shadow: 0 0 0 4px var(--color-bg), 0 0 16px var(--page-accent-tint-30);
+  }
+  .process-step__body { padding-top: 8px; }
+  .process-step__title { font-size: var(--text-lg); }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Capability Rows — full-width numbered editorial rows (GRC).
+   Replaces the 6-card grid on the GRC service page. Each capability
+   is its own row with a large monospaced number, a thin hairline
+   separator and room for the description to breathe horizontally.
+   ──────────────────────────────────────────────────────────────── */
+.capability-rows {
+  list-style: none;
+  margin: var(--space-10) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+}
+.capability-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: var(--space-6);
+  align-items: baseline;
+  padding: var(--space-7) 0;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  transition:
+    background var(--duration-normal) var(--ease-out),
+    padding-left var(--duration-normal) var(--ease-out);
+}
+.capability-row::before {
+  /* thin accent line at the row's leading edge — appears on hover only */
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 0; height: 2px;
+  background: var(--page-accent);
+  transform: translateY(-50%);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+.capability-row:hover {
+  background: var(--page-accent-tint-08);
+  padding-left: var(--space-4);
+}
+.capability-row:hover::before {
+  width: var(--space-3);
+}
+.capability-row__num {
+  font-family: var(--font-mono);
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--page-accent);
+  align-self: start;
+  padding-top: 6px;
+}
+.capability-row__body {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 720px;
+  min-width: 0;
+}
+.capability-row__title {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-fg);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.capability-row__desc {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+@media (max-width: 640px) {
+  .capability-row {
+    grid-template-columns: 56px 1fr;
+    gap: var(--space-3);
+    padding: var(--space-5) 0;
+  }
+  .capability-row__num { font-size: 28px; padding-top: 4px; }
+  .capability-row__title { font-size: var(--text-xl); }
+  .capability-row:hover { padding-left: var(--space-2); }
+}
