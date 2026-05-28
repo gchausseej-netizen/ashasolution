@@ -163,38 +163,68 @@
         <h2 class="section-title" id="fraud-fn-title" data-i18n="fraud.fn_title">Seis capacidades antifraude.</h2>
       </header>
 
-      <div class="service-cards">
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-shield-half"/></svg></div>
-          <h3 class="service-card__title" data-i18n="fraud.fn_1_t">Prevención de abuso de marca</h3>
-          <p class="service-card__desc" data-i18n="fraud.fn_1_d">Protección de marca contra actividades maliciosas y suplantación — feeding directo desde Threat Intel.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-id-card"/></svg></div>
-          <h3 class="service-card__title" data-i18n="fraud.fn_2_t">Verificación de identidad — KYC / AML</h3>
-          <p class="service-card__desc" data-i18n="fraud.fn_2_d">Verificación en plataformas de ingresos para cumplimiento KYC/AML, alineada a FATF y reguladores locales.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-user-clock"/></svg></div>
-          <h3 class="service-card__title" data-i18n="fraud.fn_3_t">Perfil de comportamiento de usuario</h3>
-          <p class="service-card__desc" data-i18n="fraud.fn_3_d">Detección de fraude impulsada por IA basada en patrones biométricos conductuales — tecleo, mouse, dispositivo, sesión.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-money-transfer"/></svg></div>
-          <h3 class="service-card__title" data-i18n="fraud.fn_4_t">Monitoreo de transacciones AML</h3>
-          <p class="service-card__desc" data-i18n="fraud.fn_4_d">Monitoreo anti-lavado alineado al marco MITRE ATT&amp;CK adaptado al sector financiero — alertas priorizadas por riesgo.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-fusion"/></svg></div>
-          <h3 class="service-card__title" data-i18n="fraud.fn_5_t">Fraud Fusion Centre</h3>
-          <p class="service-card__desc" data-i18n="fraud.fn_5_d">Capa operacional que unifica equipos de cyber, intel y antifraude — case management único, SLA medible.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-globe"/></svg></div>
-          <h3 class="service-card__title" data-i18n="fraud.fn_6_t">Acceso a inteligencia global</h3>
-          <p class="service-card__desc" data-i18n="fraud.fn_6_d">Alianzas con agencias internacionales y bases de datos de sospechosos — el cibercriminal raramente actúa solo.</p>
-        </article>
-      </div>
+      <ol class="fraud-accordion" role="list">
+        <li>
+          <details class="fraud-detail" open>
+            <summary class="fraud-detail__summary">
+              <span class="fraud-detail__num">01</span>
+              <h3 class="fraud-detail__title" data-i18n="fraud.fn_1_t">Prevención de abuso de marca</h3>
+              <svg class="fraud-detail__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </summary>
+            <p class="fraud-detail__body" data-i18n="fraud.fn_1_d">Protección de marca contra actividades maliciosas y suplantación — feeding directo desde Threat Intel.</p>
+          </details>
+        </li>
+        <li>
+          <details class="fraud-detail">
+            <summary class="fraud-detail__summary">
+              <span class="fraud-detail__num">02</span>
+              <h3 class="fraud-detail__title" data-i18n="fraud.fn_2_t">Verificación de identidad — KYC / AML</h3>
+              <svg class="fraud-detail__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </summary>
+            <p class="fraud-detail__body" data-i18n="fraud.fn_2_d">Verificación en plataformas de ingresos para cumplimiento KYC/AML, alineada a FATF y reguladores locales.</p>
+          </details>
+        </li>
+        <li>
+          <details class="fraud-detail">
+            <summary class="fraud-detail__summary">
+              <span class="fraud-detail__num">03</span>
+              <h3 class="fraud-detail__title" data-i18n="fraud.fn_3_t">Perfil de comportamiento de usuario</h3>
+              <svg class="fraud-detail__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </summary>
+            <p class="fraud-detail__body" data-i18n="fraud.fn_3_d">Detección de fraude impulsada por IA basada en patrones biométricos conductuales — tecleo, mouse, dispositivo, sesión.</p>
+          </details>
+        </li>
+        <li>
+          <details class="fraud-detail">
+            <summary class="fraud-detail__summary">
+              <span class="fraud-detail__num">04</span>
+              <h3 class="fraud-detail__title" data-i18n="fraud.fn_4_t">Monitoreo de transacciones AML</h3>
+              <svg class="fraud-detail__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </summary>
+            <p class="fraud-detail__body" data-i18n="fraud.fn_4_d">Monitoreo anti-lavado alineado al marco MITRE ATT&amp;CK adaptado al sector financiero — alertas priorizadas por riesgo.</p>
+          </details>
+        </li>
+        <li>
+          <details class="fraud-detail">
+            <summary class="fraud-detail__summary">
+              <span class="fraud-detail__num">05</span>
+              <h3 class="fraud-detail__title" data-i18n="fraud.fn_5_t">Fraud Fusion Centre</h3>
+              <svg class="fraud-detail__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </summary>
+            <p class="fraud-detail__body" data-i18n="fraud.fn_5_d">Capa operacional que unifica equipos de cyber, intel y antifraude — case management único, SLA medible.</p>
+          </details>
+        </li>
+        <li>
+          <details class="fraud-detail">
+            <summary class="fraud-detail__summary">
+              <span class="fraud-detail__num">06</span>
+              <h3 class="fraud-detail__title" data-i18n="fraud.fn_6_t">Acceso a inteligencia global</h3>
+              <svg class="fraud-detail__chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </summary>
+            <p class="fraud-detail__body" data-i18n="fraud.fn_6_d">Alianzas con agencias internacionales y bases de datos de sospechosos — el cibercriminal raramente actúa solo.</p>
+          </details>
+        </li>
+      </ol>
     </div>
   </section>
 

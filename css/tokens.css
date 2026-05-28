@@ -34,6 +34,8 @@
   --color-destructive: #EF4444;
   --color-ring:        #DC2626;
   --color-success:     #22C55E;
+  --color-danger-soft: #FCA5A5; /* red-300 — danger glyphs on dark surfaces */
+  --color-csirt-soft:  #67E8F9; /* cyan-300 — CSIRT cyan, brighter variant */
 
   /* ── Typography ───────────────────────────────────── */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

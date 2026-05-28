@@ -164,38 +164,50 @@
         <h2 class="section-title" id="intel-fn-title" data-i18n="intel.fn_title">Seis vectores de amenaza vigilados 7×24.</h2>
       </header>
 
-      <div class="service-cards">
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-fish-hook"/></svg></div>
-          <h3 class="service-card__title" data-i18n="intel.fn_1_t">Phishing &amp; abuso de marca</h3>
-          <p class="service-card__desc" data-i18n="intel.fn_1_d">Monitoreo de dominios suplantados, takedown de sitios fraudulentos y vigilancia de apps móviles no autorizadas.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-store"/></svg></div>
-          <h3 class="service-card__title" data-i18n="intel.fn_2_t">Marketplace surveillance</h3>
-          <p class="service-card__desc" data-i18n="intel.fn_2_d">Detección de venta de cuentas comprometidas, credenciales y datos de cliente en mercados ilícitos.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-spy"/></svg></div>
-          <h3 class="service-card__title" data-i18n="intel.fn_3_t">Dark web monitoring</h3>
-          <p class="service-card__desc" data-i18n="intel.fn_3_d">Vigilancia continua de foros, canales Telegram, leak sites y deep web para amenazas emergentes a la organización.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-virus"/></svg></div>
-          <h3 class="service-card__title" data-i18n="intel.fn_4_t">Malware monitoring</h3>
-          <p class="service-card__desc" data-i18n="intel.fn_4_d">Telemetría de malware activo, IoCs ingestados al SIEM y firmas distribuidas vía MISP a los controles del cliente.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-share"/></svg></div>
-          <h3 class="service-card__title" data-i18n="intel.fn_5_t">Social media monitoring</h3>
-          <p class="service-card__desc" data-i18n="intel.fn_5_d">Detección de cuentas falsas, campañas de desinformación y actividad fraudulenta en redes sociales con marca afectada.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24"><use href="#i-mail-open"/></svg></div>
-          <h3 class="service-card__title" data-i18n="intel.fn_6_t">Email spoofing protection</h3>
-          <p class="service-card__desc" data-i18n="intel.fn_6_d">Aseguramiento del vector crítico de comunicación corporativa — SPF, DKIM, DMARC enforcement y reporting.</p>
-        </article>
-      </div>
+      <ol class="threat-feed" role="list">
+        <li class="threat-feed__entry">
+          <span class="threat-feed__status">CH-01 · Phishing</span>
+          <div class="threat-feed__body">
+            <h3 class="threat-feed__title" data-i18n="intel.fn_1_t">Phishing &amp; abuso de marca</h3>
+            <p class="threat-feed__desc" data-i18n="intel.fn_1_d">Monitoreo de dominios suplantados, takedown de sitios fraudulentos y vigilancia de apps móviles no autorizadas.</p>
+          </div>
+        </li>
+        <li class="threat-feed__entry">
+          <span class="threat-feed__status">CH-02 · Marketplace</span>
+          <div class="threat-feed__body">
+            <h3 class="threat-feed__title" data-i18n="intel.fn_2_t">Marketplace surveillance</h3>
+            <p class="threat-feed__desc" data-i18n="intel.fn_2_d">Detección de venta de cuentas comprometidas, credenciales y datos de cliente en mercados ilícitos.</p>
+          </div>
+        </li>
+        <li class="threat-feed__entry">
+          <span class="threat-feed__status">CH-03 · Dark-Web</span>
+          <div class="threat-feed__body">
+            <h3 class="threat-feed__title" data-i18n="intel.fn_3_t">Dark web monitoring</h3>
+            <p class="threat-feed__desc" data-i18n="intel.fn_3_d">Vigilancia continua de foros, canales Telegram, leak sites y deep web para amenazas emergentes a la organización.</p>
+          </div>
+        </li>
+        <li class="threat-feed__entry">
+          <span class="threat-feed__status">CH-04 · Malware</span>
+          <div class="threat-feed__body">
+            <h3 class="threat-feed__title" data-i18n="intel.fn_4_t">Malware monitoring</h3>
+            <p class="threat-feed__desc" data-i18n="intel.fn_4_d">Telemetría de malware activo, IoCs ingestados al SIEM y firmas distribuidas vía MISP a los controles del cliente.</p>
+          </div>
+        </li>
+        <li class="threat-feed__entry">
+          <span class="threat-feed__status">CH-05 · Social</span>
+          <div class="threat-feed__body">
+            <h3 class="threat-feed__title" data-i18n="intel.fn_5_t">Social media monitoring</h3>
+            <p class="threat-feed__desc" data-i18n="intel.fn_5_d">Detección de cuentas falsas, campañas de desinformación y actividad fraudulenta en redes sociales con marca afectada.</p>
+          </div>
+        </li>
+        <li class="threat-feed__entry">
+          <span class="threat-feed__status">CH-06 · Email-Auth</span>
+          <div class="threat-feed__body">
+            <h3 class="threat-feed__title" data-i18n="intel.fn_6_t">Email spoofing protection</h3>
+            <p class="threat-feed__desc" data-i18n="intel.fn_6_d">Aseguramiento del vector crítico de comunicación corporativa — SPF, DKIM, DMARC enforcement y reporting.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 

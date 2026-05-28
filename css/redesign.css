@@ -722,7 +722,7 @@ p { margin: 0 0 var(--space-4); }
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #FCA5A5;
+  color: var(--color-danger-soft);
   margin-bottom: var(--space-6);
 }
 .hero__eyebrow .pulse {
@@ -2216,7 +2216,7 @@ body.menu-open { overflow: hidden; }
   border-radius: var(--radius-full);
   background: rgba(220,38,38,0.10);
   border: 1px solid rgba(220,38,38,0.30);
-  color: #FCA5A5;
+  color: var(--color-danger-soft);
 }
 .page-hero__eyebrow-dot {
   width: 8px; height: 8px;
@@ -3746,7 +3746,7 @@ details[open] > .persona-deep__services-toggle {
   opacity: 1;
   background: rgba(6, 182, 212, 0.15);
   border-color: rgba(6, 182, 212, 0.55);
-  color: #67e8f9;
+  color: var(--color-csirt-soft);
   transform: scale(1.08);
   outline: none;
 }
@@ -3767,7 +3767,7 @@ details[open] > .persona-deep__services-toggle {
   border-radius: var(--radius-full);
   background: rgba(220,38,38,0.10);
   border: 1px solid rgba(220,38,38,0.30);
-  color: #FCA5A5;
+  color: var(--color-danger-soft);
   font: 600 12px/1 var(--font-mono);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -4284,7 +4284,7 @@ details[open] > .persona-deep__services-toggle {
   font: 600 11px/1 var(--font-mono);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #FCA5A5;
+  color: var(--color-danger-soft);
   margin-bottom: var(--space-6);
 }
 .final-cta--poster .final-cta__eyebrow .pulse {
@@ -4635,7 +4635,7 @@ details[open] > .persona-deep__services-toggle {
   border-radius: var(--radius-full);
   background: rgba(220,38,38,0.10);
   border: 1px solid rgba(220,38,38,0.30);
-  color: #FCA5A5 !important;
+  color: var(--color-danger-soft) !important;
   font: 600 11px/1 var(--font-mono);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -4736,7 +4736,7 @@ details[open] > .persona-deep__services-toggle {
   border-radius: var(--radius-full);
   background: rgba(220,38,38,0.10);
   border: 1px solid rgba(220,38,38,0.30);
-  color: #FCA5A5 !important;
+  color: var(--color-danger-soft) !important;
   font: 600 11px/1 var(--font-mono);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -5199,7 +5199,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 .promises--scene .promise .icon {
   width: 22px; height: 22px;
-  color: #FCA5A5;
+  color: var(--color-danger-soft);
   filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.55));
   flex: 0 0 auto;
 }
@@ -7094,4 +7094,254 @@ html.lenis, html.lenis body { height: auto; }
   .capability-row__num { font-size: 28px; padding-top: 4px; }
   .capability-row__title { font-size: var(--text-xl); }
   .capability-row:hover { padding-left: var(--space-2); }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Stepper — 6 stages in a horizontal cycle (CTEM exposure mgmt).
+   Connector line runs through the row of numbered circles. Wraps to
+   3×2 on tablet (connector hidden), stacks to vertical rows on mobile.
+   ──────────────────────────────────────────────────────────────── */
+.stepper {
+  list-style: none;
+  margin: var(--space-10) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-3);
+  position: relative;
+}
+.stepper::before {
+  content: '';
+  position: absolute;
+  left: 8.33%;   /* center of first column (half of 1/6) */
+  right: 8.33%;  /* center of last column */
+  top: 28px;     /* half of 56px circle */
+  height: 1px;
+  background: var(--page-accent-tint-30);
+  z-index: 0;
+}
+.stepper__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 0 var(--space-2);
+}
+.stepper__num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--color-surface);
+  border: 1.5px solid var(--page-accent);
+  color: var(--page-accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 0 0 6px var(--color-bg);
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+.stepper__item:hover .stepper__num {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 6px var(--color-bg), 0 0 24px var(--page-accent-tint-45);
+}
+.stepper__body {
+  display: grid;
+  gap: var(--space-2);
+}
+.stepper__title {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-fg);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.stepper__desc {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+@media (max-width: 1024px) {
+  .stepper { grid-template-columns: repeat(3, 1fr); gap: var(--space-6) var(--space-4); }
+  .stepper::before { display: none; }
+}
+@media (max-width: 640px) {
+  .stepper { grid-template-columns: 1fr; gap: var(--space-5); }
+  .stepper__item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-4);
+    padding: 0;
+  }
+  .stepper__num { flex-shrink: 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Threat Feed — SOC-alert-feed-styled rows (NGSOC intel).
+   Each row reads like a live monitoring channel: pulsing status dot,
+   monospace label, then sans-serif body. Avoids the card-grid trap by
+   feeling like an operations console.
+   ──────────────────────────────────────────────────────────────── */
+.threat-feed {
+  list-style: none;
+  margin: var(--space-10) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.threat-feed__entry {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+  padding: var(--space-5) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  position: relative;
+  transition:
+    border-color var(--duration-normal) var(--ease-out),
+    background var(--duration-normal) var(--ease-out);
+}
+.threat-feed__entry:hover {
+  border-color: var(--color-border-strong);
+  background: var(--page-accent-tint-08);
+}
+.threat-feed__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--page-accent);
+  font-weight: 600;
+  padding-top: 4px;
+}
+.threat-feed__status::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--page-accent);
+  box-shadow: 0 0 8px var(--page-accent-tint-45);
+  animation: feed-pulse 2.4s ease-in-out infinite;
+}
+@keyframes feed-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+.threat-feed__body {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.threat-feed__title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-fg);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.threat-feed__desc {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+@media (max-width: 768px) {
+  .threat-feed__entry {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding: var(--space-4);
+  }
+  .threat-feed__status { padding-top: 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Fraud Accordion — native <details> rows (ASHA fraud fusion).
+   Each capability collapses to a header; click reveals body. Lets us
+   present six capabilities without showing six cards at once.
+   ──────────────────────────────────────────────────────────────── */
+.fraud-accordion {
+  list-style: none;
+  margin: var(--space-10) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.fraud-detail {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--duration-normal) var(--ease-out);
+}
+.fraud-detail[open] {
+  border-color: var(--page-accent);
+}
+.fraud-detail__summary {
+  display: grid;
+  grid-template-columns: 56px 1fr 24px;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-6);
+  cursor: pointer;
+  list-style: none;
+  transition: background var(--duration-normal) var(--ease-out);
+}
+.fraud-detail__summary::-webkit-details-marker { display: none; }
+.fraud-detail__summary::marker { content: ''; }
+.fraud-detail__summary:hover { background: var(--page-accent-tint-08); }
+.fraud-detail__num {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--page-accent);
+}
+.fraud-detail__title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-fg);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.fraud-detail__chevron {
+  width: 20px; height: 20px;
+  color: var(--page-accent);
+  transition: transform var(--duration-normal) var(--ease-out);
+  justify-self: end;
+}
+.fraud-detail[open] .fraud-detail__chevron {
+  transform: rotate(180deg);
+}
+.fraud-detail__body {
+  padding: 0 var(--space-6) var(--space-6);
+  padding-left: calc(56px + var(--space-5) + var(--space-6));
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .fraud-detail__summary {
+    grid-template-columns: 44px 1fr 20px;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+  .fraud-detail__title { font-size: var(--text-base); }
+  .fraud-detail__body {
+    padding: 0 var(--space-4) var(--space-4);
+    padding-left: calc(44px + var(--space-3) + var(--space-4));
+    font-size: var(--text-sm);
+  }
 }
