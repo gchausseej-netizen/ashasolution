@@ -992,10 +992,9 @@ p { margin: 0 0 var(--space-4); }
   .diff__grid { grid-template-columns: 1.1fr 1fr; gap: var(--space-16); align-items: start; }
 }
 .diff__title .accent {
-  background: linear-gradient(120deg, var(--color-primary) 0%, #FB7185 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-primary);
+  font-weight: 800;
+  font-style: italic;
 }
 .diff__copy p {
   color: var(--color-muted);
@@ -1853,10 +1852,8 @@ p { margin: 0 0 var(--space-4); }
   line-height: 1.1;
 }
 .final-cta__title .accent {
-  background: linear-gradient(120deg, var(--color-primary) 0%, #FB7185 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-primary);
+  font-weight: 800;
 }
 .final-cta__actions {
   display: inline-flex;
@@ -3205,11 +3202,7 @@ details[open] > .persona-deep__services-toggle {
   font-family: var(--font-mono);
   font-weight: 800;
   letter-spacing: -0.02em;
-  background: linear-gradient(180deg, #fff 0%, #cbd5e1 80%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-fg);
   text-shadow: 0 0 30px rgba(220,38,38,0.25);
 }
 .framework {
@@ -3410,11 +3403,8 @@ details[open] > .persona-deep__services-toggle {
   border-left: none; border-top: none;
 }
 .final-cta__title .accent {
-  background: linear-gradient(90deg, var(--color-primary), #FB7185);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-primary);
+  font-weight: 800;
 }
 
 /* ── Footer: top accent line + link hover ────────────────────── */
@@ -3790,11 +3780,8 @@ details[open] > .persona-deep__services-toggle {
   position: relative;
 }
 .scene-hacked__title-safe {
-  background: linear-gradient(90deg, #DC2626, #FB7185);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-primary);
+  font-weight: 800;
 }
 
 .scene-hacked__lede {
@@ -3849,21 +3836,11 @@ details[open] > .persona-deep__services-toggle {
 
 .hero__title-accent {
   display: inline-block;
-  background: linear-gradient(120deg, #DC2626 0%, #FB7185 50%, #DC2626 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 32px rgba(220,38,38,0.35);
+  color: var(--color-primary);
+  font-weight: 800;
   font-style: italic;
-  animation: hero-accent-shimmer 6s ease-in-out infinite;
+  text-shadow: 0 0 32px rgba(220,38,38,0.35);
 }
-@keyframes hero-accent-shimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
-}
-
 .hero__chips {
   list-style: none;
   margin: var(--space-6) 0 var(--space-8);
@@ -4618,14 +4595,9 @@ details[open] > .persona-deep__services-toggle {
 
 /* DIFERENCIADOR — accent the title strong */
 .diff__title .accent {
-  background: linear-gradient(120deg, #DC2626 0%, #FB7185 50%, #DC2626 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent !important;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-primary) !important;
+  font-weight: 800;
   font-style: italic;
-  animation: hero-accent-shimmer 6s ease-in-out infinite;
 }
 .diff__copy p strong {
   color: #fff;
@@ -5253,11 +5225,8 @@ html.lenis, html.lenis body { height: auto; }
   color: var(--color-fg);
 }
 .diferenciador__title .accent {
-  background: linear-gradient(90deg, #DC2626, #F97316);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-primary);
+  font-weight: 800;
 }
 .diferenciador__lede {
   font-size: var(--text-lg);
