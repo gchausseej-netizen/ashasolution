@@ -36,6 +36,29 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 2px;
 }
 
+/* ── Skip-to-content link (WCAG 2.4.1) ────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: var(--space-4);
+  z-index: var(--z-toast);
+  padding: 12px 18px;
+  background: var(--color-primary);
+  color: var(--color-fg);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  transition: top var(--duration-normal) var(--ease-out);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: var(--space-3);
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 var(--space-4);
   font-weight: 700;
@@ -91,12 +114,12 @@ p { margin: 0 0 var(--space-4); }
   white-space: nowrap;
   cursor: pointer;
 }
-.btn:hover { color: #fff; transform: translateY(-1px); }
+.btn:hover { color: var(--color-fg); transform: translateY(-1px); }
 .btn .icon { width: 18px; height: 18px; }
 
 .btn-primary {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-fg);
 }
 .btn-primary:hover {
   background: var(--color-primary-hover);
@@ -1039,7 +1062,7 @@ p { margin: 0 0 var(--space-4); }
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--color-fg);
   font-feature-settings: 'tnum' 1;
 }
 .metric__num .unit {
@@ -2211,7 +2234,7 @@ body.menu-open { overflow: hidden; }
   letter-spacing: -0.03em;
   font-weight: 800;
   margin: var(--space-6) 0 var(--space-6);
-  color: #fff;
+  color: var(--color-fg);
   text-shadow:
     0 0 32px rgba(255,255,255,0.18),
     0 0 6px rgba(220,38,38,0.35),
@@ -2320,7 +2343,7 @@ body.menu-open { overflow: hidden; }
   border-radius: var(--radius-full);
   background: rgba(10, 14, 39, 0.7);
   border: 1px solid var(--persona-stroke, rgba(255, 255, 255, 0.10));
-  color: #fff;
+  color: var(--color-fg);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
@@ -2986,7 +3009,7 @@ details[open] > .persona-deep__services-toggle {
   min-width: 40px; height: 40px;
   padding: 0 8px;
   background: linear-gradient(135deg, var(--color-primary) 0%, #FB7185 100%);
-  color: #fff;
+  color: var(--color-fg);
   font-weight: 800;
   border-radius: var(--radius-md);
   font-family: var(--font-mono);
@@ -3629,7 +3652,7 @@ details[open] > .persona-deep__services-toggle {
 }
 .scene-hacked__alert-label {
   font: 700 11px/1 var(--font-mono);
-  color: #fff;
+  color: var(--color-fg);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -3765,7 +3788,7 @@ details[open] > .persona-deep__services-toggle {
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 var(--space-6);
-  color: #fff;
+  color: var(--color-fg);
   text-shadow:
     0 0 32px rgba(255,255,255,0.18),
     0 0 6px rgba(220,38,38,0.35);
@@ -4281,7 +4304,7 @@ details[open] > .persona-deep__services-toggle {
   font-weight: 800;
   line-height: 1.06;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--color-fg);
   margin: 0 0 var(--space-6);
   max-width: 18ch;
   margin-inline: auto;
@@ -4328,7 +4351,7 @@ details[open] > .persona-deep__services-toggle {
   transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out), transform 200ms var(--ease-out);
 }
 .final-cta__link:hover {
-  color: #fff;
+  color: var(--color-fg);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateX(3px);
 }
@@ -4600,7 +4623,7 @@ details[open] > .persona-deep__services-toggle {
   font-style: italic;
 }
 .diff__copy p strong {
-  color: #fff;
+  color: var(--color-fg);
   background: linear-gradient(120deg, transparent 60%, rgba(220,38,38,0.20) 60%);
   padding: 0 4px;
 }
@@ -5127,7 +5150,7 @@ html.lenis, html.lenis body { height: auto; }
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 var(--space-5);
-  color: #fff;
+  color: var(--color-fg);
   text-shadow:
     0 0 32px rgba(255,255,255,0.15),
     0 0 6px rgba(6, 182, 212, 0.30);
@@ -6431,7 +6454,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 .form-file::file-selector-button {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-fg);
   border: 0;
   padding: 8px 14px;
   border-radius: var(--radius-md);
@@ -6621,13 +6644,14 @@ html.lenis, html.lenis body { height: auto; }
   font-weight: 700;
 }
 
-/* Stat card (single highlighted number) */
+/* Stat card (single highlighted number).
+   The persona-accent identity is carried by the colored number + glow +
+   radial tint; no side stripe needed. */
 .service-stat {
   position: relative;
   padding: var(--space-7) var(--space-6);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--page-accent);
   border-radius: var(--radius-lg);
   isolation: isolate;
   overflow: hidden;

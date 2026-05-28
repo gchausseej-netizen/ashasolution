@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow source/working files
+Disallow: /assets/i18n/
+Disallow: /.audit/
+Disallow: /new documents/
+Disallow: /design-system/
+
+Sitemap: https://ashasolution.vercel.app/sitemap.xml
